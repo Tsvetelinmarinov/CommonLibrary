@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "l9P7VMpbIRA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cvete\\OneDrive\\Documents\\Visual Studio 2022\\VisualStudio\\Projects\\CommonLibrary\\CommonLibraryDLL\\CommonLibrary\\CommonLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cvete\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.8\\microsoft.win32.systemevents.9.0.8.nupkg.sha512",
+    "C:\\Users\\Cvete\\.nuget\\packages\\system.drawing.common\\9.0.8\\system.drawing.common.9.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

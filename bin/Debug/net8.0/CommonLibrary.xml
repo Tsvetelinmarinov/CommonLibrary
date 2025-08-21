@@ -1,0 +1,3516 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:CommonLibrary.AbstractDataTypes.MutableString">
+            <summary>
+            
+            EN:
+              Defines mutable string, represented as array of characters with dynamic size.
+              Provides method for manipulating MutableString and normal string.
+              
+            BG:
+              Променяем стринг. Предтавен е на системно ниво като масив от символи с динамичен
+              размер. Предоставя набор от методи за манипулиране на MutableString и на обикновен 
+              string.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.MutableString.Item(System.Int32)">
+            <summary>
+             
+            EN:
+               Indexer
+               
+            BG:
+              Индексатор.
+            
+            </summary>
+            
+            <param name="index">
+             EN: The index of the element in the string.
+             BG: Индекса на символа в стринга.
+            </param>
+            
+            <returns>
+             EN: The symbol at that index.
+             BG: Символа на този индекс.
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.MutableString.Length">
+            <summary>
+            
+            EN:
+               Get the length of the string
+               
+            BG:
+              Достъпва дължината на стринга - броя на символите в него.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.MutableString.Capacity">
+            <summary>
+            
+            EN:
+              Gets or sets the capacity of the mutable string.
+              
+            BG:
+              Достъпва капацитета на променяемия стринг.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.MutableString.LastIndex">
+            <summary>
+            
+            EN:
+              Gets the index of the last element in the array.
+              
+            BG:
+              Достпва индекса на последия символ в масива на стринга.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.#ctor">
+            <summary>
+            
+            EN:
+              Creates new empty MutableString with the default capacity.
+              
+            BG:
+              Създава нов празен променяем стринг със капацитет по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.#ctor(System.String)">
+            <summary>
+            
+            EN:
+              Creates new MutableString with the text from another string.
+              
+            BG:
+              Създава нов променяем стринг със символите от указания стринг.
+            
+            </summary>
+            
+            <param name="text">
+             EN: The text.
+             BG: Текста.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.#ctor(System.Int32)">
+            <summary>
+            
+            EN:
+              Creates new MutableString with the specified capacity.
+              
+            BG:
+              Създава нов променяем стринг с указания капацитет.
+            
+            </summary>
+            
+            <param name="capacity">
+             EN: The capacity.
+             BG: Капацитета.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.#ctor(System.Boolean)">
+            <summary>
+            
+            EN:
+              Creates new MutableString with the maximum capacity.
+              If the boolean variable "maxCapacity" is false, the string
+              will be created with the default capacity.
+              
+            BG:
+              Създава нов променяем стринг с максимален капацитет.
+              Когато стойността на булевата променлива "maxCapacity"
+              е false, стринга ще се създаде с капацитет по подразбиране.
+            
+            </summary>
+            
+            <param name="maxCapacity">
+             EN: Indicates when to use the maximum capacity.
+             BG: Индикира кога да се използва максималния капацитет.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.#ctor(System.String,System.Int32)">
+            <summary>
+            
+            EN:
+              Creates new MutableString with the specified text and capacity.
+              
+            BG:
+              Създава нов променяем стринг с указаните текст и капацитет.
+            
+            </summary>
+            
+            <param name="text">
+             EN: The text.
+             BG: Текста.
+            </param>
+            
+            <param name="capacity">
+             EN: The capacity.
+             BG: Капацитета.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.#ctor(System.String,System.Boolean)">
+            <summary>
+            
+            EN:
+              Creates new MutableString with the specified text and 
+              maximum capacity.
+              
+            BG:
+              Създава нов променяем стринг с указаните текст 
+              и максимален капацитет.
+            
+            </summary>
+            
+            <param name="text">
+             EN: The text.
+             BG: Текста.
+            </param>
+            
+            <param name="maxCapacity">
+             EN: Indicates when to use the maximum capacity.
+             BG: Индикира кога да се използва максималния капацитет.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.Concatenate(System.Char)">
+            <summary>
+            
+             EN:
+               Adds the symbols to the array of symbols of the string.
+               
+            BG:
+              Добавя текущия символ в масива от символи на стринга.
+            
+            </summary>
+            
+            <param name="symbol">
+             EN: The symbol to be added.
+             BG: Символа, който да се добави в колекцията.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.Concatenate(System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+            
+            EN:
+              Adds the array to the end of the symbols array of the string.
+              
+            BG:
+              Добавя масива на края на системния масив от символи на стринга.
+            
+            </summary>
+            
+            <param name="array">
+             EN: The array to be added.
+             BG: Масива, който да бъде добавен.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.Concatenate(System.Char[])">
+            <summary>
+            
+            EN:
+              Adds multiple symbols to the end of the symbols array 
+              of the string.
+              
+            BG:
+              Добавя множество символи на края на системния масив от 
+              символи на стринга.
+            
+            </summary>
+            
+            <param name="chars">
+             EN: The array to be added.
+             BG: Масива, който да бъде добавен.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.Remove(System.String)">
+            <summary>
+            
+            EN:
+              Removes the text from the string.
+              
+            BG:
+              Премахва текста от стринга, ако се съдържа в него.
+            
+            </summary>
+            
+            <param name="value">
+             EN: The text to be removed.
+             BG: Текста, който да бъде премахнат.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.RemoveAt(System.Int32)">
+            <summary>
+            
+            EN:
+              Removes a symbol from the string by his index.
+              
+            BG:
+              Премахва символ от стринга по неговия индекс.
+            
+            </summary>
+            
+            <param name="index">
+             EN: The index.
+             BG: Индекса.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.RemoveInRange(System.Int32,System.Int32)">
+            <summary>
+            
+            EN:
+              Removes all the symbols in the given diapason in the array.
+              
+            BG:
+              Премахва всички символи в указания диапазон в масива на стринга.
+            
+            </summary>
+            
+            <param name="startIndex">
+             EN: The beginning of the diapason.
+             BG: Началото на диапазона.
+            </param>
+            
+            <param name="endIndex">
+            EN: The end of the diapason.
+            BG: Края на диапазона.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.Clear">
+            <summary>
+            
+            EN:
+              Removes all the symbols from the string.
+              
+            BG:
+              Премахва всички символи от стринга.
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.AbstractDataTypes.MutableString.InsertAt(System.Int32,System.String)" -->
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.ReturnAsArray">
+            <summary>
+            
+            EN:
+              Converts the mutable string to array of characters.
+              
+            BG:
+              Преобразува променяемия стринг в масив от символи.
+            
+            </summary>
+            
+            <returns>
+             EN: Array with the symbols of the string.
+             BG: Масив със символите от стринга.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.ToString">
+            <summary>
+             
+            EN:
+              Converts the array of symbols to a string.
+             
+            BG: 
+              Преобразува масива от символи в стринг.
+            
+            </summary>
+            
+            <returns>
+            EN: The string representation of the class.
+            BG: Стринга.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.Equals(System.Object)">
+            <summary>
+            
+            EN:
+              Compare the mutable string with other object.
+              
+            BG:
+              Сравнява променяемия стринг с друг обект.
+            
+            </summary>
+            
+            <param name="value">
+             EN: The other object to compare the string with.
+             BG: Другия обект, с който да се сравни стринга.
+            </param>
+            
+            <returns>
+             EN: True of the string and the object are equals, otherwise false.
+             BG: True ако стринга и обекта са равни, ако не false.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.GetHashCode">
+            <summary>
+             
+             EN:
+               Returns the hash code of the instance.
+               
+            BG:
+              Връща хеш кода на инстанцията.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.Clone">
+            <summary>
+             
+            EN:
+              Clones the mutable string to another.
+              
+            BG:
+              Клонира променяемия сринг, като това става възможно като 
+              текущия стринг (този клас) се върне като обект, който в по
+              късен етап да бъде кастнат (изрично конвертиран) към MutableString.
+            
+            </summary>
+            
+            <returns>
+             EN: The mutable string as object.
+             BG: Връща променяемия стринг като обект.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.op_Implicit(System.String)~CommonLibrary.AbstractDataTypes.MutableString">
+            <summary>
+            
+             EN:
+               The implicit conversion allows the user to enter a text and 
+               automatically to be converted to a MutableString. That's means
+               the MutableString can accept values by operator "=" (equals).
+               
+            BG:
+              Вътрешната конверсия позволява на потребител да присвой стойност на 
+              променяемия стринг директо със оператор "=" (равно). Компилатора
+              преубразува автоматично нормалия стринг в променяем стринг.
+            
+            </summary>
+            
+            <param name="text">
+             EN: The normal string.
+             BG: Стандартния стринг (текста).
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.op_Equality(CommonLibrary.AbstractDataTypes.MutableString,CommonLibrary.AbstractDataTypes.MutableString)">
+            <summary>
+            
+             EN:
+               Comparsion operators. Allows the user to compare two MutableStrings.
+               
+             BG: 
+               Оператори за сравнение. Позволяват на потребител да сравни два
+               променяеми стринга.
+               
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.AbstractDataTypes.Pair`2">
+            <summary>
+            
+            EN: 
+               A key-value pair.
+              
+            BG:
+              Двойка ключ-стойност.
+            
+            </summary>
+            
+            <typeparam name="KeyType">
+             EN: The data type of the key.
+             BG: Типа данни на ключа.
+            </typeparam>
+            
+            <typeparam name="ValueType">
+             EN: The data type of the value.
+             BG: Типа данни на стойността.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Pair`2.Key">
+            <summary>
+            
+            EN:
+              Gets the key of the key-value pair.
+              
+            BG:
+              Достъпва ключа на двойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Pair`2.Value">
+            <summary>
+            
+            EN:
+              Gets the value of the key-value pair.
+              
+            BG:
+              Достъпва стойността на двойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Pair`2.KeyAndValue">
+            <summary>
+            
+            EN:
+              Returns the key and the value as tuple.
+            
+            BG:
+              Връща ключа и стойността на двойката ключ-стойност като двойка (Tuple).
+              
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Pair`2.#ctor(`0,`1)">
+            <summary>
+            
+            EN:
+              Creates new key-value pair with the specified key and value.
+              
+            BG:
+              Създава нова двойка ключ-стойност с указаните ключ и стойност.
+            
+            </summary>
+            
+            <param name="key">
+             EN: The key.
+             BG: Ключа.
+            </param>
+            
+            <param name="value">
+             EN: The value.
+             BG: Стойността.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Pair`2.ReturnAsString">
+            <summary>
+            
+            EN:
+              Returns the key and the value of the pair concatenated with
+              separator as string.
+              
+            BG:
+              Връща ключа и стойността на двойката ключ-стойност конкатенирани
+              с разделител като текст (string).
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Pair`2.Clone">
+            <summary>
+            
+             EN:
+                Clones the pair. Returns it like an object;
+                
+             BG:
+               Клонира двойката ключ-стойност, като я връща като обект,
+               който да бъде конвертиран (кастнат).
+            
+            </summary>
+            
+            <returns>
+             EN: The pair as object.
+             BG: Дойката ключ-стойност като обект.
+            </returns>
+        </member>
+        <member name="T:CommonLibrary.Attributes.AuthorAttribute">
+            <summary>
+            
+             EN: 
+               Specifies the author of the code.
+             
+             BG: 
+               Указва автора на кода.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Attributes.AuthorAttribute.Name">
+            <summary>
+            
+             EN: Get or set the name of the author.
+            
+             BG: Достъпва името на автора.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Attributes.AuthorAttribute.#ctor(System.String)">
+            <summary>
+            
+             EN: Creates new Author attribute
+             
+             BG: Създава нов Author атрибут.
+            
+            </summary>
+            
+            <param name="name">
+            EN: The name of the author.
+            BG: Името на автора.
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Attributes.UsageAttribute">
+            <summary>
+             
+             EN: 
+               Specifies the usage of that member/data type.
+               
+             BG:
+               Указва за какво се използва този член или тип данни.
+             
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Attributes.UsageAttribute.#ctor(System.String)">
+            <summary>
+            
+            EN:
+              Creates new UsageAttribute with the specified definition.
+              
+            BG:
+              Създава нов UsageAttribute с указаната дефиниция.
+            
+            </summary>
+            
+            <param name="definition">
+             EN: The definition.
+             BG: Дефиницията.
+            
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Collections.Collection`1">
+            <summary>
+            
+             Defines sizable collection of elements, represented at system level like
+             list of the same elements with default capacity of 4 elements in the beginning.
+             The collection is resized every time the capacity is reached.
+             The collection is strongly typed and the data type of the elements should be
+             defined with the defining of the collection. This collection can be indexed by index and can
+             be iterated with foreach loop. This is the implementation of the IGenericCollection interface.
+             
+             Kолекция от елементи с динамичен размер, представена като списък от елементи с капацитет по
+             подразбиране от 4 елемента.
+             Капацитета се увеличава автоматично при запълване на колекцията.
+             Колекцията е строго типизирана, тоест типа данни се указва още в началото със създаването на колекцията.
+             Може да се индексира по индекс и да се итерира с цикъл foreach.
+             Тази колекция се базира на IGenericCollection интерфейса, и е негова директа имплементация.
+             
+            <typeparam name="DataType">The common data type for the elements in this collection</typeparam>
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.Item(System.Int32)">
+            <summary>
+            
+            Indexer
+            
+            Индексатор. Позволява достъп до елемент по неговия индекс в колекцията.
+            
+            <param name="index">The index of the element in the collection</param>
+            
+            <returns>The element at that index in the collection</returns>
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.Count">
+             <summary>
+             
+             Get the count of the elements in the collection.
+            
+             Броя на елементите в колекцията.
+             
+             </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.Capacity">
+            <summary>
+            
+            Get or set the capacity of the list.
+            
+            Достъпва капацитета на списъка.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.FirstElement">
+            <summary>
+            
+            Get or set the first element in the collection
+            
+            Достъпва първия елемент в колекцията.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.LastElement">
+            <summary>
+            
+            Get or set the last element in the collection.
+            
+            Достъпва последния елемент в колекцията.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.MiddleElement">
+            <summary>
+            
+            Get or set the element in the middle of the collection
+            
+            Достъпва средния елемент в колекцията.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor">
+            <summary>
+            
+            Create new empty collection of elements with default capacity.
+            
+            Създава нова празна колекция с капацитет по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor(System.Boolean)">
+            <summary>
+            
+            Create new empty collection with maximum allowed capacity of 2 000 000 000.
+            
+            Създава нова празна колекция с максимален капацитет от два милиарда елемента.
+            
+            <param name="maxCapacity">Indicates when to use the maximum capacity</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor(System.Int32)">
+            <summary>
+            
+            Create new empty collection with the given capacity.
+            
+            Създава нова празна колекция със зададения капацитет.
+            
+            <param name="capacity">The capacity for the collection</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+             <summary>
+             
+             Create new collection with the copied elements from the given
+             collection and with capacity same as the count of the elements;
+             
+             Създава нова колекция с копираните елементи от дадената колекция и капацитет равен на броя им.
+            
+             <param name="array">The collection which elements will be copied in the new collection</param>
+            
+             </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            
+            Create a collection with the copied elements of the given collection, and capacity set to the 
+            given capacity.
+            
+            Създава колекция с копирани елементи от дадената колекция и с капаците равен на зададения капацитет.
+            
+            <param name="array">The collection witch elements will be copied in the new collection</param>
+            <param name="capacity">The capacity of the new collection</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Boolean)">
+            <summary>
+            
+            Create new collection with the copied elements from the given collection
+            and maximum capacity.
+            
+            Създава нова колекция с копирани елементи от дадената колекция и максимален капацитет.
+            
+            <param name="array">The collection which elements will be copied for the new collection</param>
+            <param name="maxCapacity">If true - sets the maximum capacity</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.Add(`0)">
+            <summary>
+            
+            Add an element in the collection.
+            
+            Добавя елемент в колекцията.
+            
+            <param name="element">The element to be added.</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.AddMultipleElements(`0[])">
+            <summary>
+            
+            Add multiple elements - no actual count.
+            
+            Добавя множество елементи в колекцията.
+            
+            <param name="elements">The elements to be added</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.AddCollection(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            Add collection of elements in the collection
+            
+            Добавя друга колекция от елементи в колекцията.
+            
+            <param name="collection">The collection to be added</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.RemoveElement(`0)">
+            <summary>
+            
+            Remove an element from the collection by his value.
+            Returns true when successfully removed the element and
+            false when not.
+            
+            Премахва елемент от колекцията по неговата стойност.
+            Връща true при успешно премахване, в противен случай false.
+            
+            <param name="value">The element to be removed</param>
+            
+            <returns>True if the element is successfully removed, otherwise false</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.RemoveElementAt(System.Int32)">
+            <summary>
+            
+            Remove an element from the collection by his index.
+            
+            Премахва елемент от колекцията по неговия индекс.
+            
+            <param name="index">The index of the element in the collection</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.RemoveInDiapason(System.Int32,System.Int32)">
+            <summary>
+            
+            Remove elements form the collection from given index to given index.
+            
+            Премахва елементите от колекцията в зададения диапазон.
+            
+            <param name="startIndex">Starting index in the collection</param>
+            <param name="endIndex">Ending index in the collection</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.InsertElementAt(System.Int32,`0)">
+            <summary>
+            
+            Insert an element at given index in the collection
+            
+            Вмъква елемент на зададения индекс в колекцията.
+            
+            <param name="index">The index in the collection</param>
+            <param name="element">The element to be inserted at that index</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.InsertMultipleElementsAt(System.Int32,`0[])">
+            <summary>
+            
+            Insert multiple elements at given index in the collection
+            
+            Вмъква множество елементи на зададения индекс в колекцията.
+            
+            <param name="index">The index in the collection</param>
+            <param name="elements">The elements</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.InsertCollectionAt(System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            Insert another collection at given index in the collection.
+            
+            Вмъква друга колекция на зададения индекс в колекцията.
+            
+            <param name="index">The index in the collection</param>
+            <param name="collection">The collection to be inserted at that index</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.ContainsElement(`0)">
+            <summary>
+            
+            Check if the given elements is in the collection and returns true if is in, otherwise false.
+            
+            Проверява дали даден елемент се съдържа в колекцията.
+            
+            <param name="element">The element</param>
+            
+            <returns>True if the element is in the collection, otherwise false</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.FindIndexOf(`0)">
+            <summary>
+            
+            Get the index of the given element in the collection.
+            
+            Намира индекса на даден елемент в колекцията, ако елемента се съдържа в колекцията, ако не връща -1.
+            
+            <param name="element">The element</param>
+            
+            <returns>The index of the element. If the elements is not in the collection returns -1</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.FindLastIndexOf(`0)">
+            <summary>
+            
+            Get the index of the last occurrence of the element in the collection,
+            if there are more than one element like this.
+            
+            Връща индекса на последното срещане на елементa в колекцията, ако елемента не се съдържа в колекцията връща -1.
+            
+            <param name="element">The element in the collection</param>
+            
+            <returns>The index of the element. If the element in not in the collection returns -1</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.FindElementByCondition(System.Predicate{`0})">
+            <summary>
+            
+            Checks every element in the collection and finds and extracts that one
+            who match the Predicate.
+            
+            Итерира през всеки един елемент в колекцията и връща първия, който отговаря на 
+            зададеното условие.
+            Ако няма съвпадения, връща стойността по подразбиране за дадения тип данни.
+            
+            <param name="condition">The Predicate with the condition</param>
+            
+            <returns>The first element who match the condition. If there is no
+            matches returns the default value of the data type.</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.FindElementsByCondition(System.Predicate{`0})">
+            <summary>
+            
+            Checks every element in the collection and extracts all elements
+            who match the Predicate.
+            
+            Итерира през всеки един елемент в колекцията и връща всички, които отговарят на 
+            зададеното условие.
+            Ако няма съвпадения, връща масив със стойностите по подразбиране за дадения тип данни.
+            
+            <param name="condition">The Predicate with the condition</param>
+            
+            <returns>All the elements who match the condition. If there is no
+            matches returns array with the default values of the data type.</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.SortCollection">
+            <summary>
+            
+            Sorts the collection ascending by default.
+            
+            Сортира колекцията във възходящ ред. Възходящия ред е по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.SortCollectionBy(CommonLibrary.Enums.SortingOptions)">
+            <summary>
+            
+            EN:
+               Sorts the collection by specified sorting options and
+               returns it sortet.
+               The options for sorting should be specified with a flag from SprtingOptions enumeration.
+               Use SortingOptions.Ascending to sort the collection ascending.
+               Use SortingOptions.Descending to sort the collecion descending.
+            
+            BG:
+               Сортира указаната колекция с указаните опций за сортиране.
+               Режима на сортиране трябва да бъде указан с флаг от еномерацията SortingOptions.
+               Използвай SortingOptions.Ascending за да сортираш колекцията възходящо.
+               Използвaй SortingOptions.Descending за да сортираш колекцията низходящо.
+            
+            </summary>
+            
+            <param name="options">
+             EN: The sorting options.
+             BG: Опцийте за сортиране.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.ReverseCollection">
+            <summary>
+            
+            Reverse the collection.
+            
+            Обръща реда на елементите в колекцията.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.IsTrueForAll(System.Predicate{`0})">
+            <summary>
+            
+            Checks if all the elements in the collection match given condition.
+            
+            Проверява дали всички елементи в колекцията отговарят на зададеното условие.
+            
+            <returns>Тrue if all elements match the condition, otherwise false.</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.ExecuteOnEach(System.Action{`0})">
+            <summary>
+            
+            Iterates over collection and execute the action with each element.
+            
+            Итерира през всеки един елемент в колекцията и го подава като параметър на командата, след което
+            я изпълява.
+            
+            <param name="command">The command(Method) to be executed with each element</param>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.TruncateCollection">
+            <summary>
+            
+            Truncates the collection, and resets the capacity to the default capacity.
+            
+            Изпразва колекцията и върща капацитета по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.Clone">
+            <summary>
+            
+            Clone the collection to another collection.
+            
+            Клонира колекцията в нова колекция, но като обект. Необходимо е преобразуване на типа данни чрез кастинг.
+            
+            <returns>New collection as object.</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.RemoveExcessCapacity">
+            <summary>
+            
+            Trim the capacity to the elements count.
+            
+            Намалява капацитета на колекцията до броя на елементите.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.ReduceCapacityTo(System.Int32)">
+             <summary>
+             
+             Trim the capacity to given value.
+            
+             Намалява капацитета на колекцията до зададения капацитет.
+              
+             <param name="capacity">The new capacity</param>
+             
+             </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.AsReadOnly">
+            <summary>
+            
+            Return the collection as read only collection.
+            
+            Връща колекцията като защитена колекция.
+            
+            <returns>Safe readonly collection</returns>
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:CommonLibrary.Collections.Common.CommonList">
+            <summary>
+            
+            EN:
+            Common(generic) list of objects that allows null.
+            The default capacity of the list in 4 elements, and its multiplied both when is
+            reached. The collection is COMMON. The type of the elements is System.Object, so the
+            elements in the collection can be from different data types (not strongly typed).
+            
+            BG:
+            Общ лист от обекти, които позволяват null.
+            Капацитета по подразбиране е 4 елемента и се удвоява, когато е достигнат.
+            Колекцията е ОБЩА. Елементите са от тип данни System.Object, тоест те са обекти и
+            това им позволява да бъдат от всякакъв тип данни. На кратко всеки елемент може да е от различен тип данни,
+            което прави колекцията обща, а не стого типизирана.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Common.CommonList.Item(System.Int32)">
+            <summary>
+            
+             EN: Indexer
+             
+             BG: Индексатор
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index in the collection
+            BG: Инекса на обекта в колекцията
+            </param>
+            
+            <returns>
+            EN: The object at that index
+            BG: Обекта на този индекс
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.Collections.Common.CommonList.Count">
+            <summary>
+            
+             EN: Get the count of the elements in the collection.
+             
+             BG: Достъпва броя на елементите в колекцията
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Common.CommonList.Capacity">
+            <summary>
+            
+             EN: Get or set the capacity of the collection
+             
+             BG: Достъпва капацитета на колекцията
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Common.CommonList.FirstObject">
+            <summary>
+            
+             EN: Get or set the first object in the collection
+             
+             BG: Достъпва първия обект в колекцията
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Common.CommonList.LastObject">
+            <summary>
+            
+             EN: Get or set the last object in the collection
+             
+             BG: Достъпва последния обект в колекцията
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.#ctor">
+            <summary>
+            
+            EN: Create new empty common list with default capacity.  
+             
+            BG: Създава нов празен списък с капацитет по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.#ctor(System.Int32)">
+            <summary>
+            
+            EN: Create new empty list with specified capacity.  
+             
+            BG: Създава нов празен списък със зададен капацитет.
+            
+            </summary>
+            
+            <param name="capacity">
+            EN: The capacity.  
+            BG: Капацитетът.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.#ctor(System.Boolean)">
+            <summary>
+            
+            EN: Creates new empty collection with maximum capacity if the boolean variable value is true.  
+            If false, the collection will be created with the default capacity.  
+             
+            BG: Създава нова празна колекция с максимален капацитет, ако булевата стойност е true.  
+            Ако е false, колекцията се създава с капацитет по подразбиране.
+            
+            </summary>
+            
+            <param name="maxCapacity">
+            EN: When true, maximum capacity is enabled.  
+            BG: Ако е true, се задава максимален капацитет.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.#ctor(System.Object[])">
+            <summary>
+            
+            EN: Create new common list with copied objects from the array of objects and  
+            capacity = count of the elements.  
+             
+            BG: Създава нов списък с копирани обекти от масив и капацитет равен на броя на елементите.
+            
+            </summary>
+            
+            <param name="objects">
+            EN: The object array.  
+            BG: Масивът от обекти.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.#ctor(System.Object[],System.Int32)">
+            <summary>
+            
+            EN: Create new common list with copied objects from the array of objects and  
+            capacity = specified capacity.  
+             
+            BG: Създава нов списък с копирани обекти от масив и зададен капацитет.
+            
+            </summary>
+            
+            <param name="objects">
+            EN: The object array.  
+            BG: Масивът от обекти.
+            </param>
+            
+            <param name="capacity">
+            EN: The capacity.  
+            BG: Капацитетът.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.#ctor(System.Object[],System.Boolean)">
+            <summary>
+            
+            EN: Create new common list with copied objects from the array of objects and  
+            maximum capacity.  
+             
+            BG: Създава нов списък с копирани обекти от масив и максимален капацитет.
+            
+            </summary>
+            
+            <param name="objects">
+            EN: The object array.  
+            BG: Масивът от обекти.
+            </param>
+            
+            <param name="maxCapacity">
+            EN: When true, maximum capacity is enabled.  
+            BG: Ако е true, се задава максимален капацитет.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.Add(System.Object)">
+            <summary>
+            
+            EN: Adds object to the collection.  
+             
+            BG: Добавя обект към колекцията.
+            
+            </summary>
+            
+            <param name="value">
+            EN: The object (value).  
+            BG: Обектът (стойността).
+            </param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.Collections.Common.CommonList.AddManyObjects(System.Object[])" -->
+        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.Collections.Common.CommonList.AddObjectArray(System.Object[])" -->
+        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.Collections.Common.CommonList.Remove(System.Object)" -->
+        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.Collections.Common.CommonList.RemoveObjectAt(System.Int32)" -->
+        <member name="M:CommonLibrary.Collections.Common.CommonList.RemoveAllInRange(System.Int32,System.Int32)">
+            <summary>
+            
+            EN: Removes all objects in the specified range from the collection.  
+             
+            BG: Премахва всички обекти в зададения диапазон от колекцията.
+            
+            </summary>
+            
+            <param name="startIndex">
+            EN: The starting index.  
+            BG: Началният индекс.
+            </param>
+            
+            <param name="endIndex">
+            EN: The ending index.  
+            BG: Крайният индекс.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.ClearList">
+            <summary>
+            
+            EN: Clears the list.  
+             
+            BG: Изчиства списъка.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.Clone">
+            <summary>
+            
+            EN: Clones the collection to a new collection.  
+             
+            BG: Клонира колекцията в нова колекция.
+            
+            </summary>
+            
+            <returns>
+            EN: New collection with copied elements.  
+            BG: Нова колекция с копирани елементи.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.ContainsObject(System.Object)">
+            <summary>
+            
+            EN: Checks if the collection contains the object.  
+             
+            BG: Проверява дали колекцията съдържа дадения обект.
+            
+            </summary>
+            
+            <param name="value">
+            EN: The object.  
+            BG: Обектът.
+            </param>
+            
+            <returns>
+            EN: True if the object is in the collection, otherwise false.  
+            BG: Връща true ако обектът е в колекцията, иначе false.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.InsertObjectAt(System.Object,System.Int32)">
+            <summary>
+            
+            EN: Inserts an object at the specified index in the collection.  
+             
+            BG: Вмъква обект на зададен индекс в колекцията.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.InsertManyObjectsAt(System.Object[],System.Int32)">
+            <summary>
+            
+            EN: Inserts multiple objects at the specified index in the collection.  
+             
+            BG: Вмъква множество обекти на зададен индекс в колекцията.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.ReturnAsArray">
+            <summary>
+            
+            EN: Converts the common list to an array of objects.  
+             
+            BG: Преобразува списъка в масив от обекти.
+            
+            </summary>
+            
+            <returns>
+            EN: New array with copied objects from the list.  
+            BG: Нов масив с копирани обекти от списъка.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.ReturnAsCollection">
+            <summary>
+            
+            EN: Converts the common list to a Collection of objects.  
+             
+            BG: Преобразува списъка в колекция от обекти.
+            
+            </summary>
+            
+            <returns>
+            EN: New collection with the objects from the list.  
+            BG: Нова колекция с обектите от списъка.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.Common.CommonList.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:CommonLibrary.Collections.DynamicArray`1">
+            <summary>
+            
+             EN:
+               Dynamic array of elements.
+               The default capacity of the array is 4 elements, and is
+               multiplied when is reached. Maximum capacity is 1 000 000 000 elements.
+               The DynamicArray is implemented by internal collection of elements and is based on the 
+               IDynamicArray interface, witch direct implementation is.
+            
+             BG:
+               Динамичен масив от елементи с капацитед по подразбиране от 4 елемента и 
+               максимален капацитет от един милиард елемента. Капацитета се удвоява когато е достигнат.
+               DynamicArray вътрешно работи с колекция от елементи. 
+               Базиран е на IDynamicArray интерфейса и е негова имплементация.
+            
+            </summary>
+            
+            <typeparam name="Type">
+             EN: The data type for the elements in the array.
+             BG: Типа данни на елементите в масива.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.Collections.DynamicArray`1.Item(System.Int32)">
+            <summary>
+             
+             EN:
+                Indexer.
+             
+             BG:
+                Индексатор.
+            
+            </summary>
+            
+            <param name="index">
+             EN: The index in the array.
+             BG: Индекса в масива.
+            </param>
+            
+            <returns>
+             EN: The element at that index.
+             BG: Елемента на този индекс.
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.Collections.DynamicArray`1.Count">
+            <summary>
+             
+             EN:
+                Get the count of the elements in the array.
+             
+             BG:
+                Достъпва бройката на елементите в масива.
+            
+            </summary>
+            
+            <returns>
+             EN: The count of the elements.
+             BG: Бвойката на елементите.
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.Collections.DynamicArray`1.Capacity">
+            <summary>
+             
+             EN:
+                Get or set the capacity of the array.
+             
+             BG:
+                Достъпва капацитета на масива.
+            
+            </summary>
+            
+            <returns>
+             EN: The capacity.
+             BG: Капацитета на масива.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.#ctor">
+            <summary>
+             
+             EN:
+                Creates new empty DynamicArray with the default capacity.
+              
+             BG:
+               Създава нов празен DynamicArray с капацитет по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.#ctor(System.Int32)">
+             <summary>
+              
+              EN:
+                 Creates new empty DynamicArray with the specified capacity.
+               
+              BG:
+                Създава нов празен DynamicArray с указания капацитет.
+             
+             </summary>
+             
+            <param name="capacity">
+             EN: The capacity of the array.
+             BG: Капацитетът на масива.
+             </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.#ctor(System.Boolean)">
+             <summary>
+              
+              EN:
+                 Creates new empty DynamicArray with maximum capacity.
+                 To create the array with maximum capacity the value of the maxCapacity boolean
+                 should be true. If it false (by default) the array will be created with the default
+                 capacity.
+               
+              BG:
+                Създава нов празен DynamicArray с максимален капацитет.
+                За да се създаде масива с максимален капацитет, стойноста на булевата променлива
+                maxCapacity трябва да е true. Ако е false (по подразбиране) масива ще се създаде с
+                капацитет по подразбиране.
+             
+             </summary>
+             
+            <param name="maxCapacity">
+             EN: Indicates when to use maximum capacity.
+             BG: Индикира кога да се използва маскималния капацитет.
+             </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.Add(`0)">
+            <summary>
+             
+            EN:
+               Adds an element to the array.
+            
+            BG:
+               Добадя елемент към масива.
+            
+            </summary>
+            
+            <param name="value">
+            EN: The element to be added.
+            BG: Елемента, който да бъде добавен.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.AddMany(System.Collections.Generic.IEnumerable{`0})">
+             <summary>
+             
+             EN:
+                Adds array of elemets to the array.
+            
+             BG:
+                Добавя масив от елементи в масива.
+             
+             </summary>
+             
+             <param name="valuesArray">
+             EN: The array with values to be added.
+             BG: Масива от елементи, който да бъде добавен.
+             </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.RemoveByValue(`0)">
+            <summary>
+            
+            EN:
+               Removes an element from the collection by his value.
+            
+            BG:
+              Премахва елемент от кекцията по неговата стойност.
+            
+            </summary>
+            
+            <param name="value">
+            EN: The element value.
+            BG: Елемента - стойността му.
+            </param>
+            
+            <returns>
+            EN: True if the element is successfully removed, otherwise false.
+            BG: True ако елемента е премахнат успешно, в противен случай - false.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.RemoveByIndex(System.Int32)">
+            <summary>
+            
+            EN:
+               Removes an element from the collection by his index.
+            
+            BG:
+              Премахва елемент от колекцията по неговия индекс.
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index of the element in the collection.
+            BG:
+            </param>
+            
+            <returns>
+            EN: None
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.RemoveInDiapason(System.Int32,System.Int32)">
+            <summary>
+            
+            EN:
+               Remove all elements in the specified diapason in the collection.
+            
+            BG:
+              Премахва всички елементи в указания диапазон в колецията.
+              Стартовия индекс и крайния индекс се премахват също.
+            
+            </summary>
+            
+            <param name="startIndex">
+            EN: The starting index.
+            BG: Стартовия индекс.
+            </param>
+            
+            <param name="endIndex">
+            EN: The ending index.
+            BG: Крайния индекс.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.RemoveAll">
+            <summary>
+            
+            EN:
+               Removes all elements from the array, and sets the default capacity.
+            
+            BG:
+              Премахва всички елементи от масива и връща капацитета по подразбиране.
+            
+            </summary>
+            
+            <returns>
+            EN: None. 
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.InsertAt(System.Int32,`0)">
+            <summary>
+            
+            EN:
+               Inserts an element at given index in the array.
+            
+            BG:
+              Вмъква елемент на указан индекс в масива.
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index in the array.
+            BG: Индекса в масива.
+            </param>
+            
+            <param name="value">
+            EN: The value to be inserted.
+            BG: Стойността, която да бъде вмъкната.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.InsertMany(System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            EN:
+               Inserts array of elements at the specified index in the array.
+            
+            BG:
+              Вмъква масив от елементи на указан индекс в масива.
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index in the array.
+            BG: Индекса в масива.
+            </param>
+            
+            <param name="valuesArray">
+            EN: The array with values to be inserted.
+            BG: Масива със стойности, който да бъдат вмъкнати.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.HasElement(`0)">
+            <summary>
+            
+            EN:
+               Checks if the specified element is in the array.
+            
+            BG:
+              Проверява, дали указания елемент се съдържа в масива.
+            
+            </summary>
+            
+            <param name="value">
+            EN: The value.
+            BG: Стойността, която да се провери в масива.
+            </param>
+            
+            <returns>
+            EN: True if the array contains that element, otherwise false. 
+            BG: True ако стойността се съдържа в масива, в противен случай връща false.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.ExecuteOnEach(System.Action{`0})">
+            <summary>
+            
+            EN:
+               Execute the method with each element from the array.
+               Each element is passed as parameter of the method.
+            
+            BG:
+              Изпълнява метода със всеки един елемент от масива.
+              Всеки елемент се подава като параметър на метода и той се изпълнява с него.
+            
+            </summary>
+            
+            <param name="command">
+            EN: The action (method) with one parameter that will be executed with each element.
+            BG: Метода с един параметър, който ще се изпълява със всеки елемент от масива.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.SortArray(CommonLibrary.Enums.SortingOptions)">
+            <summary>
+            
+            EN:
+               Sorts the array by specified sorting options.
+               By default is ascending sorting.
+               To make to sorting descending use the SortingOptions.Descending flag to change the
+               sorting algorithm.
+            
+            BG:
+              Сортира масива според указаната опция за сортиране.
+              По подразбиране сортирането е възходящо.
+              Ако трябва да се сортира низходящо, се указва изрично с флага
+              SortingOptions.Descending подаден като параметър на метода.
+            
+            </summary>
+            
+            <param name="options">
+            EN: The sorting option.
+            BG: Опцията за сортиране, по подразбиране е възходящо.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.!
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.Clone">
+            <summary>
+             
+             EN:
+                Retirns the array as object.
+             
+             BG:
+                Връща масива като обект.
+            
+            </summary>
+            
+            <returns>
+             EN: The array as object
+             BG: Масива като обекст
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.IsTrueForAll(System.Predicate{`0})">
+            <summary>
+            
+            EN:
+               Iterates each element is the collection and pass it as argument to the predicate.
+            
+            BG:
+              Итерита през всеки елемент в масива и го подава като параметър на предиката
+              с условието.
+            
+            </summary>
+            
+            <param name="condition">
+            EN: The Predicate with the condition.
+            BG: Опцията за сортиране, по подразбиране е възходящо.
+            </param>
+            
+            <returns>
+            EN: True if all the elements in the array match the condition, otherwise false.
+            BG: Връща true когато всички елементи в масива отговарят на условието. В противе
+                случай връща false.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DynamicArray`1.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:CommonLibrary.Collections.KeyValueCollection`2">
+             <summary>
+             
+              EN:
+                Associative array of key value pairs, sorted by default.
+                Default capacity is 2 pairs and maximum capacity is 1 000 000 000 pairs.
+                The KeyValueCollection like others associative arrays is indexed by a key.
+                The indexer return the value associated to that key in the internal key-value pair.
+              
+              BG:
+                KeyValueCollection представлява асоциативен масив от двойки ключ-стойност, който по подразбиране е сортиран.
+                Стандартен капацитет: 2 двойки ключ-стойност.
+                Максимален капацитет: 1 000 000 000 двойки ключ-стойност.
+                Подобно на други асоциативни структури от данни, KeyValueCollection използва ключ за достъп до стойностите.
+                Чрез индексатора се връща стойността, асоциирана с дадения ключ.
+              
+             </summary>
+             
+             <typeparam name="KeyType">
+              EN: The data type of the keys.
+              BG: Типа данни на ключовете.
+             </typeparam>
+             
+            <typeparam name="ValueType">
+             EN: The data type of the values.
+             BG: Типа данни на асоцийраните стойности.
+             </typeparam>
+        </member>
+        <member name="P:CommonLibrary.Collections.KeyValueCollection`2.Item(`0)">
+            <summary>
+            
+            EN: Indexer.
+            
+            BG: Индексатор
+            
+            </summary>
+            
+            <param name="key">
+            EN: The key of the key-value pair
+            BG: Ключа от двойката ключ-стойност
+            </param>
+            
+            <returns>
+            EN: The value associated with that key
+            BG: Стойността към този ключ
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.Collections.KeyValueCollection`2.Count">
+            <summary>
+            
+            EN: Get the count of the key-value pairs.
+            
+            BG: Връща броя на двойките ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.KeyValueCollection`2.Capacity">
+            <summary>
+            
+            EN: Get or set the capacity of the collection.
+            
+            BG: Достъпва капацитета на колекцията.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.KeyValueCollection`2.Keys">
+            <summary>
+            
+            EN: Get the keys of the collection in a collection of keys.
+            
+            BG: Връща всички ключове от колекцията в колекция от ключове.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.KeyValueCollection`2.Values">
+            <summary>
+            
+            EN: Get the associated values of the collection in a collection of values.
+            
+            BG: Връща всички асоциирани стойности от колекцията в колекция от стойности.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.#ctor">
+            <summary>
+            
+            EN: Create a new empty collection of key-value pairs with default capacity.
+            
+            BG: Създава нова празна колекция от двойки ключ-стойност със стандартен капацитет.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.#ctor(System.Int32)">
+            <summary>
+            
+            EN: Create a new empty collection of key-value pairs with specified capacity.
+            
+            BG: Създава нова празна колекция от двойки ключ-стойност със зададен капацитет.
+            
+            </summary>
+            
+            <param name="capacity">
+            EN: The capacity  
+            BG: Капацитетът
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.#ctor(System.Boolean)">
+            <summary>
+            
+            EN: Create a new empty collection of key-value pairs with maximum capacity if specified.
+            
+            BG: Създава нова празна колекция от двойки ключ-стойност с максимален капацитет, ако е указано.
+            
+            </summary>
+            
+            <param name="maxCapacity">
+            EN: Indicates whether to use maximum capacity  
+            BG: Указва дали да се използва максимален капацитет
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})">
+            <summary>
+            
+            EN: Create a collection of key-value pairs by copying pairs from another collection.  
+            Capacity is set to the number of copied pairs.
+            
+            BG: Създава колекция от двойки ключ-стойност чрез копиране от друга колекция.  
+            Капацитетът се задава според броя на копираните двойки.
+            
+            </summary>
+            
+            <param name="collection">
+            EN: The collection from which key-value pairs will be copied  
+            BG: Колекцията, от която ще се копират двойките ключ-стойност
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}},System.Int32)">
+            <summary>
+            
+            EN: Create a collection of key-value pairs by copying pairs from another collection  
+            and setting a specified capacity.
+            
+            BG: Създава колекция от двойки ключ-стойност чрез копиране от друга колекция  
+            и със зададен капацитет.
+            
+            </summary>
+            
+            <param name="collection">
+            EN: The collection from which key-value pairs will be copied  
+            BG: Колекцията, от която ще се копират двойките ключ-стойност
+            </param>
+            
+            <param name="capacity">
+            EN: The new capacity  
+            BG: Новият капацитет
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}},System.Boolean)">
+            <summary>
+            
+            EN: Create a collection of key-value pairs by copying pairs from another collection.  
+            If maxCapacity is true, maximum capacity is used.  
+            Otherwise, capacity is set to the number of copied pairs.
+            
+            BG: Създава колекция от двойки ключ-стойност чрез копиране от друга колекция.  
+            Ако maxCapacity е true, се използва максимален капацитет.  
+            В противен случай капацитетът се задава според броя на копираните двойки.
+            
+            </summary>
+            
+            <param name="collection">
+            EN: The collection from which key-value pairs will be copied  
+            BG: Колекцията, от която ще се копират двойките ключ-стойност
+            </param>
+            
+            <param name="maxCapacity">
+            EN: Indicates whether to use maximum capacity  
+            BG: Указва дали да се използва максимален капацитет
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.Add(`0,`1)">
+            <summary>
+            
+            EN: Adds key-value pair in the collection with specified key and associated value to that key.
+            
+            BG: Добавя двойка ключ-стойност в колекцията със зададен ключ и съответната стойност.
+            
+            </summary>
+            
+            <param name="key">
+            EN: The key of the pair  
+            BG: Ключът на двойката
+            </param>
+            
+            <param name="value">
+            EN: The associated value of the key  
+            BG: Стойността, асоциирана с ключа
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.Add(System.Collections.Generic.KeyValuePair{`0,`1})">
+            <summary>
+            
+            EN: Adds the specified key-value pair in the collection.
+            
+            BG: Добавя зададената двойка ключ-стойност в колекцията.
+            
+            </summary>
+            
+            <param name="pair">
+            EN: The key-value pair  
+            BG: Двойката ключ-стойност
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.AddCollection(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}})">
+            <summary>
+            
+            EN: Adds a collection (array) of key-value pairs to the collection.
+            
+            BG: Добавя колекция (масив) от двойки ключ-стойност към колекцията.
+            
+            </summary>
+            
+            <param name="collection">
+            EN: The collection whose key-value pairs will be added  
+            BG: Колекцията, чиито двойки ключ-стойност ще бъдат добавени
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.RemoveByIndex(System.Int32)">
+            <summary>
+            
+            EN: Removes the key-value pair at the specified index in the collection.
+            
+            BG: Премахва двойката ключ-стойност на зададения индекс в колекцията.
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index of the key-value pair  
+            BG: Индексът на двойката ключ-стойност
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.RemoveByKey(`0)">
+            <summary>
+            
+            EN: Removes the key-value pair that contains the specified key.
+            
+            BG: Премахва двойката ключ-стойност, която съдържа зададения ключ.
+            
+            </summary>
+            
+            <param name="key">
+            EN: The key of the pair  
+            BG: Ключът на двойката
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.RemoveAllInRange(System.Int32,System.Int32)">
+            <summary>
+            
+            EN: Removes all key-value pairs in the specified range in the collection.
+            
+            BG: Премахва всички двойки ключ-стойност в зададения диапазон от колекцията.
+            
+            </summary>
+            
+            <param name="startIndex">
+            EN: The starting index in the collection  
+            BG: Началният индекс в колекцията
+            </param>
+            
+            <param name="endIndex">
+            EN: The ending index in the collection  
+            BG: Крайният индекс в колекцията
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.RemoveAll">
+            <summary>
+            
+            EN: Removes all key-value pairs from the collection.
+            
+            BG: Премахва всички двойки ключ-стойност от колекцията.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.HasKey(`0)">
+            <summary>
+            
+            EN: Checks if the specified key exists in the collection.
+            
+            BG: Проверява дали зададеният ключ съществува в колекцията.
+            
+            </summary>
+            
+            <param name="key">
+            EN: The key  
+            BG: Ключът
+            </param>
+            
+            <returns>
+            EN: True if the key exists in the collection, otherwise false  
+            BG: Връща true, ако ключът съществува в колекцията, иначе false
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.TrimCapacity">
+            <summary>
+            
+            EN: Reduces the capacity of the collection to match the number of pairs.
+            
+            BG: Намалява капацитета на колекцията до броя на двойките.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.ReduceCapacityTo(System.Int32)">
+            <summary>
+            
+            EN: Reduces the capacity of the collection to the specified value.
+            
+            BG: Намалява капацитета на колекцията до зададената стойност.
+            
+            </summary>
+            
+            <param name="capacity">
+            EN: The new capacity  
+            BG: Новият капацитет
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.SortCollectionByKey(CommonLibrary.Enums.SortingOptions)">
+            <summary>
+            
+            EN: Sorts the collection by keys in the specified order (default is ascending).
+            
+            BG: Сортира колекцията по ключове в зададения ред (по подразбиране възходящ).
+            
+            </summary>
+            
+            <param name="options">
+            EN: The sorting options  
+            BG: Опциите за сортиране
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.SortCollectionByValue(CommonLibrary.Enums.SortingOptions)">
+            <summary>
+            
+            EN: Sorts the collection by values in the specified order (default is ascending).
+            
+            BG: Сортира колекцията по стойности в зададения ред (по подразбиране възходящ).
+            
+            </summary>
+            
+            <param name="options">
+            EN: The sorting options  
+            BG: Опциите за сортиране
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.Clone">
+            <summary>
+            
+            EN: Clones the collection.
+            
+            BG: Клонира колекцията.
+            
+            </summary>
+            
+            <returns>
+            EN: The collection as an object  
+            BG: Колекцията като обект
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.KeyValueCollection`2.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:CommonLibrary.Enums.Day">
+            <summary>
+            
+            EN: Specifies which day of the week it is.
+            
+            BG: Указва кой ден от седмицата е.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.Day.Monday">
+            <summary>
+            
+            EN: Specifies the first day of the week  
+            
+            BG: Указва първия ден от седмицата
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.Day.Tuesday">
+            <summary>
+            
+            EN: Specifies the second day of the week  
+            
+            BG: Указва втория ден от седмицата
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.Day.Wednesday">
+            <summary>
+            
+            EN: Specifies the third day of the week  
+            
+            BG: Указва третия ден от седмицата
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.Day.Thursday">
+            <summary>
+            
+            EN: Specifies the fourth day of the week  
+            
+            BG: Указва четвъртия ден от седмицата
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.Day.Friday">
+            <summary>
+            
+            EN: Specifies the fifth day of the week  
+            
+            BG: Указва петия ден от седмицата
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.Day.Saturday">
+            <summary>
+            
+            EN: Specifies the sixth day of the week 
+            
+            BG: Указва шестия ден от седмицата
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.Day.Sunday">
+            <summary>
+            
+            EN: Specifies the seventh day of the week  
+            
+            BG: Указва седмия ден от седмицата
+            
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Enums.SortingOptions">
+            <summary>
+            
+            EN: Provides options for sorting.
+            
+            BG: Предоставя опций за сортиране.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.SortingOptions.Ascending">
+            <summary>
+            
+            EN: Default sorting - ascending.
+            
+            BG: Възходящо сортиране (по подразбиране).
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.SortingOptions.Descending">
+            <summary>
+            
+            EN: Descending sorting.
+            
+            BG: Низходящо сортиране.
+            
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Exceptions.Error">
+            <summary>
+            
+            EN:
+              Defines common error. The default exception for eeverything.
+            
+            BG:
+              Представлява обща грешка. Може да се третира като
+              грешка по подразбиране и да се използва по всякакви поводи.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Exceptions.Error.#ctor(System.String)">
+            <summary>
+            
+            EN:
+              Creates new Error with the specified error message.
+              
+            BG:
+              Създава нов Error със указаното съобщение за грешка.
+            
+            </summary>
+            
+            <param name="message">
+             EN: The message.
+             BG: Съобщението.
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Exceptions.InvalidDiapasonException">
+            <summary>
+            
+            EN:
+              Indicates that the diapason for random generating an number in the
+              CommonLibrary.AbstractDataTypes.NumberGenerator class is invalid.
+            
+            BG:
+              Индикира, когато диазапона за генериране на случайни числа на 
+              класа CommonLibrary.AbstractDataTypes.NumberGenerator е невалиден.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Exceptions.InvalidDiapasonException.ErrorMessage">
+            <summary>
+             
+             EN:
+               Gets or sets the message of the exception.
+               
+             BG:
+               Достъпва съобщението за грешка.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Exceptions.InvalidDiapasonException.#ctor">
+            <summary>
+            
+            EN:
+              Creates new InvalidDiapasonException with the default message for the user.
+            
+            BG:
+              Създава нов InvalidDiapasonException със съобщение по подразбиране за потребителя.
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.Exceptions.InvalidDiapasonException.#ctor(System.String)" -->
+        <member name="T:CommonLibrary.Exceptions.SyntaxException">
+            <summary>
+            
+            EN:
+             Indicates when some member value (Property or Field, Parameter..) is not typed correct.
+             The check of the syntax is made with a regular expression.
+             
+            BG: 
+             Индикира когато стойността на даден член на класа (свойство, поле, параметър..) е с непозволен синтаксис.
+             Извършва се проверка на синтаксиса с регулярен израз.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Exceptions.SyntaxException.ErrorMessage">
+            <summary>
+            
+             EN: Get or set the message that exception shows.
+             
+             BG: Достъпва съобщението за грешка, което се показва. 
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Exceptions.SyntaxException.#ctor">
+            <summary>
+            
+             EN: Create new SyntaxException with default error message.
+             
+             BG: Създава нов SyntaxException със съобщение за грешка по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Exceptions.SyntaxException.#ctor(System.String)">
+            <summary>
+            
+             EN: Create new SyntaxException with specified error message.
+             
+             BG: Създава нов SytanxException със зададено съобщение за грешка.
+            
+            </summary>
+            
+            <param name="message">
+            EN: The message for the exception.
+            BG: Съобщението за грешка.
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Exceptions.TypeNotSupportedException">
+            <summary>
+            
+             EN:
+               Occurs when the data type of some class member(field, property..) is not in the correct
+               format that is needed.
+             
+            BG:
+              Индикира, когато типа данни на даден член на класа (поле, свойство ..) не е този който е необходим
+              в текущата ситуация.
+             
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Exceptions.TypeNotSupportedException.ErrorMessage">
+            <summary>
+            
+             EN: Get or set the message that exception shows.
+             
+             BG: Достъпва съобщението за грешка.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Exceptions.TypeNotSupportedException.#ctor">
+            <summary>
+            
+             EN: Create new TypeNotSupportedException with default error message.
+             
+             BG: Създава нов TypeNotSupportedException със съобщение по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Exceptions.TypeNotSupportedException.#ctor(System.String)">
+            <summary>
+            
+             EN: Create new TypeNotSupportedException with specified error message
+             
+             BG: Създава нов TypeNotSupportedException със зададено съобщение за грешка.
+            
+            </summary>
+            
+            <param name="message">
+            EN: The error message that the exception will show.
+            BG: Съобщението за грешка, което да се покаже.
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Helpers.CollectionHelper">
+            <summary>
+            
+            EN: 
+               Provides static methods for searching and editing a collection.  
+             
+            BG: 
+               Предоставя набор от статични методи за манипулиране на колекция или масив.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.FindElementThat``1(System.Predicate{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Checks every element in the collection and extracts the one that matches the Predicate.  
+             
+            BG: Проверява всеки елемент в колекцията и връща първия, който отговаря на условието.  
+                Ако няма съвпадения, връща стойност по подразбиране.
+            
+            </summary>
+            
+            <param name="condition">
+            EN: The Predicate with the condition.  
+            BG: Предикатът с условието.
+            </param>
+            
+            <param name="collection">
+            EN: The collection whose elements will be iterated.  
+            BG: Колекцията, чиито елементи ще бъдат итерирани.
+            </param>
+            
+            <returns>
+            EN: The first matching element or default value if there is no match.  
+            BG: Първият съвпадащ елемент или стойност по подразбиране, ако няма съвпадения.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.FindElementsThat``1(System.Predicate{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Checks every element in the collection and extracts all that match the Predicate.  
+             
+            BG: Проверява всеки елемент и връща всички, които отговарят на условието.  
+                Ако няма съвпадения, връща масив със стойности по подразбиране.
+            
+            </summary>
+            
+            <param name="condition">
+            EN: The Predicate with the condition.  
+            BG: Предикатът с условието.
+            </param>
+            
+            <param name="collection">
+            EN: The collection whose elements will be checked.  
+            BG: Колекцията, чиито елементи ще бъдат проверени.
+            </param>
+            
+            <returns>
+            EN: Array of matching elements or array of default values if no matches found.  
+            BG: Масив от съвпадащи елементи или стойности по подразбиране, ако няма съвпадения.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.ExecuteOnEachElement``1(System.Action{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Iterates over the collection and executes the method on each element.  
+             
+            BG: Обхожда колекцията и изпълнява метода върху всеки елемент.
+            
+            </summary>
+            
+            <typeparam name="Type">
+            EN: The data type of the method parameter and the collection elements.  
+            BG: Типът на параметъра и елементите в колекцията.
+            </typeparam>
+            
+            <param name="command">
+            EN: The method to execute.  
+            BG: Методът, който ще се изпълни.
+            </param>
+            
+            <param name="collection">
+            EN: The collection to iterate.  
+            BG: Колекцията, която ще се обхожда.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.ExecuteOnEachElement(System.Action{System.Object},System.Object[])">
+            <summary>
+            
+            EN: Iterates over the object array and executes the method on each element.  
+             
+            BG: Обхожда масив от обекти и изпълнява метода върху всеки от тях.
+            
+            </summary>
+            
+            <param name="command">
+            EN: The method to execute.  
+            BG: Методът, който ще се изпълни.
+            </param>
+            
+            <param name="objects">
+            EN: The array of objects to iterate.  
+            BG: Масивът от обекти, който ще се обхожда.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.ConvertToObjectArray``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Converts a collection to an array of objects.  
+             
+            BG: Преобразува колекцията в масив от обекти.
+            
+            </summary>
+            
+            <param name="collection">
+            EN: The collection to convert.  
+            BG: Колекцията, която ще се преобразува.
+            </param>
+            
+            <returns>
+            EN: Array of objects.  
+            BG: Масив от обекти.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.ReturnAsCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Converts an external collection to a CommonLibrary Collection.  
+             
+            BG: Преобразува външна колекция в колекция от тип данни CommonLibrary.Collections.Generic.Collection.
+            
+            </summary>
+            
+            <typeparam name="Type">
+            EN: The data type of the elements.  
+            BG: Типът на елементите.
+            </typeparam>
+            
+            <param name="externCollection">
+            EN: The external collection to convert.  
+            BG: Външната колекция, която ще се преобразува.
+            </param>
+            
+            <returns>
+            EN: A new Collection with copied elements.  
+            BG: Нова колекция с копирани елементи.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.CountOfMatches``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            
+            EN: Counts the elements that match a condition in the collection.  
+             
+            BG: Брои елементите, които отговарят на условието в колекцията.
+            
+            </summary>
+            
+            <typeparam name="Type">
+            EN: The data type of the elements.  
+            BG: Типът на елементите.
+            </typeparam>
+            
+            <param name="collection">
+            EN: The collection to check.  
+            BG: Колекцията, която ще се проверява.
+            </param>
+            
+            <param name="condition">
+            EN: The condition to match.  
+            BG: Условието, което трябва да се изпълни.
+            </param>
+            
+            <returns>
+            EN: Number of matching elements.  
+            BG: Броя на съвпадащите елементи.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.CreateEmptyCollection``1(System.Int32)">
+             <summary>
+             
+             EN:
+                Creates empty array with
+                the specified capacity.
+             
+             BG:
+                Създава нов празен масив с указания капацитет.
+             
+             </summary>
+             
+             <param name="capacity">
+              EN: The capacity of the array.
+              BG: Капацитета на масива.
+             </param>
+            
+             <returns>
+              EN: Empty array.
+              BG: Празен масив.
+             </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.CreateFromAnother``1(System.Collections.Generic.IEnumerable{``0})">
+             <summary>
+             
+             EN:
+                Creates an array with the copied elements from another array and with
+                capacity equals the count of the elements.
+             
+             BG:
+                Създава нов масив с копирани елементи от външния масив и капацитет 
+                равен на бройката на елементите.
+             
+             </summary>
+             
+             <param name="externCollection">
+              EN: The extern collection witch elements will be copied.
+              BG: Външната колекция, чийто елементи да бъдат копирани.
+             </param>
+            
+             <returns>
+              EN: Array with the copied elements as IEnumerable.
+              BG: Масив с копираните елементи като IEnumerable.
+             </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.CreateFromAnother``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+             <summary>
+             
+             EN:
+                Creates an array with the copied elements from another array and with
+                the specified capacity.
+             
+             BG:
+                Създава нов масив с копирани елементи от външния масив и капацитет 
+                равен на указания.
+             
+             </summary>
+             
+             <param name="externCollection">
+              EN: The extern collection witch elements will be copied.
+              BG: Външната колекция, чийто елементи да бъдат копирани.
+             </param>
+             
+             /// <param name="capacity">
+              EN: The capacity of the array.
+              BG: Капацитета на масива.
+             </param>
+            
+             <returns>
+              EN: Array with the copied elements as IEnumerable.
+              BG: Масив с копираните елементи като IEnumerable.
+             </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.SortArrayBy``1(System.Collections.Generic.IEnumerable{``0},CommonLibrary.Enums.SortingOptions)">
+            <summary>
+            
+            EN:
+               Sorts the collection by specified sorting options and
+               returns it sortet.
+               The options for sorting should be specified with a flag from SprtingOptions enumeration.
+               Use SortingOptions.Ascending to sort the collection ascending.
+               Use SortingOptions.Descending to sort the collecion descending.
+            
+            BG:
+               Сортира указаната колекция с указаните опций за сортиране.
+               Режима на сортиране трябва да бъде указан с флаг от еномерацията SortingOptions.
+               Използвай SortingOptions.Ascending за да сортираш колекцията възходящо.
+               Използвaй SortingOptions.Descending за да сортираш колекцията низходящо.
+            
+            </summary>
+            
+            <typeparam name="Type">
+             EN: The data type of the elements in the collection.
+             BG: Типът данни на елементите в колекцията.
+            
+            </typeparam>
+            
+            <param name="collection">
+             EN: The collection to be sorted.
+             BG: Колекцията, която да бъде сортирана.
+            
+            </param>
+            
+            <param name="options">
+             EN: The sorting options.
+             BG: Опцийте за сортиране.
+            </param>
+            
+            <returns>
+             EN: The same collection, but sorted.
+             BG: Връща колекцията, но сортирана по желания начин.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.SortCollectionBy``1(System.Collections.Generic.IEnumerable{``0},CommonLibrary.Enums.SortingOptions)">
+            <summary>
+            
+            EN:
+               Sorts the collection by specified sorting options and
+               returns it sortet.
+               The options for sorting should be specified with a flag from SprtingOptions enumeration.
+               Use SortingOptions.Ascending to sort the collection ascending.
+               Use SortingOptions.Descending to sort the collecion descending.
+            
+            BG:
+               Сортира указаната колекция с указаните опций за сортиране.
+               Режима на сортиране трябва да бъде указан с флаг от еномерацията SortingOptions.
+               Използвай SortingOptions.Ascending за да сортираш колекцията възходящо.
+               Използвaй SortingOptions.Descending за да сортираш колекцията низходящо.
+            
+            </summary>
+            
+            <typeparam name="Type">
+             EN: The data type of the elements in the collection.
+             BG: Типът данни на елементите в колекцията.
+            
+            </typeparam>
+            
+            <param name="collection">
+             EN: The collection to be sorted.
+             BG: Колекцията, която да бъде сортирана.
+            
+            </param>
+            
+            <param name="options">
+             EN: The sorting options.
+             BG: Опцийте за сортиране.
+            </param>
+            
+            <returns>
+             EN: The same collection, but sorted.
+             BG: Връща колекцията, но сортирана по желания начин.
+            </returns>
+        </member>
+        <member name="T:CommonLibrary.Helpers.NumberGenerator">
+            <summary>
+            
+             EN: 
+               Generator of random numbers. Provides methods for generating random number, or
+               sequence of random numbers, in diapason of starting number and
+               ending number. The range of the diapason shoul be defined with the creation of the
+               generator, and can be accessed or changed with the Start and the End properties.
+               
+             BG:
+               Генератор на случайни номера. Предоставя необходимите методи за генериране на 
+               случаен номер или поредица от случайни номера, в диапазон от 
+               стартово число и крайно число. Началото и края на диапазона за генериране на числа трябва
+               да бъдат указани в началото със създаването на генератора. В по късен етап могад да бъдат
+               достъпени или промемени чрез свойтвата Start и End на класа.
+               
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Helpers.NumberGenerator.Start">
+            <summary>
+            
+            EN:
+               Gets or sets the start of the diapason for generating.
+               
+            BG:
+              Достъпва началото на диапазона за генериране на числа.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Helpers.NumberGenerator.End">
+            <summary>
+            
+            EN:
+               Gets or sets the end of the diapason for generating.
+               
+            BG:
+              Достъпва края на диапазона за генериране на числа.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Helpers.NumberGenerator.#ctor(System.Int32,System.Int32)">
+            <summary>
+             
+            EN:
+              Creates new generator of random numbers, инт the diapason
+              for generating from "start" to "end".
+              
+            BG:
+              Създава нов генератор на случайни номера в указания диапазон.
+              В този случай генератора генерира число или поредица от числа в диапазон
+              от "start" до "end". 
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Helpers.NumberGenerator.Generate">
+            <summary>
+             
+            EN:
+              Generates random number in the specified diapason.
+              
+            BG:
+              Генерира случаен номер в зададения диапазон.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Helpers.NumberGenerator.GenerateMultiple(System.Int32)">
+            <summary>
+             
+            EN:
+              Generates multiple random numbers in the given diapason and
+              store it in array of integers.
+              
+            BG:
+              Генерира указано множество от случайни числа и ги записва в масив, който връща
+              като стойност.
+            
+            </summary>
+            
+            <param name="count">
+             EN: The count of the numbers to be generated.
+             BG: Бройката случайни числа, които да се генерират.
+            </param>
+            
+            <returns>
+             EN: Array with random generated numbers.
+             BG: Масив от случайно генерирани числа.
+            </returns>
+        </member>
+        <member name="T:CommonLibrary.Interfaces.IDynamicArray`1">
+            <summary>
+            
+            EN: Base interface for dynamic array of objects.
+            
+            BG: Базов интерфейс за динамичен масив от обекти.
+                Под динамичен се има в предвид с променлив капацитет.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IDynamicArray`1.Item(System.Int32)">
+            <summary>
+             
+            EN: Get the object at that index in the collection.
+            
+            BG: Достъпва обекта на този индекс в колекцията.
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index of the element.
+            BG: Индекса на елемента.
+            </param>
+            
+            <returns>
+            EN: The object at that index in the collection.
+            BG: Обекта на този индекс в колекцията.
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IDynamicArray`1.Count">
+            <summary>
+             
+            EN: Get the count of the elements in the array.
+            
+            BG: Достъпва бройката на елементите в колекцията.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IDynamicArray`1.Capacity">
+            <summary>
+             
+            EN: Gets or sets the capacity of the array.
+            
+            BG: Достъпва капацитета на масива.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.Add(`0)">
+            <summary>
+             
+            EN:
+               Adds an element to the array.
+            
+            BG:
+               Добадя елемент към масива.
+            
+            </summary>
+            
+            <param name="value">
+            EN: The element to be added.
+            BG: Елемента, който да бъде добавен.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.AddMany(System.Collections.Generic.IEnumerable{`0})">
+             <summary>
+             
+             EN:
+                Adds array of elemets to the array.
+            
+             BG:
+                Добавя масив от елементи в масива.
+             
+             </summary>
+             
+             <param name="valuesArray">
+             EN: The array with values to be added.
+             BG: Масива от елементи, който да бъде добавен.
+             </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.RemoveByValue(`0)">
+            <summary>
+            
+            EN:
+               Removes an element from the collection by his value.
+            
+            BG:
+              Премахва елемент от кекцията по неговата стойност.
+            
+            </summary>
+            
+            <param name="value">
+            EN: The element value.
+            BG: Елемента - стойността му.
+            </param>
+            
+            <returns>
+            EN: True if the element is successfully removed, otherwise false.
+            BG: True ако елемента е премахнат успешно, в противен случай - false.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.RemoveByIndex(System.Int32)">
+            <summary>
+            
+            EN:
+               Removes an element from the collection by his index.
+            
+            BG:
+              Премахва елемент от колекцията по неговия индекс.
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index of the element in the collection.
+            BG:
+            </param>
+            
+            <returns>
+            EN: None
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.RemoveInDiapason(System.Int32,System.Int32)">
+            <summary>
+            
+            EN:
+               Remove all elements in the specified diapason in the collection.
+            
+            BG:
+              Премахва всички елементи в указания диапазон в колецията.
+              Стартовия индекс и крайния индекс се премахват също.
+            
+            </summary>
+            
+            <param name="startIndex">
+            EN: The starting index.
+            BG: Стартовия индекс.
+            </param>
+            
+            <param name="endIndex">
+            EN: The ending index.
+            BG: Крайния индекс.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.RemoveAll">
+            <summary>
+            
+            EN:
+               Removes all elements from the array, and sets the default capacity.
+            
+            BG:
+              Премахва всички елементи от масива и връща капацитета по подразбиране.
+            
+            </summary>
+            
+            <returns>
+            EN: None. 
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.InsertAt(System.Int32,`0)">
+            <summary>
+            
+            EN:
+               Inserts an element at given index in the array.
+            
+            BG:
+              Вмъква елемент на указан индекс в масива.
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index in the array.
+            BG: Индекса в масива.
+            </param>
+            
+            <param name="value">
+            EN: The value to be inserted.
+            BG: Стойността, която да бъде вмъкната.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.InsertMany(System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            EN:
+               Inserts array of elements at the specified index in the array.
+            
+            BG:
+              Вмъква масив от елементи на указан индекс в масива.
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index in the array.
+            BG: Индекса в масива.
+            </param>
+            
+            <param name="valuesArray">
+            EN: The array with values to be inserted.
+            BG: Масива със стойности, който да бъдат вмъкнати.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.HasElement(`0)">
+            <summary>
+            
+            EN:
+               Checks if the specified element is in the array.
+            
+            BG:
+              Проверява, дали указания елемент се съдържа в масива.
+            
+            </summary>
+            
+            <param name="value">
+            EN: The value.
+            BG: Стойността, която да се провери в масива.
+            </param>
+            
+            <returns>
+            EN: True if the array contains that element, otherwise false. 
+            BG: True ако стойността се съдържа в масива, в противен случай връща false.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.ExecuteOnEach(System.Action{`0})">
+            <summary>
+            
+            EN:
+               Execute the method with each element from the array.
+               Each element is passed as parameter of the method.
+            
+            BG:
+              Изпълнява метода със всеки един елемент от масива.
+              Всеки елемент се подава като параметър на метода и той се изпълнява с него.
+            
+            </summary>
+            
+            <param name="command">
+            EN: The action (method) with one parameter that will be executed with each element.
+            BG: Метода с един параметър, който ще се изпълява със всеки елемент от масива.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.SortArray(CommonLibrary.Enums.SortingOptions)">
+            <summary>
+            
+            EN:
+               Sorts the array by specified sorting options.
+               By default is ascending sorting.
+               To make to sorting descending use the SortingOptions.Descending flag to change the
+               sorting algorithm.
+            
+            BG:
+              Сортира масива според указаната опция за сортиране.
+              По подразбиране сортирането е възходящо.
+              Ако трябва да се сортира низходящо, се указва изрично с флага
+              SortingOptions.Descending подаден като параметър на метода.
+            
+            </summary>
+            
+            <param name="options">
+            EN: The sorting option.
+            BG: Опцията за сортиране, по подразбиране е възходящо.
+            </param>
+            
+            <returns>
+            EN: None.
+            BG: Не връща стойност.!
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IDynamicArray`1.IsTrueForAll(System.Predicate{`0})">
+            <summary>
+            
+            EN:
+               Iterates each element is the collection and pass it as argument to the predicate.
+            
+            BG:
+              Итерита през всеки елемент в масива и го подава като параметър на предиката
+              с условието.
+            
+            </summary>
+            
+            <param name="condition">
+            EN: The Predicate with the condition.
+            BG: Опцията за сортиране, по подразбиране е възходящо.
+            </param>
+            
+            <returns>
+            EN: True if all the elements in the array match the condition, otherwise false.
+            BG: Връща true когато всички елементи в масива отговарят на условието. В противе
+                случай връща false.
+            </returns>
+        </member>
+        <member name="T:CommonLibrary.Interfaces.IGenericCollection`1">
+            <summary>
+            
+            EN: Base interface for generic collections of elements.  
+            
+            BG: Базов интерфейс за общи колекции от елементи.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.Item(System.Int32)">
+            <summary>
+            
+            EN: Indexer  
+            
+            BG: Индексатор
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index of the element in the collection  
+            BG: Индексът на елемента в колекцията
+            </param>
+            
+            <returns>
+            EN: The element at that index in the collection  
+            BG: Елементът на този индекс в колекцията
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.Count">
+            <summary>
+            
+            EN: The count of the elements in the collection  
+            
+            BG: Броят на елементите в колекцията
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.Capacity">
+            <summary>
+            
+            EN: The capacity of the collection  
+            
+            BG: Капацитетът на колекцията
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.FirstElement">
+            <summary>
+            
+            EN: Get or set the first element in the collection  
+            
+            BG: Взема или задава първия елемент в колекцията
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.MiddleElement">
+            <summary>
+            
+            EN: Get or set the middle element in the collection  
+            
+            BG: Взема или задава средния елемент в колекцията
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.LastElement">
+            <summary>
+            
+            EN: Get or set the last element in the collection  
+            
+            BG: Взема или задава последния елемент в колекцията
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.Add(`0)">
+            <summary>
+            
+            EN: Adds an element to the collection  
+            
+            BG: Добавя елемент към колекцията
+            
+            </summary>
+            
+            <param name="element">
+            EN: The element  
+            BG: Елементът
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.AddMultipleElements(`0[])">
+            <summary>
+            
+            EN: Adds multiple elements to the collection  
+            
+            BG: Добавя множество елементи към колекцията
+            
+            </summary>
+            
+            <param name="elements">
+            EN: The sequence of elements  
+            BG: Последователността от елементи
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.AddCollection(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            EN: Adds another collection to the current collection  
+            
+            BG: Добавя друга колекция към текущата колекция
+            
+            </summary>
+            
+            <param name="collection">
+            EN: The external collection  
+            BG: Външната колекция
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.RemoveElement(`0)">
+            <summary>
+            
+            EN: Removes an element from the collection and returns true if successful  
+            
+            BG: Премахва елемент от колекцията и връща true при успех
+            
+            </summary>
+            
+            <param name="element">
+            EN: The element  
+            BG: Елементът
+            </param>
+            
+            <returns>
+            EN: True if successfully removed, otherwise false  
+            BG: True при успешно премахване, иначе false
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.RemoveElementAt(System.Int32)">
+            <summary>
+            
+            EN: Removes an element from the collection by its index  
+            
+            BG: Премахва елемент от колекцията по индекс
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index of the element  
+            BG: Индексът на елемента
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.RemoveInDiapason(System.Int32,System.Int32)">
+            <summary>
+            
+            EN: Removes elements from the collection in a given range  
+            
+            BG: Премахва елементи от колекцията в зададен диапазон
+            
+            </summary>
+            
+            <param name="startIndex">
+            EN: Starting index  
+            BG: Начален индекс
+            </param>
+            
+            <param name="endIndex">
+            EN: Ending index  
+            BG: Краен индекс
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.InsertElementAt(System.Int32,`0)">
+            <summary>
+            
+            EN: Inserts an element at a given index  
+            
+            BG: Вмъква елемент на зададен индекс
+            
+            </summary>
+            
+            <param name="index">
+            EN: The index  
+            BG: Индексът
+            </param>
+            
+            <param name="element">
+            EN: The element to insert  
+            BG: Елементът за вмъкване
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.InsertMultipleElementsAt(System.Int32,`0[])">
+            <summary>
+            
+            EN: Inserts multiple elements at a given index  
+            
+            BG: Вмъква множество елементи на зададен индекс
+            
+            </summary>
+            <param name="index">
+            EN: The index  
+            BG: Индексът
+            </param>
+            
+            <param name="elements">
+            EN: The elements  
+            BG: Елементите
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.InsertCollectionAt(System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            EN: Inserts another collection at a given index  
+            
+            BG: Вмъква друга колекция на зададен индекс
+            
+            </summary>
+            <param name="index">
+            EN: The index  
+            BG: Индексът
+            </param>
+            
+            <param name="collection">
+            EN: The collection to insert  
+            BG: Колекцията за вмъкване
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.ContainsElement(`0)">
+            <summary>
+            
+            EN: Checks if the collection contains the given element  
+            
+            BG: Проверява дали колекцията съдържа дадения елемент
+            
+            </summary>
+            <param name="element">
+            EN: The element  
+            BG: Елементът
+            </param>
+            
+            <returns>
+            EN: True if the element is found  
+            BG: True ако елементът е намерен
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.FindIndexOf(`0)">
+            <summary>
+            
+            EN: Finds the index of the given element  
+            
+            BG: Намира индекса на дадения елемент
+            
+            </summary>
+            <param name="element">
+            EN: The element  
+            BG: Елементът
+            </param>
+            
+            <returns>
+            EN: The index of the element  
+            BG: Индексът на елемента
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.FindLastIndexOf(`0)">
+            <summary>
+            
+            EN: Finds the last index of the given element  
+            
+            BG: Намира последния индекс на дадения елемент
+            
+            </summary>
+            <param name="element">
+            EN: The element  
+            BG: Елементът
+            </param>
+            
+            <returns>
+            EN: The last index of the element  
+            BG: Последният индекс на елемента
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.FindElementByCondition(System.Predicate{`0})">
+            <summary>
+            
+            EN: Finds the first element that matches the condition  
+            
+            BG: Намира първия елемент, който отговаря на условието
+            
+            </summary>
+            <param name="condition">
+            EN: The predicate condition  
+            BG: Условието като предикат
+            </param>
+            
+            <returns>
+            EN: The matching element or default value  
+            BG: Съвпадащият елемент или стойност по подразбиране
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.FindElementsByCondition(System.Predicate{`0})">
+            <summary>
+            
+            EN: Finds all elements that match the condition  
+            
+            BG: Намира всички елементи, които отговарят на условието
+            
+            </summary>
+            <param name="condition">
+            EN: The predicate condition  
+            BG: Условието като предикат
+            </param>
+            
+            <returns>
+            EN: Array of matching elements or default values  
+            BG: Масив от съвпадащи елементи или стойности по подразбиране
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.SortCollection">
+            <summary>
+            
+            EN: Sorts the collection in ascending order  
+            
+            BG: Сортира колекцията във възходящ ред
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.ReverseCollection">
+            <summary>
+            
+            EN: Reverses the collection  
+            
+            BG: Обръща колекцията
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.IsTrueForAll(System.Predicate{`0})">
+            <summary>
+            
+            EN: Checks if all elements match the condition  
+            
+            BG: Проверява дали всички елементи отговарят на условието
+            
+            </summary>
+            
+            <returns>
+            EN: True if all match, otherwise false  
+            BG: True ако всички съвпадат, иначе false
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.ExecuteOnEach(System.Action{`0})">
+            <summary>
+            
+            EN: Executes an action on each element in the collection  
+            
+            BG: Изпълнява действие върху всеки елемент в колекцията
+            
+            </summary>
+            
+            <param name="command">
+            EN: The action to execute  
+            BG: Действието за изпълнение
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.TruncateCollection">
+            <summary>
+            
+            EN: Truncates the collection and resets capacity to default  
+            
+            BG: Изчиства колекцията и връща капацитета към стойността по подразбиране
+            
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Interfaces.IPair`2">
+            <summary>
+            
+            EN: 
+              Defines base interface for a key-value pair.
+              
+            BG:
+              Базов интерфейс за двойка ключ-стойност.
+            
+            </summary>
+            
+            <typeparam name="KeyType">
+             EN: The data type of the key.
+             BG: Типа данни на ключа.
+            </typeparam>
+            
+            <typeparam name="ValueType">
+             EN: The data type of the value.
+             BG: Типа данни на стойността.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IPair`2.Key">
+            <summary>
+            
+            EN:
+              Gets the key of the key-value pair.
+              
+            BG:
+              Достъпва ключа на двойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IPair`2.Value">
+            <summary>
+            
+            EN:
+              Gets the value of the key-value pair.
+              
+            BG:
+              Достъпва стойността на двойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IPair`2.KeyAndValue">
+            <summary>
+            
+            EN:
+              Returns the key and the value as tuple.
+            
+            BG:
+              Връща ключа и стойността на двойката като двойка (Tuple).
+              
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IPair`2.ReturnAsString">
+            <summary>
+            
+            EN:
+              Returns the key and the value of the pair concatenated with
+              separator as string.
+              
+            BG:
+              Връща ключа и стойността на двойката ключ-стойност конкатенирани
+              с разделител като текст (string).
+            
+            </summary>
+        </member>
+    </members>
+</doc>

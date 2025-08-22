@@ -120,12 +120,12 @@
             
             EN:
               Creates new MutableString with the maximum capacity.
-              If the boolean variable "maxCapacity" is false, the string
+              If the boolean variable "MaxCapacity" is false, the string
               will be created with the default capacity.
               
             BG:
               Създава нов променяем стринг с максимален капацитет.
-              Когато стойността на булевата променлива "maxCapacity"
+              Когато стойността на булевата променлива "MaxCapacity"
               е false, стринга ще се създаде с капацитет по подразбиране.
             
             </summary>
@@ -293,7 +293,87 @@
             
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.AbstractDataTypes.MutableString.InsertAt(System.Int32,System.String)" -->
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.InsertAt(System.Int32,System.String)">
+            <summary>
+            
+            EN:
+              Inserts the text at the given index in the string.
+              
+            BG:
+              Вмъква текста на указания индекс в стринга.
+            
+            </summary>
+            
+            <param name="index">
+             EN: The index of the symbol.
+             BG: Индекса на символа.
+            </param>
+            
+            <param name="value">
+             EN: The symbol to be inserted.
+             BG: Символа, който да бъде вмъкнат.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.SplitBy(System.String,CommonLibrary.Enums.SplitType)">
+            <summary>
+            
+            EN: 
+              Splits the text by the given separator in array of strings by the
+              specified split options.
+              Use SplitType.NoEmptyString to remove all the empty entries that occur 
+              somethimes when splittin with complicated separator.
+            
+            BG:
+              Разделя указания текст по указания разделител в масив
+              от стрингове според указаната опция за разделяне.
+              Използвай флага NoEmptyStrings на еномерациятя SplitType за да
+              премахнеш всички празни стрингове, който се получават понякога при
+              разделяне на стринга със по-сложен разделител.
+              Използвай флага KeepEmptyString на еномерацията SplitType за да
+              запазиш празните стрингове в резултата.
+            
+            </summary>
+            
+            <param name="separator">
+             EN: The separator.
+             BG: Разделителя.
+            </param>
+            
+            <param name="splitType">
+             EN: Specifies the options for splitting.
+             BG: Указва опцийте за разделяне.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.SplitAsMutable(System.String,CommonLibrary.Enums.SplitType)">
+            <summary>
+            
+            EN: 
+              Splits the text by the given separator in array of mutable strings 
+              by the specified split options.
+              Use SplitType.NoEmptyString to remove all the empty entries that occur 
+              somethimes when splittin with complicated separator.
+            
+            BG:
+              Разделя указания текст по указания разделител в масив
+              от променяеми стрингове според указаната опция за разделяне.
+              Използвай флага NoEmptyStrings на еномерациятя SplitType за да
+              премахнеш всички празни стрингове, който се получават понякога при
+              разделяне на стринга със по-сложен разделител.
+              Използвай флага KeepEmptyString на еномерацията SplitType за да
+              запазиш празните стрингове в резултата.
+            
+            </summary>
+            
+            <param name="separator">
+             EN: The separator.
+             BG: Разделителя.
+            </param>
+            
+            <param name="splitType">
+             EN: Specifies the options for splitting.
+             BG: Указва опцийте за разделяне.
+            </param>
+        </member>
         <member name="M:CommonLibrary.AbstractDataTypes.MutableString.ReturnAsArray">
             <summary>
             
@@ -374,6 +454,33 @@
             <returns>
              EN: The mutable string as object.
              BG: Връща променяемия стринг като обект.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.JoinBy(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            
+            EN:
+              Concatenates collection of strings by the specified separator.
+            
+            BG:
+              Обединява колекция от стрингове в един промеяем стринг, като ги разделя
+              с указания разделител.
+            
+            </summary>
+            
+            <param name="collection">
+             EN: The collection / array with the strings.
+             BG: Колекцията / масива със стринговете..
+            </param>
+            
+            <param name="separator">
+             EN: The separator.
+             BG: Разделителя.
+            </param>
+            
+            <returns>
+             EN: The string joined with the separator in one mutable string.
+             BG: Стринговете обединени със разделителя в един променяем стринг.
             </returns>
         </member>
         <member name="M:CommonLibrary.AbstractDataTypes.MutableString.GetEnumerator">
@@ -2194,6 +2301,48 @@
             EN: Descending sorting.
             
             BG: Низходящо сортиране.
+            
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Enums.SplitType">
+            <summary>
+            
+            EN:
+              Specifies the splitting style, when a string is splatted by separator.
+              Use NoEmptyStrings to remove the empty entries that can occur when splitting.
+              Use KeepEmptyStrings to keep the empty entries.
+            
+            BG:
+              Указва начина на разделяне на стринг по разделител.
+              Използвай флага NoEmptyStrings за да се премахнат празните стрингове,
+              който могат да се получат при разделянето.
+              Изплозвай флага KeepEmptyStrings за да запазиш празните стрингове.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.SplitType.NoEmptyStrings">
+            <summary>
+            
+            EN:
+              Indicates that the empty strings, created when splitting should be
+              removed.
+              
+            BG:
+              Индикира, че празните стрингове, получени при разделяне по разделител,
+              трябва да бъдат премахнати от резултата.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.SplitType.KeepEmptyStrings">
+            <summary>
+            
+            EN:
+              Indicates that the empty strings, created when splitting should be
+              saved.
+              
+            BG:
+              Индикира, че празните стрингове, получени при разделяне по разделител,
+              трябва да бъдат добавени в резултата.
             
             </summary>
         </member>

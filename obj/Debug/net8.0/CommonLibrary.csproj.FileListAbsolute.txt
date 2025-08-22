@@ -11,3 +11,4 @@ C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\VisualStudio\Projects\Commo
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\VisualStudio\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net8.0\ref\CommonLibrary.dll
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\VisualStudio\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.xml
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\VisualStudio\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net8.0\CommonLibrary.csproj.AssemblyReference.cache
+C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\VisualStudio\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net8.0\CommonLibrary.sourcelink.json

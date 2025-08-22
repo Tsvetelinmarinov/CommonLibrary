@@ -3,11 +3,12 @@
 
 using System;
 using System.Linq;
+using System.Collections;
+using CommonLibrary.Enums;
 using CommonLibrary.Exceptions;
 using CommonLibrary.Attributes;
 using CommonLibrary.Collections;
 using System.Collections.Generic;
-using System.Collections;
 
 namespace CommonLibrary.AbstractDataTypes
 {
@@ -48,7 +49,7 @@ namespace CommonLibrary.AbstractDataTypes
         //
         // Символа по подразбиране, който аксесора на индексатора ще върне, когато стринга е празен.
         //
-        private const char DEFSYMBOL = '\0';
+        private const char DefaultSymbol = '\0';
 
         //
         // The default capacity of the mutable string is ten symbols.
@@ -63,7 +64,7 @@ namespace CommonLibrary.AbstractDataTypes
         //
         // Максимален капацитет на стринга от един милиард символа.
         //
-        private const int MAXCAP = 1_000_000_000;
+        private const int MaxCapacity = 1_000_000_000;
 
 
         /// <summary>
@@ -87,7 +88,7 @@ namespace CommonLibrary.AbstractDataTypes
         /// </returns>
         public char this[int index]
         {
-            get => _symbols!.Count == 0 ? DEFSYMBOL : _symbols[index];
+            get => _symbols!.Count == 0 ? DefaultSymbol : _symbols[index];
             set
             {
                 ArgumentOutOfRangeException.ThrowIfNegative(value);
@@ -244,12 +245,12 @@ namespace CommonLibrary.AbstractDataTypes
         /// 
         /// EN:
         ///   Creates new MutableString with the maximum capacity.
-        ///   If the boolean variable "maxCapacity" is false, the string
+        ///   If the boolean variable "MaxCapacity" is false, the string
         ///   will be created with the default capacity.
         ///   
         /// BG:
         ///   Създава нов променяем стринг с максимален капацитет.
-        ///   Когато стойността на булевата променлива "maxCapacity"
+        ///   Когато стойността на булевата променлива "MaxCapacity"
         ///   е false, стринга ще се създаде с капацитет по подразбиране.
         /// 
         /// </summary>
@@ -263,7 +264,7 @@ namespace CommonLibrary.AbstractDataTypes
         {
             if (maxCapacity)
             {
-                Capacity = MAXCAP;
+                Capacity = MaxCapacity;
             }
         }
 
@@ -318,7 +319,7 @@ namespace CommonLibrary.AbstractDataTypes
         {
             if (maxCapacity)
             {
-                Capacity = MAXCAP;
+                Capacity = MaxCapacity;
             }
         }
 
@@ -423,7 +424,7 @@ namespace CommonLibrary.AbstractDataTypes
 
             if (index > _symbols.Count)
             {
-                throw new Error("The index can not be grater than the elements count.");
+                throw new Error("The index can not be greater than the elements count.");
             }
 
             _symbols.RemoveByIndex(index);
@@ -478,12 +479,85 @@ namespace CommonLibrary.AbstractDataTypes
         ///  BG: Индекса на символа.
         /// </param>
         /// 
-        /// <param name="value"
+        /// <param name="value">
         ///  EN: The symbol to be inserted.
         ///  BG: Символа, който да бъде вмъкнат.
         /// </param>
         public void InsertAt(int index, string value)
             => _symbols.InsertMany(index, value);
+
+        /// <summary>
+        /// 
+        /// EN: 
+        ///   Splits the text by the given separator in array of strings by the
+        ///   specified split options.
+        ///   Use SplitType.NoEmptyString to remove all the empty entries that occur 
+        ///   somethimes when splittin with complicated separator.
+        /// 
+        /// BG:
+        ///   Разделя указания текст по указания разделител в масив
+        ///   от стрингове според указаната опция за разделяне.
+        ///   Използвай флага NoEmptyStrings на еномерациятя SplitType за да
+        ///   премахнеш всички празни стрингове, който се получават понякога при
+        ///   разделяне на стринга със по-сложен разделител.
+        ///   Използвай флага KeepEmptyString на еномерацията SplitType за да
+        ///   запазиш празните стрингове в резултата.
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="separator">
+        ///  EN: The separator.
+        ///  BG: Разделителя.
+        /// </param>
+        /// 
+        /// <param name="splitType">
+        ///  EN: Specifies the options for splitting.
+        ///  BG: Указва опцийте за разделяне.
+        /// </param>
+        public string[] SplitBy(string separator, SplitType splitType)
+            => SplitStringBySeparator(Text, separator, splitType);
+
+        /// <summary>
+        /// 
+        /// EN: 
+        ///   Splits the text by the given separator in array of mutable strings 
+        ///   by the specified split options.
+        ///   Use SplitType.NoEmptyString to remove all the empty entries that occur 
+        ///   somethimes when splittin with complicated separator.
+        /// 
+        /// BG:
+        ///   Разделя указания текст по указания разделител в масив
+        ///   от променяеми стрингове според указаната опция за разделяне.
+        ///   Използвай флага NoEmptyStrings на еномерациятя SplitType за да
+        ///   премахнеш всички празни стрингове, който се получават понякога при
+        ///   разделяне на стринга със по-сложен разделител.
+        ///   Използвай флага KeepEmptyString на еномерацията SplitType за да
+        ///   запазиш празните стрингове в резултата.
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="separator">
+        ///  EN: The separator.
+        ///  BG: Разделителя.
+        /// </param>
+        /// 
+        /// <param name="splitType">
+        ///  EN: Specifies the options for splitting.
+        ///  BG: Указва опцийте за разделяне.
+        /// </param>
+        public MutableString[] SplitAsMutable(string separator, SplitType splitType)
+        {
+            string[] pieces = SplitStringBySeparator(Text, separator, splitType);
+            MutableString[] result = new MutableString[pieces.Length];
+            int index = default;
+
+            foreach (string piece in pieces)
+            {
+                result[index++] = piece;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// 
@@ -545,7 +619,7 @@ namespace CommonLibrary.AbstractDataTypes
                 return true;
             }
 
-            if (value is null)
+            if (value is null || this is null)
             {
                 return false;
             }
@@ -563,7 +637,7 @@ namespace CommonLibrary.AbstractDataTypes
         /// 
         /// </summary>
         public override int GetHashCode()
-            => GetHashCode();
+            => BuildString().GetHashCode();
 
         /// <summary>
         ///  
@@ -584,6 +658,34 @@ namespace CommonLibrary.AbstractDataTypes
         public object Clone()
             => this;
 
+        /// <summary>
+        /// 
+        /// EN:
+        ///   Concatenates collection of strings by the specified separator.
+        /// 
+        /// BG:
+        ///   Обединява колекция от стрингове в един промеяем стринг, като ги разделя
+        ///   с указания разделител.
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="collection">
+        ///  EN: The collection / array with the strings.
+        ///  BG: Колекцията / масива със стринговете..
+        /// </param>
+        /// 
+        /// <param name="separator">
+        ///  EN: The separator.
+        ///  BG: Разделителя.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  EN: The string joined with the separator in one mutable string.
+        ///  BG: Стринговете обединени със разделителя в един променяем стринг.
+        /// </returns>
+        public static MutableString JoinBy(IEnumerable<string> collection, string separator)
+            => JoinBySeparator(collection, separator);
+
 
         //
         // Builds the string.
@@ -602,6 +704,79 @@ namespace CommonLibrary.AbstractDataTypes
         private DynamicArray<char> CreateFromExtern(string externString)
             => _symbols = [.. externString];
 
+        //
+        // Splits the specified text by the specified separator
+        // in a array of strings.
+        //
+        // Разделя указания текст по указания сепаратор в масив
+        // от стрингове.
+        //
+        private string[] SplitStringBySeparator(string text, string separator, SplitType type)
+        { 
+            ArgumentNullException.ThrowIfNullOrEmpty(text);
+            ArgumentNullException.ThrowIfNullOrEmpty(separator);
+
+            Collection<string> pieces = [];
+
+            while (text != string.Empty)
+            {
+                bool hasSeparator = text.Contains(separator);
+
+                if (hasSeparator)
+                {
+                    string piece = text.Substring(0, text.IndexOf(separator));
+                    pieces.Add(piece);
+                    text = text.Remove(0, text.IndexOf(separator) + separator.Length);
+                }
+                else
+                {
+                    if (text != string.Empty)
+                    {
+                        pieces.Add(text);
+                        text = string.Empty;
+                    }
+                }
+            }
+
+            if (type == SplitType.KeepEmptyStrings)
+            {
+                return [.. pieces];
+            }
+            else if (type == SplitType.NoEmptyStrings)
+            {
+                while (pieces.ContainsElement(string.Empty))
+                {
+                    pieces.RemoveElement(string.Empty);
+                }
+            }
+
+            return [.. pieces];
+        }
+
+        // 
+        // Concatenates collection of strings by the specified separator.
+        //
+        // Обединява колекция от стрингове в един промеяем стринг, като ги разделя
+        // с указания разделител.
+        //
+        private static MutableString JoinBySeparator(IEnumerable<string> collection, string separator)
+        {
+            MutableString result = new();
+            int counter = default;
+            
+            foreach (string value in collection)
+            {
+                ++counter;
+                result.Concatenate(value);
+                
+                if (!(counter >= collection.Count()))
+                {
+                    result.Concatenate(separator);
+                }
+            }
+
+            return result;
+        }
 
         /// <inheritdoc/>
         public IEnumerator<char> GetEnumerator()

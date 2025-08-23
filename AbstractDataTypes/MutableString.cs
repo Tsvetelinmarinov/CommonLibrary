@@ -10,6 +10,7 @@ using CommonLibrary.Attributes;
 using CommonLibrary.Collections;
 using System.Collections.Generic;
 
+
 namespace CommonLibrary.AbstractDataTypes
 {
     /// <summary>
@@ -57,7 +58,7 @@ namespace CommonLibrary.AbstractDataTypes
         // Капацитета по подразбиране на променяемия стринг е десет символа.
         // Капацитета се удвоява, когато е достигнат.
         //
-        private const int DEFCAPACITY = 10;
+        private const int DefaultCapacity = 10;
 
         //
         // Maximum capacity of the string is one bilion characters.
@@ -136,13 +137,13 @@ namespace CommonLibrary.AbstractDataTypes
 
                 if (_symbols.Count == 0)
                 {
-                    if (value > DEFCAPACITY)
+                    if (value > DefaultCapacity)
                     {
                         _symbols.Capacity = value;
                     }
                     else
                     {
-                        _symbols.Capacity = DEFCAPACITY;
+                        _symbols.Capacity = DefaultCapacity;
                     }
                 }
                 else
@@ -151,9 +152,9 @@ namespace CommonLibrary.AbstractDataTypes
                     {
                         throw new Error("The capacity can not be less that the actual count of the elements.");
                     }
-                    else if (value <= DEFCAPACITY)
+                    else if (value <= DefaultCapacity)
                     {
-                        _symbols.Capacity = DEFCAPACITY;
+                        _symbols.Capacity = DefaultCapacity;
                     }
                                         
                     _symbols.Capacity = value;                  
@@ -197,7 +198,7 @@ namespace CommonLibrary.AbstractDataTypes
         /// </summary>
         public MutableString()
         {
-            _symbols = new(DEFCAPACITY);
+            _symbols = new(DefaultCapacity);
             _completeString = BuildString();
         }
 
@@ -562,19 +563,127 @@ namespace CommonLibrary.AbstractDataTypes
         /// <summary>
         /// 
         /// EN:
-        ///   Converts the mutable string to array of characters.
-        ///   
+        ///   Concatenates collection of strings by the specified separator.
+        /// 
         /// BG:
-        ///   Преобразува променяемия стринг в масив от символи.
+        ///   Обединява колекция от стрингове в един промеяем стринг, като ги разделя
+        ///   с указания разделител.
         /// 
         /// </summary>
         /// 
+        /// <param name="collection">
+        ///  EN: The collection / array with the strings.
+        ///  BG: Колекцията / масива със стринговете..
+        /// </param>
+        /// 
+        /// <param name="separator">
+        ///  EN: The separator.
+        ///  BG: Разделителя.
+        /// </param>
+        /// 
         /// <returns>
-        ///  EN: Array with the symbols of the string.
-        ///  BG: Масив със символите от стринга.
+        ///  EN: The string joined with the separator in one mutable string.
+        ///  BG: Стринговете обединени със разделителя в един променяем стринг.
         /// </returns>
-        public char[] ReturnAsArray()
-            => [.. Text];
+        public static MutableString JoinBy(string separator, IEnumerable<string> collection)
+            => JoinBySeparator(collection, separator);
+
+        /// <summary>
+        /// 
+        /// EN:
+        ///   Concatenates collection of strings by the specified separator.
+        /// 
+        /// BG:
+        ///   Обединява колекция от стрингове в един промеяем стринг, като ги разделя
+        ///   с указания разделител.
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="values">
+        ///  EN: The collection / array with the strings.
+        ///  BG: Колекцията / масива със стринговете..
+        /// </param>
+        /// 
+        /// <param name="separator">
+        ///  EN: The separator.
+        ///  BG: Разделителя.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  EN: The string joined with the separator in one mutable string.
+        ///  BG: Стринговете обединени със разделителя в един променяем стринг.
+        /// </returns>
+        public static MutableString JoinBy(string separator, params string?[] values)
+            => JoinBySeparator(values!, separator);
+
+        /// <summary>
+        ///  
+        /// EN:
+        ///   Splits the specified text by the specified separator
+        ///   by a specified split option in a array of strings.
+        /// 
+        /// BG:
+        ///   Разделя указания текст по указания сепаратор по указаните
+        ///   опций в масив от стрингове.
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="text">
+        ///  EN: The text.
+        ///  BG: Текста.
+        /// </param>
+        /// 
+        /// <param name="separator">
+        ///  EN: The separator.
+        ///  BG: Разделителя.
+        /// </param>
+        /// 
+        /// <param name="option">
+        ///  EN: The split option:
+        ///  BG: Опцийте за разделяне.
+        /// </param>
+        public static string[] SplitBy(string text, string separator, SplitType option)
+            => SplitByInternal(text, separator, option);
+
+        /// <summary>
+        ///  
+        /// EN:
+        ///   Splits the specified text by the specified separator
+        ///   by a specified split option in a array of mutable strings.
+        /// 
+        /// BG:
+        ///   Разделя указания текст по указания сепаратор по указаните
+        ///   опций в масив от променяеми стрингове.
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="text">
+        ///  EN: The text.
+        ///  BG: Текста.
+        /// </param>
+        /// 
+        /// <param name="separator">
+        ///  EN: The separator.
+        ///  BG: Разделителя.
+        /// </param>
+        /// 
+        /// <param name="option">
+        ///  EN: The split option:
+        ///  BG: Опцийте за разделяне.
+        /// </param>
+        public static MutableString[] SplitAsMutable(string text, string separator, SplitType option)
+        {
+            string[] pieces = SplitByInternal(text, separator, option);
+            MutableString[] piecesAsMutable = new MutableString[pieces.Length];
+            int index = default;
+
+            foreach (string piece in pieces)
+            {
+                piecesAsMutable[index++] = piece; 
+            }
+
+            return piecesAsMutable;
+        }
 
         /// <summary>
         ///  
@@ -592,6 +701,23 @@ namespace CommonLibrary.AbstractDataTypes
         /// </returns>
         public override string ToString()
             => BuildString();
+
+        /// <summary>
+        /// 
+        /// EN:
+        ///   Converts the mutable string to array of characters.
+        ///   
+        /// BG:
+        ///   Преобразува променяемия стринг в масив от символи.
+        /// 
+        /// </summary>
+        /// 
+        /// <returns>
+        ///  EN: Array with the symbols of the string.
+        ///  BG: Масив със символите от стринга.
+        /// </returns>
+        public char[] ReturnAsArray()
+            => [.. Text];
 
         /// <summary>
         /// 
@@ -657,34 +783,6 @@ namespace CommonLibrary.AbstractDataTypes
         /// </returns>
         public object Clone()
             => this;
-
-        /// <summary>
-        /// 
-        /// EN:
-        ///   Concatenates collection of strings by the specified separator.
-        /// 
-        /// BG:
-        ///   Обединява колекция от стрингове в един промеяем стринг, като ги разделя
-        ///   с указания разделител.
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="collection">
-        ///  EN: The collection / array with the strings.
-        ///  BG: Колекцията / масива със стринговете..
-        /// </param>
-        /// 
-        /// <param name="separator">
-        ///  EN: The separator.
-        ///  BG: Разделителя.
-        /// </param>
-        /// 
-        /// <returns>
-        ///  EN: The string joined with the separator in one mutable string.
-        ///  BG: Стринговете обединени със разделителя в един променяем стринг.
-        /// </returns>
-        public static MutableString JoinBy(IEnumerable<string> collection, string separator)
-            => JoinBySeparator(collection, separator);
 
 
         //
@@ -753,6 +851,55 @@ namespace CommonLibrary.AbstractDataTypes
             return [.. pieces];
         }
 
+        //
+        // Splits the specified text by the specified separator
+        // in a array of strings. This is base algorithm for the static method SpltBy().
+        //
+        // Разделя указания текст по указания сепаратор в масив
+        // от стрингове. Това е базов алгоритъм за статичния метотд SplitBy().
+        //
+        private static string[] SplitByInternal(string text, string separator, SplitType option)
+        {
+            ArgumentNullException.ThrowIfNullOrEmpty(text);
+            ArgumentNullException.ThrowIfNullOrEmpty(separator);
+
+            Collection<string> pieces = [];
+
+            while (text != string.Empty)
+            {
+                bool hasSeparator = text.Contains(separator);
+
+                if (hasSeparator)
+                {
+                    string piece = text.Substring(0, text.IndexOf(separator));
+                    pieces.Add(piece);
+                    text = text.Remove(0, text.IndexOf(separator) + separator.Length);
+                }
+                else
+                {
+                    if (text != string.Empty)
+                    {
+                        pieces.Add(text);
+                        text = string.Empty;
+                    }
+                }
+            }
+
+            if (option == SplitType.KeepEmptyStrings)
+            {
+                return [.. pieces];
+            }
+            else if (option == SplitType.NoEmptyStrings)
+            {
+                while (pieces.ContainsElement(string.Empty))
+                {
+                    pieces.RemoveElement(string.Empty);
+                }
+            }
+
+            return [.. pieces];
+        }
+
         // 
         // Concatenates collection of strings by the specified separator.
         //
@@ -777,6 +924,7 @@ namespace CommonLibrary.AbstractDataTypes
 
             return result;
         }
+
 
         /// <inheritdoc/>
         public IEnumerator<char> GetEnumerator()

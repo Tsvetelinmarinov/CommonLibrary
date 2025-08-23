@@ -374,21 +374,115 @@
              BG: Указва опцийте за разделяне.
             </param>
         </member>
-        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.ReturnAsArray">
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.JoinBy(System.String,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             
             EN:
-              Converts the mutable string to array of characters.
-              
+              Concatenates collection of strings by the specified separator.
+            
             BG:
-              Преобразува променяемия стринг в масив от символи.
+              Обединява колекция от стрингове в един промеяем стринг, като ги разделя
+              с указания разделител.
             
             </summary>
             
+            <param name="collection">
+             EN: The collection / array with the strings.
+             BG: Колекцията / масива със стринговете..
+            </param>
+            
+            <param name="separator">
+             EN: The separator.
+             BG: Разделителя.
+            </param>
+            
             <returns>
-             EN: Array with the symbols of the string.
-             BG: Масив със символите от стринга.
+             EN: The string joined with the separator in one mutable string.
+             BG: Стринговете обединени със разделителя в един променяем стринг.
             </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.JoinBy(System.String,System.String[])">
+            <summary>
+            
+            EN:
+              Concatenates collection of strings by the specified separator.
+            
+            BG:
+              Обединява колекция от стрингове в един промеяем стринг, като ги разделя
+              с указания разделител.
+            
+            </summary>
+            
+            <param name="values">
+             EN: The collection / array with the strings.
+             BG: Колекцията / масива със стринговете..
+            </param>
+            
+            <param name="separator">
+             EN: The separator.
+             BG: Разделителя.
+            </param>
+            
+            <returns>
+             EN: The string joined with the separator in one mutable string.
+             BG: Стринговете обединени със разделителя в един променяем стринг.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.SplitBy(System.String,System.String,CommonLibrary.Enums.SplitType)">
+            <summary>
+             
+            EN:
+              Splits the specified text by the specified separator
+              by a specified split option in a array of strings.
+            
+            BG:
+              Разделя указания текст по указания сепаратор по указаните
+              опций в масив от стрингове.
+            
+            </summary>
+            
+            <param name="text">
+             EN: The text.
+             BG: Текста.
+            </param>
+            
+            <param name="separator">
+             EN: The separator.
+             BG: Разделителя.
+            </param>
+            
+            <param name="option">
+             EN: The split option:
+             BG: Опцийте за разделяне.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.SplitAsMutable(System.String,System.String,CommonLibrary.Enums.SplitType)">
+            <summary>
+             
+            EN:
+              Splits the specified text by the specified separator
+              by a specified split option in a array of mutable strings.
+            
+            BG:
+              Разделя указания текст по указания сепаратор по указаните
+              опций в масив от променяеми стрингове.
+            
+            </summary>
+            
+            <param name="text">
+             EN: The text.
+             BG: Текста.
+            </param>
+            
+            <param name="separator">
+             EN: The separator.
+             BG: Разделителя.
+            </param>
+            
+            <param name="option">
+             EN: The split option:
+             BG: Опцийте за разделяне.
+            </param>
         </member>
         <member name="M:CommonLibrary.AbstractDataTypes.MutableString.ToString">
             <summary>
@@ -404,6 +498,22 @@
             <returns>
             EN: The string representation of the class.
             BG: Стринга.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.ReturnAsArray">
+            <summary>
+            
+            EN:
+              Converts the mutable string to array of characters.
+              
+            BG:
+              Преобразува променяемия стринг в масив от символи.
+            
+            </summary>
+            
+            <returns>
+             EN: Array with the symbols of the string.
+             BG: Масив със символите от стринга.
             </returns>
         </member>
         <member name="M:CommonLibrary.AbstractDataTypes.MutableString.Equals(System.Object)">
@@ -454,33 +564,6 @@
             <returns>
              EN: The mutable string as object.
              BG: Връща променяемия стринг като обект.
-            </returns>
-        </member>
-        <member name="M:CommonLibrary.AbstractDataTypes.MutableString.JoinBy(System.Collections.Generic.IEnumerable{System.String},System.String)">
-            <summary>
-            
-            EN:
-              Concatenates collection of strings by the specified separator.
-            
-            BG:
-              Обединява колекция от стрингове в един промеяем стринг, като ги разделя
-              с указания разделител.
-            
-            </summary>
-            
-            <param name="collection">
-             EN: The collection / array with the strings.
-             BG: Колекцията / масива със стринговете..
-            </param>
-            
-            <param name="separator">
-             EN: The separator.
-             BG: Разделителя.
-            </param>
-            
-            <returns>
-             EN: The string joined with the separator in one mutable string.
-             BG: Стринговете обединени със разделителя в един променяем стринг.
             </returns>
         </member>
         <member name="M:CommonLibrary.AbstractDataTypes.MutableString.GetEnumerator">

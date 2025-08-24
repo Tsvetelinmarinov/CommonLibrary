@@ -9,13 +9,11 @@
             
             EN:
               Defines mutable string, represented as array of characters with dynamic size.
-              Provides method for manipulating MutableString and normal string.
+              Provides methods for manipulating MutableString.
               
             BG:
-              Променяем стринг. Предтавен е на системно ниво като масив от символи с динамичен
-              размер. Предоставя набор от методи за манипулиране на MutableString и на обикновен 
-              string.
-            
+              Променяем стринг. Представен е на системно ниво като масив от символи с динамичен
+              размер. Предоставя набор от методи за манипулиране на MutableString.
             </summary>
         </member>
         <member name="P:CommonLibrary.AbstractDataTypes.MutableString.Item(System.Int32)">
@@ -1511,6 +1509,47 @@
         <member name="M:CommonLibrary.Collections.Common.CommonList.GetEnumerator">
             <inheritdoc/>
         </member>
+        <member name="T:CommonLibrary.Collections.Common.CommonPair">
+            <summary>
+            
+            EN:
+              CommonPair defines a key value pair where the key and the value are objects(data type System.Object).
+              
+             БГ:
+               CommonPair представлява обща двойка ключ-стойност, като под обща се
+               има в предвид, че типа данни на ключа и на стойността е System.Object, тоест те
+               са обекти и това позволява гъвкавост на двойката ключ-стойност и на кода като цяло, но
+               за сметка на сигурността.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Common.CommonPair.Key">
+            <summary>
+            
+            EN:
+              Gets the key of the key value pair.
+              
+            BG:
+              Достъпва ключа на дойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:CommonLibrary.Collections.Common.CommonPair.Value" -->
+        <!-- Badly formed XML comment ignored for member "P:CommonLibrary.Collections.Common.CommonPair.KeyAndValue" -->
+        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.Collections.Common.CommonPair.ReturnAsString" -->
+        <member name="M:CommonLibrary.Collections.Common.CommonPair.Clone">
+            <summary>
+            
+            EN:
+              Returns the key-value pair as object, which can be casted to
+              pair data type.
+              
+            BG:
+              Връща двойката ключ-стойност като обект, който да бъде конвертиран 
+              към типа данни на двойката (така работи клонирането).
+            
+            </summary>
+        </member>
         <member name="T:CommonLibrary.Collections.DynamicArray`1">
             <summary>
             
@@ -2999,6 +3038,63 @@
              EN: Array with random generated numbers.
              BG: Масив от случайно генерирани числа.
             </returns>
+        </member>
+        <member name="T:CommonLibrary.Interfaces.ICommonPair">
+            <summary>
+            
+            EN:
+              Base interface for a common key-value pair.
+              
+            БГ:
+              Базов интерфейс за обща двойка ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.ICommonPair.Key">
+            <summary>
+            
+            EN:
+              Gets the key of the key-value pair.
+              
+            BG:
+              Достъпва ключа на двойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.ICommonPair.Value">
+            <summary>
+            
+            EN:
+              Gets the value of the key-value pair.
+              
+            BG:
+              Достъпва стойността на двойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.ICommonPair.KeyAndValue">
+            <summary>
+            
+            EN:
+              Returns the key and the value as tuple.
+            
+            BG:
+              Връща ключа и стойността на двойката като двойка (Tuple).
+              
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.ICommonPair.ReturnAsString">
+            <summary>
+            
+            EN:
+              Returns the key and the value of the pair concatenated with
+              separator as string.
+              
+            BG:
+              Връща ключа и стойността на двойката ключ-стойност конкатенирани
+              с разделител като текст (string).
+            
+            </summary>
         </member>
         <member name="T:CommonLibrary.Interfaces.IDynamicArray`1">
             <summary>

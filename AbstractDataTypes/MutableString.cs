@@ -10,23 +10,20 @@ using CommonLibrary.Attributes;
 using CommonLibrary.Collections;
 using System.Collections.Generic;
 
-
 namespace CommonLibrary.AbstractDataTypes
 {
     /// <summary>
     /// 
     /// EN:
     ///   Defines mutable string, represented as array of characters with dynamic size.
-    ///   Provides method for manipulating MutableString and normal string.
+    ///   Provides methods for manipulating MutableString.
     ///   
     /// BG:
-    ///   Променяем стринг. Предтавен е на системно ниво като масив от символи с динамичен
-    ///   размер. Предоставя набор от методи за манипулиране на MutableString и на обикновен 
-    ///   string.
-    /// 
+    ///   Променяем стринг. Представен е на системно ниво като масив от символи с динамичен
+    ///   размер. Предоставя набор от методи за манипулиране на MutableString.
     /// </summary>
     [Author("Tsvetelin Marinov")]
-    [Usage("Use it in the case that you need to manupulate a string too many times.")]
+    [Usage("Used in case that the user needs to manipulates a string too many times.")]
     public class MutableString : IEnumerable<char>, ICloneable
     {
         //
@@ -46,7 +43,7 @@ namespace CommonLibrary.AbstractDataTypes
         private readonly string _completeString;
 
         //
-        // The default symbol that the indexator's accessor will show if the string is empty.
+        // The default symbol that the indexer's accessor will show if the string is empty.
         //
         // Символа по подразбиране, който аксесора на индексатора ще върне, когато стринга е празен.
         //
@@ -516,7 +513,7 @@ namespace CommonLibrary.AbstractDataTypes
         ///  BG: Указва опцийте за разделяне.
         /// </param>
         public string[] SplitBy(string separator, SplitType splitType)
-            => SplitStringBySeparator(Text, separator, splitType);
+            => SplitByInstance(Text, separator, splitType);
 
         /// <summary>
         /// 
@@ -548,7 +545,7 @@ namespace CommonLibrary.AbstractDataTypes
         /// </param>
         public MutableString[] SplitAsMutable(string separator, SplitType splitType)
         {
-            string[] pieces = SplitStringBySeparator(Text, separator, splitType);
+            string[] pieces = SplitByInstance(Text, separator, splitType);
             MutableString[] result = new MutableString[pieces.Length];
             int index = default;
 
@@ -643,7 +640,7 @@ namespace CommonLibrary.AbstractDataTypes
         ///  BG: Опцийте за разделяне.
         /// </param>
         public static string[] SplitBy(string text, string separator, SplitType option)
-            => SplitByInternal(text, separator, option);
+            => SplitByStatic(text, separator, option);
 
         /// <summary>
         ///  
@@ -673,7 +670,7 @@ namespace CommonLibrary.AbstractDataTypes
         /// </param>
         public static MutableString[] SplitAsMutable(string text, string separator, SplitType option)
         {
-            string[] pieces = SplitByInternal(text, separator, option);
+            string[] pieces = SplitByStatic(text, separator, option);
             MutableString[] piecesAsMutable = new MutableString[pieces.Length];
             int index = default;
 
@@ -809,7 +806,7 @@ namespace CommonLibrary.AbstractDataTypes
         // Разделя указания текст по указания сепаратор в масив
         // от стрингове.
         //
-        private string[] SplitStringBySeparator(string text, string separator, SplitType type)
+        private string[] SplitByInstance(string text, string separator, SplitType type)
         { 
             ArgumentNullException.ThrowIfNullOrEmpty(text);
             ArgumentNullException.ThrowIfNullOrEmpty(separator);
@@ -858,7 +855,7 @@ namespace CommonLibrary.AbstractDataTypes
         // Разделя указания текст по указания сепаратор в масив
         // от стрингове. Това е базов алгоритъм за статичния метотд SplitBy().
         //
-        private static string[] SplitByInternal(string text, string separator, SplitType option)
+        private static string[] SplitByStatic(string text, string separator, SplitType option)
         {
             ArgumentNullException.ThrowIfNullOrEmpty(text);
             ArgumentNullException.ThrowIfNullOrEmpty(separator);

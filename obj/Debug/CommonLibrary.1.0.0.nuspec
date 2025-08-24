@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>Tsvetelin Marinov</authors>
     <description>Library for common usage</description>
-    <repository type="git" commit="387e4e484a2f07434517d0fee802cf2dee603f45" />
+    <repository type="git" commit="2ec3760056a389f5b2a7524c6b72dcfa644d95e7" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="System.Drawing.Common" version="9.0.8" exclude="Build,Analyzers" />
@@ -13,7 +13,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\VisualStudio\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.dll" target="lib\net8.0\CommonLibrary.dll" />
-    <file src="C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\VisualStudio\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.xml" target="lib\net8.0\CommonLibrary.xml" />
+    <file src="C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.dll" target="lib\net8.0\CommonLibrary.dll" />
+    <file src="C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.xml" target="lib\net8.0\CommonLibrary.xml" />
   </files>
 </package>

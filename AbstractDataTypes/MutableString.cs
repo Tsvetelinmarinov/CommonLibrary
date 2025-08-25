@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using CommonLibrary.Enums;
+using CommonLibrary.Helpers;
 using CommonLibrary.Exceptions;
 using CommonLibrary.Attributes;
 using CommonLibrary.Collections;
@@ -809,9 +810,15 @@ namespace CommonLibrary.AbstractDataTypes
         private string[] SplitByInstance(string text, string separator, SplitType type)
         { 
             ArgumentNullException.ThrowIfNullOrEmpty(text);
-            ArgumentNullException.ThrowIfNullOrEmpty(separator);
+            ArgumentNullException.ThrowIfNull(separator);
 
             Collection<string> pieces = [];
+
+            if (separator == string.Empty)
+            {
+                CollectionHelper.ExecuteOnEachElement(symbol => pieces.Add(symbol.ToString()), text);
+                return [.. pieces];
+            }
 
             while (text != string.Empty)
             {
@@ -858,7 +865,7 @@ namespace CommonLibrary.AbstractDataTypes
         private static string[] SplitByStatic(string text, string separator, SplitType option)
         {
             ArgumentNullException.ThrowIfNullOrEmpty(text);
-            ArgumentNullException.ThrowIfNullOrEmpty(separator);
+            ArgumentNullException.ThrowIfNull(separator);
 
             Collection<string> pieces = [];
 

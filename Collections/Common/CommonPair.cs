@@ -21,8 +21,7 @@ namespace CommonLibrary.Collections.Common
     /// 
     /// </summary>
     [Author("Tsvetelin Marinov")]
-    [Description("Common key-value pair")]
-    [Usage("Used when the user needs a key-value pair, but dont know the data type of the key and the value")]
+    [Description("Non-generic key-value pair")]
     public class CommonPair : ICommonPair, ICloneable
     {
         //
@@ -30,14 +29,14 @@ namespace CommonLibrary.Collections.Common
         //
         // Съдържа ключа на двойката ключ-стойност.
         //
-        private object? _key;
+        private readonly object? _key;
 
         //
         // Holds the value of the key-value pair.
         //
         // Съдържа стойността на двойката ключ-стойност.
         //
-        private object? _value;
+        private readonly object? _value;
 
 
         /// <summary>
@@ -81,6 +80,37 @@ namespace CommonLibrary.Collections.Common
         {
             get => (_key, _value);
         }
+
+
+#pragma warning disable IDE0290 
+        /// <summary>
+        /// 
+        /// EN:
+        ///   Creates new common pair with the specified
+        ///   key and value.
+        /// 
+        /// BG:
+        ///   Създава нова двойка ключ-стойност с указаните
+        ///   ключ и стойност.
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="key">
+        ///  EN: The key as object.
+        ///  BG: Ключа като обект.
+        /// </param>
+        /// 
+        /// <param name="value">
+        ///  EN: The value as object.
+        ///  BG: Стойността като обект.
+        /// </param>
+        public CommonPair(object? key, object? value)
+        {
+            _key = key;
+            _value = value;
+        }
+#pragma warning restore IDE0290 
+
 
         /// <summary>
         /// 

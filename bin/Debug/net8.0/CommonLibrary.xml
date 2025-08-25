@@ -1536,6 +1536,29 @@
         </member>
         <!-- Badly formed XML comment ignored for member "P:CommonLibrary.Collections.Common.CommonPair.Value" -->
         <!-- Badly formed XML comment ignored for member "P:CommonLibrary.Collections.Common.CommonPair.KeyAndValue" -->
+        <member name="M:CommonLibrary.Collections.Common.CommonPair.#ctor(System.Object,System.Object)">
+            <summary>
+            
+            EN:
+              Creates new common pair with the specified
+              key and value.
+            
+            BG:
+              Създава нова двойка ключ-стойност с указаните
+              ключ и стойност.
+            
+            </summary>
+            
+            <param name="key">
+             EN: The key as object.
+             BG: Ключа като обект.
+            </param>
+            
+            <param name="value">
+             EN: The value as object.
+             BG: Стойността като обект.
+            </param>
+        </member>
         <!-- Badly formed XML comment ignored for member "M:CommonLibrary.Collections.Common.CommonPair.ReturnAsString" -->
         <member name="M:CommonLibrary.Collections.Common.CommonPair.Clone">
             <summary>

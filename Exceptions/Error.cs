@@ -10,7 +10,7 @@ namespace CommonLibrary.Exceptions
     /// <summary>
     /// 
     /// EN:
-    ///   Defines common error. The default exception for eeverything.
+    ///   Defines common error. The default exception for everything.
     /// 
     /// BG:
     ///   Представлява обща грешка. Може да се третира като

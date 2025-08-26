@@ -216,7 +216,8 @@ namespace CommonLibrary.Collections
         /// Създава нова празна колекция с капацитет по подразбиране.
         /// 
         /// </summary>
-        public Collection()
+        public Collection() 
+            : base()
         {
             _data = new List<DataType>(DEFCAPACITY);
         }
@@ -231,7 +232,6 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public Collection(bool maxCapacity)
-            : this()
         {
             if (maxCapacity)
             {

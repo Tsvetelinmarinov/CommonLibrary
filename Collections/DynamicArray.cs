@@ -82,15 +82,18 @@ namespace CommonLibrary.Collections
             get
             {
                 ArgumentOutOfRangeException.ThrowIfNegative(index);
-                ArgumentOutOfRangeException.ThrowIfGreaterThan(index, _elements.Count - 1);
-                ArgumentOutOfRangeException.ThrowIfNegativeOrZero(_elements.Count);
 
                 return _elements[index];                      
             }
             set
             {
                 ArgumentOutOfRangeException.ThrowIfNegative(index);
-                ArgumentOutOfRangeException.ThrowIfGreaterThan(index, _elements.Count - 1);
+
+                if (_elements!.Count > 0)
+                {
+                    ArgumentOutOfRangeException.ThrowIfGreaterThan(index, _elements.Count - 1);
+                }
+
                 ArgumentNullException.ThrowIfNull(value);
 
                 _elements[index] = value;

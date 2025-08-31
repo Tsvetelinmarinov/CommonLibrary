@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.ComponentModel;
 using CommonLibrary.Attributes;
+using CommonLibrary.Exceptions;
 using CommonLibrary.Collections;
 using System.Security.Cryptography;
 
@@ -57,7 +58,11 @@ namespace CommonLibrary.Helpers
         public int Start
         {
             get => _start;
-            set => _start = value;           
+            set 
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative(value);
+                _start = value;
+            }           
         }
 
         /// <summary>
@@ -72,7 +77,11 @@ namespace CommonLibrary.Helpers
         public int End
         {
             get => _end;
-            set => _end = value;
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative(value);
+                _end = value;
+            }
         }
 
 #pragma warning disable IDE0290
@@ -89,7 +98,12 @@ namespace CommonLibrary.Helpers
         /// 
         /// </summary>
         public NumberGenerator(int start, int end)
-        { 
+        {
+            if (start > end)
+            {
+                throw new InvalidDiapasonException("The start of the diapason can not be greater than the end.");
+            }
+
             Start = start;
             End = end;
         }
@@ -107,30 +121,10 @@ namespace CommonLibrary.Helpers
         /// </summary>
         public int Generate()
         {
-            // New byte array for 4 radnom bytes.
-            // 4 bytes are 32 bits - enough for an integer.
-            //
-            // Нов масив от байтове с капацитет 4 байта.
-            // В него ще се запишат 4 пройзволни байта, от който да се създаде цяло число
-            // от тип данни int (Int32).
-            // 1 байт е 8 бита , тоест 4 байта са 32 бита - достатъчно памет за едно
-            // цяло число (Int32).
             byte[] sourceBytes = new byte[4];
-
-            // Fill the byte array with random bytes.
-            //
-            // Напълва масива с 4 пройзволни байта.
             RandomNumberGenerator.Fill(sourceBytes);
 
-            // Converts the byte array to an integer of type int (Int32).
-            //
-            // Конвертира масива от 4-те байта в 32 битово цяло число от тип данни
-            // int (Int32).
             int number = BitConverter.ToInt32(sourceBytes, 0);
-
-            // Generate random number.
-            //
-            // Генерирания случаен номер в желания диапазон.
             int diapason = _end - _start;
             number = _start + Math.Abs(number) % diapason;
 

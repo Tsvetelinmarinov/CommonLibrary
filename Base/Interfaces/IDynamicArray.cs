@@ -8,7 +8,7 @@ using CommonLibrary.Attributes;
 using CommonLibrary.Exceptions;
 using System.Collections.Generic;
 
-namespace CommonLibrary.Interfaces
+namespace CommonLibrary.Base.Interfaces
 {
     /// <summary>
     /// 

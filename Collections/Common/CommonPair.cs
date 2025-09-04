@@ -4,7 +4,7 @@
 using System;
 using System.ComponentModel;
 using CommonLibrary.Attributes;
-using CommonLibrary.Interfaces;
+using CommonLibrary.Base.Interfaces;
 
 namespace CommonLibrary.Collections.Common
 {

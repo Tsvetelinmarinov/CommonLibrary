@@ -1,9 +1,13 @@
 ﻿// CommonLibrary - library for common usage.
 // CommonLibrary - библиотека с общо предназначение.
 
+
+// CommonLibrary - library for common usage.
+// CommonLibrary - библиотека с общо предназначение.
+
 using CommonLibrary.Attributes;
 
-namespace CommonLibrary.Interfaces
+namespace CommonLibrary.Base.Interfaces
 {
     /// <summary>
     /// 

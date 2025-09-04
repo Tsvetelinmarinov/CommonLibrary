@@ -5,9 +5,9 @@ using System;
 using System.Linq;
 using System.ComponentModel;
 using CommonLibrary.Attributes;
-using CommonLibrary.Interfaces;
 using CommonLibrary.Exceptions;
 using CommonLibrary.Collections;
+using CommonLibrary.Base.Interfaces;
 
 namespace CommonLibrary.AbstractDataTypes
 {

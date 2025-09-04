@@ -5,11 +5,11 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.ComponentModel;
-using CommonLibrary.Interfaces;
 using CommonLibrary.Attributes;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CommonLibrary.Enums;
+using CommonLibrary.Base.Interfaces;
 
 namespace CommonLibrary.Collections
 {

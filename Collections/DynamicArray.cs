@@ -5,10 +5,10 @@ using System;
 using System.Collections;
 using CommonLibrary.Enums;
 using System.ComponentModel;
-using CommonLibrary.Interfaces;
 using CommonLibrary.Attributes;
 using System.Collections.Generic;
 using CommonLibrary.Helpers;
+using CommonLibrary.Base.Interfaces;
 namespace CommonLibrary.Collections
 {
     /// <summary>

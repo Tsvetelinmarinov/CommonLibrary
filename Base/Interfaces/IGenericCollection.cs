@@ -7,7 +7,7 @@ using CommonLibrary.Attributes;
 using System.Collections.Generic;
 
 
-namespace CommonLibrary.Interfaces
+namespace CommonLibrary.Base.Interfaces
 {
     /// <summary>
     /// 

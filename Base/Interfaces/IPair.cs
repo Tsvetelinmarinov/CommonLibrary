@@ -4,20 +4,30 @@
 using System.ComponentModel;
 using CommonLibrary.Attributes;
 
-namespace CommonLibrary.Interfaces
+namespace CommonLibrary.Base.Interfaces
 {
     /// <summary>
     /// 
-    /// EN:
-    ///   Base interface for a common key-value pair.
+    /// EN: 
+    ///   Defines base interface for a key-value pair.
     ///   
-    /// БГ:
-    ///   Базов интерфейс за обща двойка ключ-стойност.
+    /// BG:
+    ///   Базов интерфейс за двойка ключ-стойност.
     /// 
     /// </summary>
+    /// 
+    /// <typeparam name="KeyType">
+    ///  EN: The data type of the key.
+    ///  BG: Типа данни на ключа.
+    /// </typeparam>
+    /// 
+    /// <typeparam name="ValueType">
+    ///  EN: The data type of the value.
+    ///  BG: Типа данни на стойността.
+    /// </typeparam>
     [Author("Tsvetelin Marinov")]
-    [Description("Base interface for a commom key-value pair")]
-    public interface ICommonPair
+    [Description("Base interface for a key-value pair")]
+    public interface IPair<KeyType, ValueType>
     {
         /// <summary>
         /// 
@@ -28,7 +38,7 @@ namespace CommonLibrary.Interfaces
         ///   Достъпва ключа на двойката ключ-стойност.
         /// 
         /// </summary>
-        object? Key
+        KeyType Key
         {
             get;
         }
@@ -42,7 +52,7 @@ namespace CommonLibrary.Interfaces
         ///   Достъпва стойността на двойката ключ-стойност.
         /// 
         /// </summary>
-        public object? Value
+        public ValueType Value
         {
             get;
         }
@@ -56,7 +66,7 @@ namespace CommonLibrary.Interfaces
         ///   Връща ключа и стойността на двойката като двойка (Tuple).
         ///   
         /// </summary>
-        public (object?, object?) KeyAndValue
+        public (KeyType, ValueType) KeyAndValue
         {
             get;
         }

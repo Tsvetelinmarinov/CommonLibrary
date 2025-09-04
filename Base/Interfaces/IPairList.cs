@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace CommonLibrary.Interfaces
+namespace CommonLibrary.Base.Interfaces
 {
     /// <summary>
     /// 
@@ -384,6 +384,6 @@ namespace CommonLibrary.Interfaces
         /// consider changing it to:  
         /// <code>public abstract Pair&lt;KeyType, ValueType&gt;[] ReturnAsArray();</code>
         /// </remarks>
-        public abstract void ReturnAsArray();
+        public abstract Pair<KeyType, ValueType>[] ReturnAsArray();
     }
 }

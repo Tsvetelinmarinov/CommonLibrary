@@ -4506,6 +4506,43 @@
              Връща асоциативния масив като обект.
             </summary>
         </member>
+        <member name="T:CommonLibrary.Enums.BitState">
+            <summary>
+            
+            EN:
+              Provides flags that indicate the state of the bit at the given position 
+              in the "ChangeBitAt()" method in the BinaryHelper class.
+              
+            BG:
+              Предоставя флагове за състоянието на даден бит за "ChangeBitAt()" метода
+              в класа BinaryHelper.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.BitState.SwitchOn">
+            <summary>
+            
+            EN:
+              Indicates that the bit should be switched on.
+              
+            BG:
+              Индикира, че бита трябва да бъде включен, 
+              тоест да присвой стойност 1.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.BitState.SwitchOff">
+            <summary>
+            
+            EN:
+              Indicates that the bit should be switched off.
+              
+            BG:
+              Индикира, че бита трябва да бъде изключен, 
+              тоест да присвой стойност 0.
+            
+            </summary>
+        </member>
         <member name="T:CommonLibrary.Enums.Day">
             <summary>
             
@@ -4808,6 +4845,71 @@
             <returns>
              EN: Binary string.
              BG: Двойчен стринг.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.ConvertBinaryToInt(System.String)">
+            <summary>
+            
+            EN:
+              Converts the binary string to a integer.
+              
+            BG:
+              Конвертира двойчния стринг в цяло число.
+            
+            </summary>
+            
+            <param name="binary">
+             EN: The binary string to be converted.
+             BG: Двойчния стринг, който ще се конвертира.
+            </param>
+            
+            <returns>
+             EN: Integer.
+             BG: Цяло число, получено от двойчния стринг.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.ChangeBitAt(System.Int32,System.Int32,CommonLibrary.Enums.BitState)">
+            <summary>
+            
+            EN:
+              Changes the bit at the given position.
+              The first index in the binary is the last bit.
+              The index is incremented at every nex bit, but the 
+              direction of indexing is from left to rigth.
+              The state of the bit is indicated by a flag from the
+              enumeration "BitState".
+              Use flag "SwitchOn" to switch on the bit(set the value to 1).
+              Use flag "SwitchOff" to switch off the bit(set the value to 0).
+              
+            BG:
+               Променя състоянието на даден бит на дадена позиция.
+               Позициятя на бита е неговия индекс в машинния код.
+               Индекирането става от ляво на дясно, тоест на индекс 0
+               е последния бит. Състоянието на бита се указва с флаг
+               от еномерацията "BitState".
+               Използвай флага "SwitchOn" за да вкючиш бита(да му зададеш стойност 1).
+               Използвай флага "SwitchOff" за да изкючиш бита(да му зададеш стойност 0).
+            
+            </summary>
+            
+            <param name="number">
+             EN: The number.
+             BG: Числото.
+            </param>
+            
+            <param name="index">
+             EN: The position of the bit in the number.
+             BG: Позицията на бита в числото(в машинния му код). 
+            </param>
+            
+            <param name="state">
+             BG: The state of the bit.
+             BG: Съзтоянието на бита. Дали да е включен или не.
+            </param>
+            
+            <returns>
+             EN: The result as new integer.
+             BG: Резултата като цяло число.+
             </returns>
         </member>
         <member name="T:CommonLibrary.Helpers.CollectionHelper">

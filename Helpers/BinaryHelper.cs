@@ -3,9 +3,12 @@
 
 using System;
 using System.ComponentModel;
+using CommonLibrary.Exceptions;
 using CommonLibrary.Attributes;
 using CommonLibrary.Collections;
 using CommonLibrary.AbstractDataTypes;
+using System.Text.RegularExpressions;
+using CommonLibrary.Enums;
 
 namespace CommonLibrary.Helpers
 {
@@ -50,19 +53,16 @@ namespace CommonLibrary.Helpers
             }
             else if (number < 0)
             {
-                number = Math.Abs(number); // If the number is negative, get the module of the number                                             
-            }                             // and work with the module. 
+                number = Math.Abs(number);                                              
+            }                             
 
             MutableString binary = string.Empty;
 
             while (number > 0)
             {
-                int rem = number % 2; // get the remainder: 0 or 1.
-
-                binary.InsertAt(0, rem.ToString()); // Insert the bit(the remainder) at the first position in the 
-                                                    // binary string.
-
-                number /= 2; // Devide the number with 2.
+                int rem = number % 2; 
+                binary.InsertAt(0, rem.ToString());                                                    
+                number /= 2;
             }
 
             return
@@ -90,6 +90,9 @@ namespace CommonLibrary.Helpers
         /// </returns>
         public static string ConvertStringToBinary(string text)
         {
+            ArgumentNullException.ThrowIfNullOrEmpty(text);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(text);
+
             Collection<int> symbolsBase = [];
             CollectionHelper.ExecuteOnEachElement(symbol => symbolsBase.Add(symbol), text);
 
@@ -104,6 +107,121 @@ namespace CommonLibrary.Helpers
 
             return
                 finalBinary.ToString();
+        }
+
+        /// <summary>
+        /// 
+        /// EN:
+        ///   Converts the binary string to a integer.
+        ///   
+        /// BG:
+        ///   Конвертира двойчния стринг в цяло число.
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="binary">
+        ///  EN: The binary string to be converted.
+        ///  BG: Двойчния стринг, който ще се конвертира.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  EN: Integer.
+        ///  BG: Цяло число, получено от двойчния стринг.
+        /// </returns>
+        public static int ConvertBinaryToInt(string binary)
+        {
+            ArgumentNullException.ThrowIfNull(binary);
+            ArgumentOutOfRangeException.ThrowIfNegativeOrZero(binary.Length);
+
+            if (binary.StartsWith("0b"))
+            {
+                binary = binary.Remove(0, 2);
+            }
+
+            if (binary.Length > 32)
+            {
+                throw new Error("Binary can not be with more than 32 bits.");
+            }
+
+            int result = default;
+            string validBinPattern = @"(?<Bit>[0-1])+";
+            bool isValid = Regex.IsMatch(binary, validBinPattern);
+
+            if (isValid)
+            {
+                int exponent = default;
+                for (int i = binary.Length - 1; i >= 0; i--)
+                {
+                    result += (int)(int.Parse(binary[i].ToString()) * Math.Pow(2, exponent++));
+                }
+            }
+
+            return 
+                result;
+        }
+
+        /// <summary>
+        /// 
+        /// EN:
+        ///   Changes the bit at the given position.
+        ///   The first index in the binary is the last bit.
+        ///   The index is incremented at every nex bit, but the 
+        ///   direction of indexing is from left to rigth.
+        ///   The state of the bit is indicated by a flag from the
+        ///   enumeration "BitState".
+        ///   Use flag "SwitchOn" to switch on the bit(set the value to 1).
+        ///   Use flag "SwitchOff" to switch off the bit(set the value to 0).
+        ///   
+        /// BG:
+        ///    Променя състоянието на даден бит на дадена позиция.
+        ///    Позициятя на бита е неговия индекс в машинния код.
+        ///    Индекирането става от ляво на дясно, тоест на индекс 0
+        ///    е последния бит. Състоянието на бита се указва с флаг
+        ///    от еномерацията "BitState".
+        ///    Използвай флага "SwitchOn" за да вкючиш бита(да му зададеш стойност 1).
+        ///    Използвай флага "SwitchOff" за да изкючиш бита(да му зададеш стойност 0).
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  EN: The number.
+        ///  BG: Числото.
+        /// </param>
+        /// 
+        /// <param name="index">
+        ///  EN: The position of the bit in the number.
+        ///  BG: Позицията на бита в числото(в машинния му код). 
+        /// </param>
+        /// 
+        /// <param name="state">
+        ///  BG: The state of the bit.
+        ///  BG: Съзтоянието на бита. Дали да е включен или не.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  EN: The result as new integer.
+        ///  BG: Резултата като цяло число.+
+        /// </returns>
+        public static int ChangeBitAt(int number, int index, BitState state = BitState.SwitchOff)
+        {
+            ArgumentOutOfRangeException.ThrowIfNegative(index);
+            ArgumentNullException.ThrowIfNull(state);
+
+            if (index > ConvertIntToBinary(number).Length)
+            {
+                throw new Error("The index can not be outside of the bounds of the binary");
+            }
+
+            int mask; // The mask should be different.
+
+            if (state == BitState.SwitchOn)
+            {
+                mask = 1 << index;
+                return number | mask;
+            }
+
+            mask = ~(1 << index);
+            return number & mask;
         }
     }
 }

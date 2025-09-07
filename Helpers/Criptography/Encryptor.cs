@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.ComponentModel;
 using CommonLibrary.Attributes;
+using CommonLibrary.AbstractDataTypes;
 
 namespace CommonLibrary.Helpers.Criptography
 {
@@ -14,13 +15,16 @@ namespace CommonLibrary.Helpers.Criptography
     ///   Provides set of static methods for encrypting and decrypting 
     ///   file content with a key. The encryptor encrypts a file by iterating
     ///   over all symbols of the file content and apply XOR (^) bitwise operation
-    ///   with the key with each of them. The decrypting operation is the same as enctypting.
+    ///   with the key with each of them. The decrypting operation is the same as encryption.
+    ///   The key for the encryption and decryption processes can be set by the "Key" property.
     /// 
     /// BG:
     ///   Предоставя набор от статични методи за криптиране и декриптиране на съдържание на файл с ключ.
     ///   Крипторът шифрира файл, като обхожда всички символи от съдържанието на файла и
     ///   прилага побитова операция XOR (^) (побитово изключващо ИЛИ) с ключа върху всеки от тях. 
     ///   Операцията по декриптиране е същата като при криптиране.
+    ///   Ключа за шифроване и дешифроване може да бъде достъпен и променен от 
+    ///   свойството "Key" на класа.
     /// 
     /// </summary>
     [Author("Tsvetelin Marinov")]
@@ -28,12 +32,31 @@ namespace CommonLibrary.Helpers.Criptography
     [Usage("Used to encrypt and decrypt file content")]
     public static class Encryptor
     {
-        //
-        // The key for the encryptiong.
-        //
-        // Ключа за шифроване.
-        //
-        private const ushort Key = 666;
+        /// <summary>
+        ///  
+        ///  EN:
+        ///    The key for the encryptiong.
+        ///  
+        ///  BG:
+        ///    Ключа за шифроване.
+        /// 
+        /// </summary>
+        private static long _key = 666;
+
+        /// <summary>
+        /// 
+        /// EN:
+        ///   Gets or sets the key for the encyption and decryption processes.
+        ///   
+        /// BG:
+        ///   Достъпва или променя ключа за шифроване и дешифроване.
+        /// 
+        /// </summary>
+        public static long Key
+        {
+            get => _key;
+            set => _key = value;
+        }
 
 
         /// <summary>
@@ -77,13 +100,12 @@ namespace CommonLibrary.Helpers.Criptography
             ArgumentNullException.ThrowIfNullOrEmpty(directory);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(directory);
 
-            string fileName = directory.Substring(directory.LastIndexOf("\\") + 1);
-            string newFilePath = directory.Substring(0, directory.Length - fileName.Length);
-
-            newFilePath += $"secret_{fileName}";
+            string fileName = directory.Substring(directory.LastIndexOf('\\') + 1);
+            MutableString newFilePath = directory.Substring(0, directory.Length - fileName.Length);
+            newFilePath.Concatenate($"secret_{fileName}");
 
             using FileStream inputStream = new(directory, FileMode.Open);
-            using FileStream outputStream = new(newFilePath, FileMode.Create);
+            using FileStream outputStream = new(newFilePath.ToString(), FileMode.Create);
 
             while (true)
             {

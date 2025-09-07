@@ -4,13 +4,12 @@
 using System;
 using CommonLibrary.Enums;
 using System.ComponentModel;
+using CommonLibrary.Helpers;
 using CommonLibrary.Attributes;
 using CommonLibrary.Exceptions;
 using System.Collections.Generic;
-using CommonLibrary.AbstractDataTypes;
-using System.Security.Claims;
-using CommonLibrary.Helpers;
 using CommonLibrary.Base.Interfaces;
+using CommonLibrary.AbstractDataTypes;
 
 namespace CommonLibrary.Collections
 {

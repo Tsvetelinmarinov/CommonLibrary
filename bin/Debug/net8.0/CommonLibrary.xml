@@ -4756,6 +4756,60 @@
             BG: Съобщението за грешка.
             </param>
         </member>
+        <member name="T:CommonLibrary.Helpers.BinaryHelper">
+            <summary>
+            
+            EN:
+              Provides set of static methods for converting strings, numbers and etc. to binary string.
+              
+            BG:
+              Предоставя набор от статични методи за конвертиране на текст, числа и т.н. в двойчен стринг.
+              Двойчния стринг преставлява двойчно число под формата на стринг.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.ConvertIntToBinary(System.Int32)">
+            <summary>
+            
+            EN:
+              Converts the number to a binary string.
+              
+            BG:
+              Конвертира числото в двойчен стринг.
+            
+            </summary>
+            
+            <param name="number">
+             EN: The number to be converted.
+             BG: Числото, което ще се конвертира.
+            </param>
+            
+            <returns>
+             EN: Binary string.
+             BG: Двойчен стринг.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.ConvertStringToBinary(System.String)">
+            <summary>
+            
+            EN:
+              Converts the string to a binary string.
+              
+            BG:
+              Конвертира стринга в двойчен стринг.
+            
+            </summary>
+            
+            <param name="text">
+             EN: The text to be converted.
+             BG: Текста, който ще се конвертира.
+            </param>
+            
+            <returns>
+             EN: Binary string.
+             BG: Двойчен стринг.
+            </returns>
+        </member>
         <member name="T:CommonLibrary.Helpers.CollectionHelper">
             <summary>
             
@@ -5092,13 +5146,38 @@
               Provides set of static methods for encrypting and decrypting 
               file content with a key. The encryptor encrypts a file by iterating
               over all symbols of the file content and apply XOR (^) bitwise operation
-              with the key with each of them. The decrypting operation is the same as enctypting.
+              with the key with each of them. The decrypting operation is the same as encryption.
+              The key for the encryption and decryption processes can be set by the "Key" property.
             
             BG:
               Предоставя набор от статични методи за криптиране и декриптиране на съдържание на файл с ключ.
               Крипторът шифрира файл, като обхожда всички символи от съдържанието на файла и
               прилага побитова операция XOR (^) (побитово изключващо ИЛИ) с ключа върху всеки от тях. 
               Операцията по декриптиране е същата като при криптиране.
+              Ключа за шифроване и дешифроване може да бъде достъпен и променен от 
+              свойството "Key" на класа.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Helpers.Criptography.Encryptor._key">
+            <summary>
+             
+             EN:
+               The key for the encryptiong.
+             
+             BG:
+               Ключа за шифроване.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Helpers.Criptography.Encryptor.Key">
+            <summary>
+            
+            EN:
+              Gets or sets the key for the encyption and decryption processes.
+              
+            BG:
+              Достъпва или променя ключа за шифроване и дешифроване.
             
             </summary>
         </member>

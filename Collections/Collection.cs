@@ -4,11 +4,12 @@
 using System;
 using System.Linq;
 using System.Collections;
+using CommonLibrary.Enums;
 using System.ComponentModel;
 using CommonLibrary.Attributes;
+using CommonLibrary.Exceptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using CommonLibrary.Enums;
 using CommonLibrary.Base.Interfaces;
 
 namespace CommonLibrary.Collections
@@ -29,34 +30,33 @@ namespace CommonLibrary.Collections
     ///  Може да се индексира по индекс и да се итерира с цикъл foreach.
     ///  Тази колекция се базира на IGenericCollection интерфейса, и е негова директа имплементация.
     ///  
-    /// <typeparam name="DataType">The common data type for the elements in this collection</typeparam>
-    /// 
+    /// <typeparam name="DataType">
+    ///  The common data type for the elements in this collection
+    /// </typeparam>
+    ///
     /// </summary>
     [Author("Tsvetelin Marinov")]
     [Description("Collection of elements with variable size")]
-    public class Collection<DataType> :
-        IGenericCollection<DataType>, 
-        IEnumerable<DataType>, 
-        IReadOnlyCollection<DataType>,
-        IEnumerable,
-        ICloneable
+    public class Collection<DataType> 
+        : IGenericCollection<DataType>, IEnumerable<DataType>, IReadOnlyCollection<DataType>, IEnumerable, ICloneable
     {
+        #region Private Fileds
+
         // Holds the elements in the collection.
         // Съдържа елементите на колекцията.
         private readonly List<DataType>? _data;
-
 
         // Default capacity.
         // Капацитет по подразбиране.
         private const int DEFCAPACITY = 4;
 
-        // 
         // Maximum capacity of the collection.
-        //
         // Максимален капацитет на колекцията.
-        // 
         private const int MAXCAPACITY = 2_000_000_000;
 
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// 
@@ -64,25 +64,40 @@ namespace CommonLibrary.Collections
         /// 
         /// Индексатор. Позволява достъп до елемент по неговия индекс в колекцията.
         /// 
-        /// <param name="index">The index of the element in the collection</param>
+        /// <param name="index">
+        ///  The index of the element in the collection
+        /// </param>
         /// 
-        /// <returns>The element at that index in the collection</returns>
+        /// <returns>
+        ///  The element at that index in the collection
+        /// </returns>
         /// 
         /// </summary>
-        public DataType this[int index]
+        public DataType? this[int index]
         {
-            get => _data![index];
-            set
+            get
             {
                 ArgumentOutOfRangeException.ThrowIfNegative(index);
 
-                if (_data!.Count > 0 && index <= _data!.Count - 1)
+                if (index > _data!.Capacity - 1)
                 {
-                    _data![index] = value;
+                    throw new Error("The index is outside the bounds of the collection");
                 }
-                else if (_data!.Count == 0)
+
+                return _data[index];
+            }
+            set
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative(index);
+                bool indexIsInside = index <= _data!.Capacity - 1;
+
+                if (_data!.Count > 1 && indexIsInside)
                 {
-                    _data![0] = value;
+                    _data![index] = value!;
+                }
+                else if (_data!.Count == 0 && indexIsInside)
+                {
+                    _data![0] = value!;
                 }
             }
         }
@@ -94,7 +109,8 @@ namespace CommonLibrary.Collections
         /// Броя на елементите в колекцията.
         /// 
         /// </summary>
-        public int Count => _data!.Count;
+        public int Count 
+            => _data!.Count;
 
         /// <summary>
         /// 
@@ -109,16 +125,11 @@ namespace CommonLibrary.Collections
             set
             {
                 ArgumentOutOfRangeException.ThrowIfNegativeOrZero(value);
+                ArgumentOutOfRangeException.ThrowIfLessThan(value, Count);
 
                 if (value < DEFCAPACITY)
                 {
                     _data!.Capacity = DEFCAPACITY;
-                    return;
-                }
-
-                if (value < Count)
-                {
-                    throw new ArgumentOutOfRangeException("Capacity can not be less than actual count of the elements.");
                 }
 
                 _data!.Capacity = value;
@@ -132,7 +143,7 @@ namespace CommonLibrary.Collections
         /// Достъпва първия елемент в колекцията.
         /// 
         /// </summary>
-        public DataType FirstElement
+        public DataType? FirstElement
         {
             get => _data!.Count == 0 ? default! : _data![0];
             set
@@ -153,7 +164,7 @@ namespace CommonLibrary.Collections
         /// Достъпва последния елемент в колекцията.
         /// 
         /// </summary>
-        public DataType LastElement
+        public DataType? LastElement
         {
             get => _data!.Count > 0 ? _data![^1] : default!;
             set
@@ -169,45 +180,9 @@ namespace CommonLibrary.Collections
             }
         }
 
-        /// <summary>
-        /// 
-        /// Get or set the element in the middle of the collection
-        /// 
-        /// Достъпва средния елемент в колекцията.
-        /// 
-        /// </summary>
-        public DataType MiddleElement
-        {
-            get
-            {
-                if (_data!.Count > 1)
-                {
-                    return _data![_data.Count / 2 - 1];
-                }
-                else if (_data!.Count == 1)
-                {
-                    return _data![0];
-                }
+        #endregion
 
-                return default!;
-            }
-            set
-            {
-                if (_data!.Count == 0)
-                {
-                    _data.Add(value);
-                }
-                else if (_data.Count == 1)
-                {
-                    _data[0] = value;
-                }
-                else
-                {
-                    _data[_data.Count / 2 - 1] = value;
-                }
-            }
-        }
-
+        #region Constructors
 
         /// <summary>
         /// 
@@ -216,12 +191,9 @@ namespace CommonLibrary.Collections
         /// Създава нова празна колекция с капацитет по подразбиране.
         /// 
         /// </summary>
-        public Collection() 
-            : base()
-        {
-            _data = new List<DataType>(DEFCAPACITY);
-        }
-
+        public Collection()
+            => _data = new List<DataType>(DEFCAPACITY);
+        
         /// <summary>
         /// 
         /// Create new empty collection with maximum allowed capacity of 2 000 000 000.
@@ -232,6 +204,7 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public Collection(bool maxCapacity)
+            : this()
         {
             if (maxCapacity)
             {
@@ -265,11 +238,7 @@ namespace CommonLibrary.Collections
         ///
         /// </summary>
         public Collection(IEnumerable<DataType> array)
-        {
-            _data = [];
-            _data!.Capacity = array.Count();
-            _data = CopyElements(array);
-        }
+            => _data = [.. array];
 
         /// <summary>
         /// 
@@ -308,6 +277,9 @@ namespace CommonLibrary.Collections
             }
         }
 
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// 
@@ -330,8 +302,11 @@ namespace CommonLibrary.Collections
         /// <param name="elements">The elements to be added</param>
         /// 
         /// </summary>
-        public void AddMultipleElements(params DataType?[]? elements)
-            => _data!.AddRange(elements!);
+        public void AddMultipleElements(params DataType?[] elements)
+        {
+            ArgumentNullException.ThrowIfNull(elements);
+            _data!.AddRange(elements!);
+        }
 
         /// <summary>
         /// 
@@ -343,7 +318,10 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public void AddCollection(IEnumerable<DataType> collection)
-            => _data!.AddRange(collection);
+        {
+            ArgumentNullException.ThrowIfNull(collection);
+            _data!.AddRange(collection);
+        }
 
         /// <summary>
         /// 
@@ -372,7 +350,16 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public void RemoveElementAt(int index)
-            => _data!.RemoveAt(index);
+        {
+            ArgumentOutOfRangeException.ThrowIfNegative(index);
+
+            if (index > _data!.Capacity - 1)
+            {
+                throw new Error("The index can not be greater than the capacity of the collection.");
+            }
+
+            _data!.RemoveAt(index);
+        }
 
         /// <summary>
         /// 
@@ -388,6 +375,18 @@ namespace CommonLibrary.Collections
         {
             ArgumentOutOfRangeException.ThrowIfNegative(startIndex);
             ArgumentOutOfRangeException.ThrowIfNegative(endIndex);
+            ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(startIndex, endIndex);
+
+            bool isNotEmpty = _data!.Count > 0;
+
+            if (isNotEmpty && startIndex > _data!.Capacity - 1)
+            {
+                throw new Error("The starting index can not be greater than the capacity of the collection.");
+            }
+            else if (isNotEmpty && endIndex > _data!.Capacity - 1)
+            {
+                throw new Error("The ending index can not be greater than the capacity of the collection.");
+            }
 
             _data!.RemoveRange(startIndex, endIndex - startIndex + 1);
         }
@@ -420,8 +419,14 @@ namespace CommonLibrary.Collections
         /// <param name="elements">The elements</param>
         /// 
         /// </summary>
-        public void InsertMultipleElementsAt(int index, params DataType?[]? elements)
-            => _data!.InsertRange(index, elements!);
+        public void InsertMultipleElementsAt(int index, params DataType?[] elements)
+        {
+            ArgumentOutOfRangeException.ThrowIfNegative(index);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(index, _data!.Capacity - 1);
+            ArgumentNullException.ThrowIfNull(elements);
+
+            _data!.InsertRange(index, elements!);
+        }
 
         /// <summary>
         /// 
@@ -434,7 +439,13 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public void InsertCollectionAt(int index, IEnumerable<DataType> collection)
-            => _data!.InsertRange(index, collection);
+        {
+            ArgumentNullException.ThrowIfNull(collection);
+            ArgumentOutOfRangeException.ThrowIfNegative(index);
+            ArgumentOutOfRangeException.ThrowIfGreaterThan(index, _data!.Capacity - 1);
+
+            _data!.InsertRange(index, collection);
+        }
 
         /// <summary>
         /// 
@@ -448,7 +459,7 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public bool ContainsElement(DataType element)
-            => _data!.Contains(element);
+            => element == null ? false : _data!.Contains(element);
 
         /// <summary>
         /// 
@@ -462,7 +473,14 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public int FindIndexOf(DataType element)
-            => _data!.IndexOf(element);
+        {
+            if (element == null || !_data!.Contains(element))
+            {
+                return -1;
+            }
+
+            return _data.IndexOf(element);
+        }
 
         /// <summary>
         /// 
@@ -477,7 +495,14 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public int FindLastIndexOf(DataType element)
-            => _data!.LastIndexOf(element);
+        {
+            if (element == null || !_data!.Contains(element))
+            {
+                return -1;
+            }
+
+            return _data!.LastIndexOf(element);
+        }
 
         /// <summary>
         /// 
@@ -528,7 +553,7 @@ namespace CommonLibrary.Collections
         {
             ArgumentNullException.ThrowIfNull(condition);
 
-            Collection<DataType> elements = new(_data!.Count);
+            Collection<DataType> elements = [];
 
             foreach (DataType element in _data!)
             {
@@ -537,8 +562,6 @@ namespace CommonLibrary.Collections
                     elements.Add(element);
                 }
             }
-
-            elements.RemoveExcessCapacity();
 
             return [.. elements];
         }
@@ -609,7 +632,10 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public bool IsTrueForAll(Predicate<DataType> condition)
-            => _data!.TrueForAll(condition);
+        {
+            ArgumentNullException.ThrowIfNull(condition);
+            return _data!.TrueForAll(condition);
+        }
 
         /// <summary>
         /// 
@@ -624,11 +650,7 @@ namespace CommonLibrary.Collections
         public void ExecuteOnEach(Action<DataType> command)
         {
             ArgumentNullException.ThrowIfNull(command);
-
-            foreach (DataType element in _data!)
-            {
-                command(element);
-            }
+            _data!.ForEach(command);
         }
 
         /// <summary>
@@ -654,16 +676,7 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public object Clone()
-        {
-            Collection<DataType> newData = new Collection<DataType>(_data!.Capacity);
-
-            foreach (DataType element in _data!)
-            {
-                newData.Add(element);
-            }
-
-            return newData;
-        }
+            => this;
 
         /// <summary>
         /// 
@@ -685,16 +698,7 @@ namespace CommonLibrary.Collections
         /// 
         /// </summary>
         public void ReduceCapacityTo(int capacity)
-        {
-            ArgumentOutOfRangeException.ThrowIfLessThan(capacity, DEFCAPACITY);
-
-            if (capacity < DEFCAPACITY)
-            {
-                capacity = DEFCAPACITY;
-            }
-
-            _data!.Capacity = capacity;
-        }
+            => _data!.Capacity = capacity;       
 
         /// <summary>
         /// 
@@ -708,14 +712,7 @@ namespace CommonLibrary.Collections
         public ReadOnlyCollection<DataType> AsReadOnly()
             => _data!.AsReadOnly();
 
-
-        //
-        // Copy all the elements of given collection to local collection.
-        //
-        // Копира всички елементи от дадената колекция в локалната колекция.
-        //
-        private static List<DataType> CopyElements(IEnumerable<DataType> collection)
-            => [.. collection];
+        #endregion
 
         #region Enumerator
 

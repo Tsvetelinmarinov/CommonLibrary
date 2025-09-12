@@ -1855,15 +1855,6 @@
             
             </summary>
         </member>
-        <member name="P:CommonLibrary.Base.Interfaces.IGenericCollection`1.MiddleElement">
-            <summary>
-            
-            EN: Get or set the middle element in the collection  
-            
-            BG: Взема или задава средния елемент в колекцията
-            
-            </summary>
-        </member>
         <member name="P:CommonLibrary.Base.Interfaces.IGenericCollection`1.LastElement">
             <summary>
             
@@ -2567,25 +2558,27 @@
             </remarks>
         </member>
         <member name="T:CommonLibrary.Collections.Collection`1">
-            <summary>
-            
-             Defines sizable collection of elements, represented at system level like
-             list of the same elements with default capacity of 4 elements in the beginning.
-             The collection is resized every time the capacity is reached.
-             The collection is strongly typed and the data type of the elements should be
-             defined with the defining of the collection. This collection can be indexed by index and can
-             be iterated with foreach loop. This is the implementation of the IGenericCollection interface.
+             <summary>
              
-             Kолекция от елементи с динамичен размер, представена като списък от елементи с капацитет по
-             подразбиране от 4 елемента.
-             Капацитета се увеличава автоматично при запълване на колекцията.
-             Колекцията е строго типизирана, тоест типа данни се указва още в началото със създаването на колекцията.
-             Може да се индексира по индекс и да се итерира с цикъл foreach.
-             Тази колекция се базира на IGenericCollection интерфейса, и е негова директа имплементация.
-             
-            <typeparam name="DataType">The common data type for the elements in this collection</typeparam>
+              Defines sizable collection of elements, represented at system level like
+              list of the same elements with default capacity of 4 elements in the beginning.
+              The collection is resized every time the capacity is reached.
+              The collection is strongly typed and the data type of the elements should be
+              defined with the defining of the collection. This collection can be indexed by index and can
+              be iterated with foreach loop. This is the implementation of the IGenericCollection interface.
+              
+              Kолекция от елементи с динамичен размер, представена като списък от елементи с капацитет по
+              подразбиране от 4 елемента.
+              Капацитета се увеличава автоматично при запълване на колекцията.
+              Колекцията е строго типизирана, тоест типа данни се указва още в началото със създаването на колекцията.
+              Може да се индексира по индекс и да се итерира с цикъл foreach.
+              Тази колекция се базира на IGenericCollection интерфейса, и е негова директа имплементация.
+              
+             <typeparam name="DataType">
+              The common data type for the elements in this collection
+             </typeparam>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:CommonLibrary.Collections.Collection`1.Item(System.Int32)">
             <summary>
@@ -2594,9 +2587,13 @@
             
             Индексатор. Позволява достъп до елемент по неговия индекс в колекцията.
             
-            <param name="index">The index of the element in the collection</param>
+            <param name="index">
+             The index of the element in the collection
+            </param>
             
-            <returns>The element at that index in the collection</returns>
+            <returns>
+             The element at that index in the collection
+            </returns>
             
             </summary>
         </member>
@@ -2633,15 +2630,6 @@
             Get or set the last element in the collection.
             
             Достъпва последния елемент в колекцията.
-            
-            </summary>
-        </member>
-        <member name="P:CommonLibrary.Collections.Collection`1.MiddleElement">
-            <summary>
-            
-            Get or set the element in the middle of the collection
-            
-            Достъпва средния елемент в колекцията.
             
             </summary>
         </member>

@@ -6,7 +6,6 @@ using System.ComponentModel;
 using CommonLibrary.Attributes;
 using System.Collections.Generic;
 
-
 namespace CommonLibrary.Base.Interfaces
 {
     /// <summary>
@@ -37,7 +36,7 @@ namespace CommonLibrary.Base.Interfaces
         /// EN: The element at that index in the collection  
         /// BG: Елементът на този индекс в колекцията
         /// </returns>
-        Type this[int index] { get; set; }
+        Type? this[int index] { get; set; }
 
         /// <summary>
         /// 
@@ -64,16 +63,7 @@ namespace CommonLibrary.Base.Interfaces
         /// BG: Взема или задава първия елемент в колекцията
         /// 
         /// </summary>
-        Type FirstElement { get; set; }
-
-        /// <summary>
-        /// 
-        /// EN: Get or set the middle element in the collection  
-        /// 
-        /// BG: Взема или задава средния елемент в колекцията
-        /// 
-        /// </summary>
-        Type MiddleElement { get; set; }
+        Type? FirstElement { get; set; }
 
         /// <summary>
         /// 
@@ -82,7 +72,8 @@ namespace CommonLibrary.Base.Interfaces
         /// BG: Взема или задава последния елемент в колекцията
         /// 
         /// </summary>
-        Type LastElement { get; set; }
+        Type? LastElement { get; set; }
+
 
         /// <summary>
         /// 
@@ -110,7 +101,7 @@ namespace CommonLibrary.Base.Interfaces
         /// EN: The sequence of elements  
         /// BG: Последователността от елементи
         /// </param>
-        void AddMultipleElements(params Type?[]? elements);
+        void AddMultipleElements(params Type?[] elements);
 
         /// <summary>
         /// 
@@ -213,7 +204,7 @@ namespace CommonLibrary.Base.Interfaces
         /// EN: The elements  
         /// BG: Елементите
         /// </param>
-        void InsertMultipleElementsAt(int index, params Type?[]? elements);
+        void InsertMultipleElementsAt(int index, params Type?[] elements);
 
         /// <summary>
         /// 

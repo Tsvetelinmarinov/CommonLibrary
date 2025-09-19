@@ -5,11 +5,10 @@ using System;
 using System.ComponentModel;
 using CommonLibrary.Exceptions;
 using CommonLibrary.Attributes;
-using CommonLibrary.Collections;
 using System.Collections.Generic;
 using CommonLibrary.Base.Abstract;
 
-namespace CommonLibrary.AbstractDataTypes
+namespace CommonLibrary.Collections
 {
     /// <summary>
     /// 

@@ -280,7 +280,7 @@ namespace CommonLibrary.Collections
         #endregion
 
         #region Methods
-
+        
         /// <summary>
         /// 
         /// Add an element in the collection.

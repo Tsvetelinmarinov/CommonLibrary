@@ -21,7 +21,7 @@ namespace CommonLibrary.Base.Abstract
     /// 
     /// </summary>
     [Author("Tsvetelin Marinov")]
-    [Description("Queue of data")]
+    [Description("Collection of data of type FIFO")]
     public abstract class DataQueueBase<DataType>
     {
         /// <summary>

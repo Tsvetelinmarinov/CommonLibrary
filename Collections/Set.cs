@@ -8,7 +8,6 @@ using CommonLibrary.Attributes;
 using CommonLibrary.Exceptions;
 using System.Collections.Generic;
 using CommonLibrary.Base.Interfaces;
-using CommonLibrary.Helpers;
 
 namespace CommonLibrary.Collections
 {
@@ -29,7 +28,7 @@ namespace CommonLibrary.Collections
         private Type[] _elements;
 
         // The default capacity of the set.
-        private const int DefCapacity = 1;
+        private const int DefCapacity = 0;
 
         // The maximum capacity of the set.
         private const int MaxCapacity = 1000;
@@ -166,8 +165,41 @@ namespace CommonLibrary.Collections
                 throw new Error("The set can store only unique items.");
             }
 
-            _elements[^1] = element;
-            SetCapacity(_elements.Length + 1);
+            if (Count == Capacity)
+            {
+                SetCapacity(_elements.Length + 1);
+            }
+
+            _elements[Count] = element;
+        }
+
+        /// <summary>
+        ///  Adds the collection to the set.
+        /// </summary>
+        /// 
+        /// <param name="collection">
+        ///  The collection wich elements will be added.
+        /// </param>
+        /// 
+        /// <exception cref="Error">
+        ///  The extern collection is empty.
+        /// </exception>
+        public void AddMany(IEnumerable<Type> collection)
+        {
+            ArgumentNullException.ThrowIfNull(collection);
+
+            foreach (Type element in collection)
+            {
+                if (!_elements.Contains(element))
+                {
+                    if (Count == Capacity)
+                    {
+                        SetCapacity(_elements.Length + 1);
+                    }
+
+                    _elements[Count] = element;
+                }
+            }
         }
 
         /// <summary>
@@ -191,7 +223,7 @@ namespace CommonLibrary.Collections
 
         /// <summary>
         ///  Clears the set and resets the capacity to the
-        ///  default capacity of 1 element.
+        ///  default capacity of 0 elements.
         /// </summary>
         public void Truncate()
             => EmptySet();

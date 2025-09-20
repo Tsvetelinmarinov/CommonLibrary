@@ -1,6 +1,8 @@
 ﻿// CommonLibrary - library for common usage
 
+using CommonLibrary.Exceptions;
 using CommonLibrary.Collections;
+using System.Collections.Generic;
 
 namespace CommonLibrary.Base.Interfaces
 {
@@ -30,6 +32,19 @@ namespace CommonLibrary.Base.Interfaces
         ///  The element to be added.
         /// </param>
         public abstract void Add(Type element);
+
+        /// <summary>
+        ///  Adds the collection to the set.
+        /// </summary>
+        /// 
+        /// <param name="collection">
+        ///  The collection wich elements will be added.
+        /// </param>
+        /// 
+        /// <exception cref="Error">
+        ///  The extern collection is empty.
+        /// </exception>
+        public void AddMany(IEnumerable<Type> collection);
 
         /// <summary>
         ///  Removes the element from the set, if the same exist.

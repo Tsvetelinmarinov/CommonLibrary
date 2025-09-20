@@ -1152,6 +1152,19 @@
              The element to be added.
             </param>
         </member>
+        <member name="M:CommonLibrary.Base.Interfaces.IDataSet`1.AddMany(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+             Adds the collection to the set.
+            </summary>
+            
+            <param name="collection">
+             The collection wich elements will be added.
+            </param>
+            
+            <exception cref="T:CommonLibrary.Exceptions.Error">
+             The extern collection is empty.
+            </exception>
+        </member>
         <member name="M:CommonLibrary.Base.Interfaces.IDataSet`1.Remove(`0)">
             <summary>
              Removes the element from the set, if the same exist.
@@ -4655,6 +4668,19 @@
              The element to be added.
             </param>
         </member>
+        <member name="M:CommonLibrary.Collections.Set`1.AddMany(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+             Adds the collection to the set.
+            </summary>
+            
+            <param name="collection">
+             The collection wich elements will be added.
+            </param>
+            
+            <exception cref="T:CommonLibrary.Exceptions.Error">
+             The extern collection is empty.
+            </exception>
+        </member>
         <member name="M:CommonLibrary.Collections.Set`1.Remove(`0)">
             <summary>
              Removes the element from the set, if the same exist.
@@ -4667,7 +4693,7 @@
         <member name="M:CommonLibrary.Collections.Set`1.Truncate">
             <summary>
              Clears the set and resets the capacity to the
-             default capacity of 1 element.
+             default capacity of 0 elements.
             </summary>
         </member>
         <member name="M:CommonLibrary.Collections.Set`1.ContainsElement(`0)">

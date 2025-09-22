@@ -5130,8 +5130,21 @@
             
             <returns>
              EN: The result as new integer.
-             BG: Резултата като цяло число.+
+             BG: Резултата като цяло число.
             </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.CreateBinary(System.String,System.String)">
+            <summary>
+             Creates a binary(.bin) file with the given text.
+            </summary>
+            
+            <param name="content">
+             The text of the file.
+            </param>
+            
+            <param name="binaryDirectory">
+             The location of the binary - where to be created.
+            </param>
         </member>
         <member name="T:CommonLibrary.Helpers.CollectionHelper">
             <summary>

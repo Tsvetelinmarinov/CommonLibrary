@@ -9,6 +9,8 @@ using CommonLibrary.Collections;
 using CommonLibrary.AbstractDataTypes;
 using System.Text.RegularExpressions;
 using CommonLibrary.Enums;
+using System.IO;
+using System.Text;
 
 namespace CommonLibrary.Helpers
 {
@@ -22,7 +24,6 @@ namespace CommonLibrary.Helpers
     ///   Двойчния стринг преставлява двойчно число под формата на стринг.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Provides methods for converting a data type to a binary string")]
     public static class BinaryHelper
     {
@@ -200,7 +201,7 @@ namespace CommonLibrary.Helpers
         /// 
         /// <returns>
         ///  EN: The result as new integer.
-        ///  BG: Резултата като цяло число.+
+        ///  BG: Резултата като цяло число.
         /// </returns>
         public static int ChangeBitAt(int number, int index, BitState state = BitState.SwitchOff)
         {
@@ -212,7 +213,7 @@ namespace CommonLibrary.Helpers
                 throw new Error("The index can not be outside of the bounds of the binary");
             }
 
-            int mask; // The mask should be different.
+            int mask; // The mask should be different with the different bit state.
 
             if (state == BitState.SwitchOn)
             {
@@ -222,6 +223,33 @@ namespace CommonLibrary.Helpers
 
             mask = ~(1 << index);
             return number & mask;
+        }
+
+        /// <summary>
+        ///  Creates a binary(.bin) file with the given text.
+        /// </summary>
+        /// 
+        /// <param name="content">
+        ///  The text of the file.
+        /// </param>
+        /// 
+        /// <param name="binaryDirectory">
+        ///  The location of the binary - where to be created.
+        /// </param>
+        public static void CreateBinary(string content, string binaryDirectory)
+        {
+            ArgumentNullException.ThrowIfNullOrEmpty(content);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(content);
+
+            ArgumentNullException.ThrowIfNullOrEmpty(binaryDirectory);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(binaryDirectory);
+
+            using FileStream binary = new(binaryDirectory, FileMode.Create, FileAccess.Write, FileShare.None, bufferSize: 666);
+            byte[] data = Encoding.UTF8.GetBytes(content);
+
+            binary.Write(data, 0, data.Length);
+            binary.Flush(); // The "using" directive calls the Close() command wich calls the Flush() command
+                           // but i need to be shure.
         }
     }
 }

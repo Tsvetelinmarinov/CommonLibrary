@@ -2,15 +2,16 @@
 // CommonLibrary - библиотека с общо предназначение.
 
 using System;
-using System.ComponentModel;
-using CommonLibrary.Exceptions;
-using CommonLibrary.Attributes;
-using CommonLibrary.Collections;
-using CommonLibrary.AbstractDataTypes;
-using System.Text.RegularExpressions;
-using CommonLibrary.Enums;
 using System.IO;
 using System.Text;
+using CommonLibrary.Enums;
+using System.ComponentModel;
+using CommonLibrary.Exceptions;
+using CommonLibrary.Collections;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
+using CommonLibrary.AbstractDataTypes;
 
 namespace CommonLibrary.Helpers
 {
@@ -27,6 +28,19 @@ namespace CommonLibrary.Helpers
     [Description("Provides methods for converting a data type to a binary string")]
     public static class BinaryHelper
     {
+        /// <summary>
+        ///  Shows a message window with the specified
+        ///  message and title.
+        /// </summary>
+        /// 
+        /// <param name="hWind"></param>
+        /// <param name="text"></param>
+        /// <param name="title"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll", EntryPoint = "MessageBox", CharSet = CharSet.Unicode)]
+        private static extern int ShowMessageWindow(int hWind, string text, string title, int type);
+
         /// <summary>
         /// 
         /// EN:
@@ -47,22 +61,22 @@ namespace CommonLibrary.Helpers
         ///  BG: Двойчен стринг.
         /// </returns>
         public static string ConvertIntToBinary(int number)
-        {           
+        {
             if (number == 0)
             {
                 return "0"; // If the number is already 0, why we should execute the other code?
             }
             else if (number < 0)
             {
-                number = Math.Abs(number);                                              
-            }                             
+                number = Math.Abs(number);
+            }
 
             MutableString binary = string.Empty;
 
             while (number > 0)
             {
-                int rem = number % 2; 
-                binary.InsertAt(0, rem.ToString());                                                    
+                int rem = number % 2;
+                binary.InsertAt(0, rem.ToString());
                 number /= 2;
             }
 
@@ -157,7 +171,7 @@ namespace CommonLibrary.Helpers
                 }
             }
 
-            return 
+            return
                 result;
         }
 
@@ -249,7 +263,63 @@ namespace CommonLibrary.Helpers
 
             binary.Write(data, 0, data.Length);
             binary.Flush(); // The "using" directive calls the Close() command wich calls the Flush() command
-                           // but i need to be shure.
+                            // but i need to be shure.
+        }
+
+        /// <summary>
+        ///   Splits the file content to several binary files.
+        /// </summary>
+        /// 
+        /// <param name="fileLocation">
+        ///  The location of the file.
+        /// </param>
+        /// 
+        /// <param name="outputFolder">
+        ///  The folder where the binaries will be saved.
+        /// </param>
+        /// 
+        /// <param name="parts">
+        ///  The count of the binaries.
+        /// </param>
+        public static void SplitToBinaries(string fileLocation, string outputFolder, byte parts)
+        {
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(fileLocation);
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(outputFolder);
+
+            if (parts < 1)
+            {
+                _ = ShowMessageWindow(0, "The parts can not be less than one.", "Binary Helper", 0);
+                parts = 1;
+            }
+
+            if (parts > 100)
+            {
+                _ = ShowMessageWindow(0, "The parts can not be more that a hounded.", "Binary Helper", 0);
+                parts = 100;
+            }
+
+            bool fileExists = File.Exists(fileLocation);
+            if (!fileExists)
+            {
+                throw new Error("The file does not exist.");
+            }
+
+            using FileStream file = new(fileLocation, FileMode.Open, FileAccess.Read);
+
+            int binCapacity = (int)(file.Length / parts);
+            byte[] binaryBuffer = new byte[binCapacity];
+
+            for (int i = 1; i <= parts; i++)
+            { 
+                using FileStream binary = new($@"{outputFolder}\part{i}.bin", FileMode.Create, FileAccess.Write);
+
+                file.Read(binaryBuffer, 0, binaryBuffer.Length);
+                binary.Write(binaryBuffer, 0, binaryBuffer.Length);
+
+                Array.Clear(binaryBuffer);
+            }
+
+            _ = ShowMessageWindow(0, "The files are created successfull.", "Binary Helper", 0);
         }
     }
 }

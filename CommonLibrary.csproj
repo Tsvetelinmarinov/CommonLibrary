@@ -13,6 +13,7 @@
 		<Version>1.0.0.0</Version>
 		<Authors>Tsvetelin Marinov</Authors>
 		<Description>Library for common usage</Description>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -6,8 +6,8 @@ using System.Linq;
 using CommonLibrary.Enums;
 using System.ComponentModel;
 using CommonLibrary.Attributes;
-using System.Collections.Generic;
 using CommonLibrary.Collections;
+using System.Collections.Generic;
 
 namespace CommonLibrary.Helpers
 {
@@ -440,5 +440,19 @@ namespace CommonLibrary.Helpers
 
             return  [.. collection.OrderDescending()];
         }
+
+        /// <summary>
+        ///  Clears the collection.
+        /// </summary>
+        /// 
+        /// <typeparam name="Type">
+        ///  The data type of the elements in the collection.
+        /// </typeparam>
+        /// 
+        /// <param name="collection">
+        ///  The collection to be cleared.
+        /// </param>
+        public static void Truncate<Type>(ref Type?[] collection)
+            => collection = [];  
     }
 }

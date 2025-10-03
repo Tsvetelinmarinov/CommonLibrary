@@ -15,7 +15,6 @@ namespace CommonLibrary.Base.Interfaces
     ///   Базов интерфейс за обща двойка ключ-стойност.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Base interface for a commom key-value pair")]
     public interface ICommonPair
     {

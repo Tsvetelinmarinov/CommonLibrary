@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using CommonLibrary.Attributes;
 using System.Text.RegularExpressions;
 
 namespace CommonLibrary.Exceptions
@@ -19,7 +18,6 @@ namespace CommonLibrary.Exceptions
     ///  Извършва се проверка на синтаксиса с регулярен израз.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Indicates incorrect syntax based on check with regular expression")]
     public sealed class SyntaxException : Exception
     {
@@ -48,7 +46,6 @@ namespace CommonLibrary.Exceptions
             get => _errorMessage!;
             set
             {
-                ArgumentNullException.ThrowIfNullOrEmpty(value);
                 ArgumentNullException.ThrowIfNullOrWhiteSpace(value);
 
                 //Pattern for valid exception text. Not everything should be typed.

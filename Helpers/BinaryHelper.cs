@@ -8,7 +8,6 @@ using CommonLibrary.Enums;
 using System.ComponentModel;
 using CommonLibrary.Exceptions;
 using CommonLibrary.Collections;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using CommonLibrary.AbstractDataTypes;
@@ -28,19 +27,6 @@ namespace CommonLibrary.Helpers
     [Description("Provides methods for converting a data type to a binary string")]
     public static class BinaryHelper
     {
-        /// <summary>
-        ///  Shows a message window with the specified
-        ///  message and title.
-        /// </summary>
-        /// 
-        /// <param name="hWind"></param>
-        /// <param name="text"></param>
-        /// <param name="title"></param>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        [DllImport("user32.dll", EntryPoint = "MessageBox", CharSet = CharSet.Unicode)]
-        private static extern int ShowMessageWindow(int hWind, string text, string title, int type);
-
         /// <summary>
         /// 
         /// EN:
@@ -321,5 +307,19 @@ namespace CommonLibrary.Helpers
 
             _ = ShowMessageWindow(0, "The files are created successfull.", "Binary Helper", 0);
         }
+
+
+        /// <summary>
+        ///  Shows a message window with the specified
+        ///  message and title.
+        /// </summary>
+        /// 
+        /// <param name="hWind"></param>
+        /// <param name="text"></param>
+        /// <param name="title"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll", EntryPoint = "MessageBox", CharSet = CharSet.Unicode)]
+        private static extern int ShowMessageWindow(int hWind, string text, string title, int type);
     }
 }

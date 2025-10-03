@@ -36,7 +36,6 @@ namespace CommonLibrary.Collections
     ///  EN: The data type of the value.
     ///  BG: Типът данни на стойността.
     /// </typeparam>
-    [Author("Tsvetelin Marinov")]
     [Description("Associative array of pairs")]
     public class PairList<KeyType, ValueType> : IPairList<KeyType, ValueType>, ICloneable
     {
@@ -82,8 +81,7 @@ namespace CommonLibrary.Collections
         ///  BG: Стойността асоцийрана с този ключ.
         /// </returns>
         public ValueType this[KeyType key] 
-            => GetAssociatedValue(key);
-        
+            => GetAssociatedValue(key);      
 
         /// <summary>
         /// 
@@ -97,7 +95,6 @@ namespace CommonLibrary.Collections
         public Collection<KeyType> Keys 
             => GetKeys();
         
-
         /// <summary>
         /// 
         /// EN:

@@ -20,7 +20,6 @@ namespace CommonLibrary.Helpers
     ///    Предоставя набор от статични методи за манипулиране на колекция или масив.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Provides static methods for manipulating collection")]
     public static class CollectionHelper
     {

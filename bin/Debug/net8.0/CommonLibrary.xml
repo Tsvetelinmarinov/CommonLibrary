@@ -4,6 +4,35 @@
         <name>CommonLibrary</name>
     </assembly>
     <members>
+        <member name="T:CommonLibrary.AbstractDataTypes.Module`1">
+            <summary>
+             Defines a module for a modular array.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Module`1.Value">
+            <summary>
+             Gets the value of the module.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Module`1.Previous">
+            <summary>
+             Gets the previous module in the modular array.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Module`1.Next">
+            <summary>
+             Gets the next module in the modular array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Module`1.#ctor(`0)">
+            <summary>
+             Creates a new module with the specified value.
+            </summary>
+            
+            <param name="value">
+             The value of the module.
+            </param>
+        </member>
         <member name="T:CommonLibrary.AbstractDataTypes.MutableString">
             <summary>
             
@@ -1071,6 +1100,71 @@
               Изчиства опашката.
             
             </summary>
+        </member>
+        <member name="T:CommonLibrary.Base.Abstract.ModularArrayBase`1">
+            <summary>
+             Defines a base class for a modular array. The modular array is similar to 
+             the LinkedList. It works with a modules linked together. Each module has a 
+             value and a references to the next and the previus module.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Base.Abstract.ModularArrayBase`1.Add(`0,CommonLibrary.Enums.ModulePosition)">
+            <summary>
+             Adds a new module to the modular array at the specified position.
+            </summary>
+            <param name="value">
+             The value to be added.
+            </param>
+            
+            <param name="position">
+             The position where the new module should be added.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Base.Abstract.ModularArrayBase`1.Remove(CommonLibrary.Enums.ModulePosition)">
+            <summary>
+             Removes a module from the modular array at the specified position.
+            </summary>
+            
+            <param name="position">
+             The position where the module should be removed.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Base.Abstract.ModularArrayBase`1.Clear">
+            <summary>
+             Clears all modules from the modular array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Base.Abstract.ModularArrayBase`1.ExecuteOnEach(System.Action{`0})">
+            <summary>
+             Executes a command on each module in the modular array.
+            </summary>
+            
+            <param name="command">
+              The command to execute on each module.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Base.Abstract.ModularArrayBase`1.AsArray">
+            <summary>
+             Returns an array that contains all module values in the modular array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Base.Abstract.ModularArrayBase`1.AsCollection">
+            <summary>
+             Returns the values of the array in a collection.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Base.Abstract.ModularArrayBase`1.ContainsValue(`0)">
+            <summary>
+             Checks if some of the modules in the modular array contains the value.
+            </summary>
+            
+            <param name="value">
+             The value to be searched
+            </param>
+            
+            <returns>
+             True if some of the modules contains the value, otherwise false.
+            </returns>
         </member>
         <member name="T:CommonLibrary.Base.Interfaces.ICommonPair">
             <summary>
@@ -4220,6 +4314,123 @@
         <member name="M:CommonLibrary.Collections.KeyValueCollection`2.GetEnumerator">
             <inheritdoc/>
         </member>
+        <member name="T:CommonLibrary.Collections.ModularArray`1">
+            <summary>
+             Defines array of linked modules similar to the linked list. The array
+             contains modules and each module has a value and reference to the next module
+             and to the previous module. The first module is called by convention 'head' and
+             his previous module is equals to null. The last module by convention is called 
+             'tail' and his next module is equals to null.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.ModularArray`1.Head">
+            <summary>
+             Gets the head module of the modular array.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.ModularArray`1.Tail">
+            <summary>
+             Gets the tail module of the modular array.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.ModularArray`1.Count">
+            <summary>
+             Gets the number of modules in the modular array.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.ModularArray`1.Modules">
+            <summary>
+             Gets all the modules linked together and returns them in an array.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.ModularArray`1.Values">
+            <summary>
+             Extracts all the values from the modules in array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.#ctor">
+            <summary>
+             Creates new empty modular array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+             Creates new modular array by creating a modules with the values from the
+             extern array and link the modules together.
+            </summary>
+            
+            <param name="externArray">
+             The array with values.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.Add(`0,CommonLibrary.Enums.ModulePosition)">
+            <summary>
+             Adds a new module to the modular array at the specified position.
+             The position for inserting should be specified with a flag form the 
+             "ModulePosition" enumeration.
+             Use flag "Head" to insert the element to the beginning.
+             Use flag "Tail" to insert the element to the end.
+            </summary>
+            
+            <param name="value">
+             The value to be added.
+            </param>
+            
+            <param name="position">
+             The position where the new module should be added.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.Remove(CommonLibrary.Enums.ModulePosition)">
+            <summary>
+             Removes a module from the modular array at the specified position.
+            </summary>
+            
+            <param name="position">
+             The position where the module should be removed.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.ContainsValue(`0)">
+            <summary>
+             Checks if some of the modules in the modular array contains the value.
+            </summary>
+            
+            <param name="value">
+             The value to be searched
+            </param>
+            
+            <returns>
+             True if some of the modules contains the value, otherwise false.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.Clear">
+            <summary>
+             Clears all modules from the modular array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.ExecuteOnEach(System.Action{`0})">
+            <summary>
+             Executes a command on each module in the modular array.
+            </summary>
+            
+            <param name="command">
+              The command to execute on each module.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.AsArray">
+            <summary>
+             Returns an array that contains all module values in the modular array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.AsCollection">
+            <summary>
+             Returns the values of the array in a collection.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.Clone">
+            <summary>
+             Clones the modular array.
+            </summary>
+        </member>
         <member name="T:CommonLibrary.Collections.PairList`2">
             <summary>
             
@@ -4834,6 +5045,21 @@
             
             BG: Указва седмия ден от седмицата
             
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Enums.ModulePosition">
+            <summary>
+             Provides positions for modules in a modular array.
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.ModulePosition.Head">
+            <summary>
+             Indicates the first module in the array.
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.ModulePosition.Tail">
+            <summary>
+             Indicates the last module in the array.
             </summary>
         </member>
         <member name="T:CommonLibrary.Enums.SortingOptions">

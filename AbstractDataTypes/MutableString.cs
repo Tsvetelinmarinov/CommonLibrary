@@ -160,29 +160,14 @@ namespace CommonLibrary.AbstractDataTypes
             }
         }
 
-        /// <summary>
-        /// 
-        /// EN:
-        ///   Gets the index of the last element in the array.
-        ///   
-        /// BG:
-        ///   Достпва индекса на последия символ в масива на стринга.
-        /// 
-        /// </summary>
-        public int LastIndex
-        {
-            get => _symbols.Count == 0 ? 0 : _symbols.Count - 1;
-        }
-
         //
         // Get the value of the string.
         // 
         // Достъпва стойността на стринга.
         //
         private string Text
-        {
-            get => BuildString();
-        }
+            => BuildString();
+       
 
 
         /// <summary>

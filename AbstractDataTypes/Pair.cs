@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using CommonLibrary.Attributes;
 using CommonLibrary.Base.Interfaces;
 
 namespace CommonLibrary.AbstractDataTypes
@@ -27,23 +26,22 @@ namespace CommonLibrary.AbstractDataTypes
     ///  EN: The data type of the value.
     ///  BG: Типа данни на стойността.
     /// </typeparam>
-    [Author("Tsvetelin Marinov")]
     [Description("Key-value pair")]
-    public class Pair<KeyType, ValueType> : IPair<KeyType, ValueType>, ICloneable
+    public class Pair<KeyType, ValueType> : ICloneable
     {
         //
         // Holds the key of the pair.
         //
         // Съхранява ключа на двойката.
         //
-        private KeyType? _key;
+        private readonly KeyType? _key;
 
         //
         // Holds the value of the pair.
         //
         // Съхранява стойността на двойката.
         //
-        private ValueType? _value;
+        private readonly ValueType? _value;
 
 
         /// <summary>
@@ -55,10 +53,8 @@ namespace CommonLibrary.AbstractDataTypes
         ///   Достъпва ключа на двойката ключ-стойност.
         /// 
         /// </summary>
-        public KeyType Key 
-        { 
-            get => _key ??= default!;
-        }
+        public KeyType? Key 
+            => _key!;
 
         /// <summary>
         /// 
@@ -69,10 +65,8 @@ namespace CommonLibrary.AbstractDataTypes
         ///   Достъпва стойността на двойката ключ-стойност.
         /// 
         /// </summary>
-        public ValueType Value 
-        { 
-            get => _value ??= default!;
-        }
+        public ValueType? Value 
+            => _value;
 
         /// <summary>
         /// 
@@ -83,7 +77,7 @@ namespace CommonLibrary.AbstractDataTypes
         ///   Връща ключа и стойността на двойката ключ-стойност като двойка (Tuple).
         ///   
         /// </summary>
-        public (KeyType, ValueType) KeyAndValue 
+        public (KeyType?, ValueType?) KeyAndValue 
             => (Key, Value);
 
 
@@ -128,6 +122,12 @@ namespace CommonLibrary.AbstractDataTypes
         /// </summary>
         public string ReturnAsString()
             => $"{Key} - {Value}";
+
+        /// <summary>
+        ///  Converts the key value pair to a string.
+        /// </summary>
+        public override string ToString()
+            => ReturnAsString();
 
         /// <summary>
         /// 

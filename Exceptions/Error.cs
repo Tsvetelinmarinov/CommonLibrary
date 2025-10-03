@@ -17,7 +17,6 @@ namespace CommonLibrary.Exceptions
     ///   грешка по подразбиране и да се използва по всякакви поводи.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Usage("Common error")]
     public class Error : Exception
     {
@@ -55,13 +54,12 @@ namespace CommonLibrary.Exceptions
         private void ValidateAndStore(ref string message)
         {
             ArgumentNullException.ThrowIfNullOrWhiteSpace(message);
-            ArgumentNullException.ThrowIfNullOrEmpty(message);
 
             //
             // Pattern for validating the message syntax.
             //
             // Шаблон (регулярен израз) за валидиране на синтаксиса на съобщението.
-            // Трябва да започва с главна буква и може да има всякакви знаци накрая.
+            // Трябва да започва с главна буква и може да има само определени знаци накрая.
             //
             string validationPattern = @"(?:[A-Z][a-z]+)(?: [A-Za-z]+)*(?:[\W])?";
 

@@ -2,11 +2,9 @@
 // CommonLibrary - библиотека с общо предназначение
 
 using System;
-using System.Linq;
 using System.Collections;
 using CommonLibrary.Enums;
 using System.ComponentModel;
-using CommonLibrary.Attributes;
 using CommonLibrary.Exceptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,14 +26,12 @@ namespace CommonLibrary.Collections
     ///  Капацитета се увеличава автоматично при запълване на колекцията.
     ///  Колекцията е строго типизирана, тоест типа данни се указва още в началото със създаването на колекцията.
     ///  Може да се индексира по индекс и да се итерира с цикъл foreach.
-    ///  Тази колекция се базира на IGenericCollection интерфейса, и е негова директа имплементация.
     ///  
     /// <typeparam name="DataType">
     ///  The common data type for the elements in this collection
     /// </typeparam>
     ///
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Collection of elements with variable size")]
     public class Collection<DataType> 
         : IGenericCollection<DataType>, IEnumerable<DataType>, IReadOnlyCollection<DataType>, IEnumerable, ICloneable

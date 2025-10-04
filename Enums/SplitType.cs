@@ -19,7 +19,6 @@ namespace CommonLibrary.Enums
     ///   Изплозвай флага KeepEmptyStrings за да запазиш празните стрингове.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Usage("Used in the SplitBy method in the MutableString class to specify the splitting type")]
     public enum SplitType
     {

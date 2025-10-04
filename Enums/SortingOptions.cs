@@ -13,7 +13,6 @@ namespace CommonLibrary.Enums
     /// BG: Предоставя опций за сортиране.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Provides options for sorting")]
     public enum SortingOptions
     {

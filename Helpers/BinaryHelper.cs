@@ -57,12 +57,12 @@ namespace CommonLibrary.Helpers
                 number = Math.Abs(number);
             }
 
-            MutableString binary = string.Empty;
+            StringBuilder binary = new();
 
             while (number > 0)
             {
                 int rem = number % 2;
-                binary.InsertAt(0, rem.ToString());
+                binary.Insert(0, rem.ToString());
                 number /= 2;
             }
 
@@ -103,8 +103,8 @@ namespace CommonLibrary.Helpers
                 symbolsBase
             );
 
-            MutableString finalBinary = string.Empty;
-            CollectionHelper.ExecuteOnEachElement(finalBinary.Concatenate, binarys);
+            StringBuilder finalBinary = new();
+            CollectionHelper.ExecuteOnEachElement(bin => finalBinary.Append(bin), binarys);
 
             return
                 finalBinary.ToString();

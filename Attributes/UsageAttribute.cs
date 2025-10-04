@@ -17,7 +17,6 @@ namespace CommonLibrary.Attributes
     ///    Указва за какво се използва този член или тип данни.
     ///  
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Provides information about the usage of that part of the code")]
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public sealed class UsageAttribute : Attribute

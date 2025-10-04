@@ -27,7 +27,6 @@ namespace CommonLibrary.Helpers
     ///    достъпени или промемени чрез свойтвата Start и End на класа.
     ///    
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Generator of random numbers")]
     public class NumberGenerator
     {
@@ -101,7 +100,7 @@ namespace CommonLibrary.Helpers
         {
             if (start > end)
             {
-                throw new InvalidDiapasonException("The start of the diapason can not be greater than the end.");
+                throw new Error("The start of the diapason can not be greater than the end.");
             }
 
             Start = start;
@@ -154,7 +153,7 @@ namespace CommonLibrary.Helpers
         /// </returns>
         public int[] GenerateMultiple(int count)
         {
-            DynamicArray<int> numbers = [];
+            Collection<int> numbers = [];
 
             for (int i = 0; i < count; ++i)
             {

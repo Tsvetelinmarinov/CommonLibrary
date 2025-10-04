@@ -15,7 +15,6 @@ namespace CommonLibrary.Base.Interfaces
     /// BG: Базов интерфейс за общи колекции от елементи.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Describes generic collection of elements")]
     public interface IGenericCollection<Type>
     {

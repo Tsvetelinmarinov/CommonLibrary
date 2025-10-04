@@ -24,7 +24,6 @@ namespace CommonLibrary.Collections.Common
     /// което прави колекцията обща, а не стого типизирана.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Collection of objects")]
     public class CommonList : IEnumerable, ICloneable
     {

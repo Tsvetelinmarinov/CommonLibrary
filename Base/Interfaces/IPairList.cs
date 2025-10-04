@@ -34,7 +34,6 @@ namespace CommonLibrary.Base.Interfaces
     ///  EN: The data type of the value.
     ///  BG: Типът данни на стойността.
     /// </typeparam>
-    [Author("Tsvetelin Marinov")]
     [Description("Associative array of pairs")]
     public interface IPairList<KeyType, ValueType>
     {

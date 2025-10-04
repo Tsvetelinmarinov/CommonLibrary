@@ -13,7 +13,6 @@ namespace CommonLibrary.Enums
     /// BG: Указва кой ден от седмицата е.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Specifies which day of the week it is")]
     public enum Day
     {

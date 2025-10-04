@@ -17,7 +17,6 @@ namespace CommonLibrary.Enums
     ///   в класа BinaryHelper.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Provides options for the state of a bit")]
     [Usage("Used by the ChangeBitAt() method in the BinaryHelper class")]
     public enum BitState

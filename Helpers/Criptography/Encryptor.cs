@@ -6,6 +6,7 @@ using System.IO;
 using System.ComponentModel;
 using CommonLibrary.Attributes;
 using CommonLibrary.AbstractDataTypes;
+using System.Text;
 
 namespace CommonLibrary.Helpers.Criptography
 {
@@ -27,7 +28,6 @@ namespace CommonLibrary.Helpers.Criptography
     ///   свойството "Key" на класа.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("File encryptor")]
     [Usage("Used to encrypt and decrypt file content")]
     public static class Encryptor
@@ -101,8 +101,8 @@ namespace CommonLibrary.Helpers.Criptography
             ArgumentNullException.ThrowIfNullOrWhiteSpace(directory);
 
             string fileName = directory.Substring(directory.LastIndexOf('\\') + 1);
-            MutableString newFilePath = directory.Substring(0, directory.Length - fileName.Length);
-            newFilePath.Concatenate($"secret_{fileName}");
+            StringBuilder newFilePath = new(directory.Substring(0, directory.Length - fileName.Length));
+            newFilePath.Append($"secret_{fileName}");
 
             using FileStream inputStream = new(directory, FileMode.Open);
             using FileStream outputStream = new(newFilePath.ToString(), FileMode.Create);

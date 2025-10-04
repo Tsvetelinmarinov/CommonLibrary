@@ -20,7 +20,6 @@ namespace CommonLibrary.Collections.Common
     ///    за сметка на сигурността.
     /// 
     /// </summary>
-    [Author("Tsvetelin Marinov")]
     [Description("Non-generic key-value pair")]
     public class CommonPair : ICommonPair, ICloneable
     {

@@ -25,7 +25,6 @@ namespace CommonLibrary.Base.Interfaces
     ///  EN: The data type of the value.
     ///  BG: Типа данни на стойността.
     /// </typeparam>
-    [Author("Tsvetelin Marinov")]
     [Description("Base interface for a key-value pair")]
     public interface IPair<KeyType, ValueType>
     {

@@ -38,7 +38,6 @@ namespace CommonLibrary.Collections
     /// EN: The data type of the values.
     /// BG: Типа данни на асоцийраните стойности.
     /// </typeparam>
-    [Author("Tsvetelin Marinov")]
     [Description("Collection of key-value pairs")]
     public class KeyValueCollection<KeyType, ValueType> : IEnumerable<KeyValuePair<KeyType, ValueType>>, ICloneable
     {

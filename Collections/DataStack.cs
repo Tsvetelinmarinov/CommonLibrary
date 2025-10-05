@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using System.Collections;
 using CommonLibrary.Enums;
 using System.ComponentModel;
 using CommonLibrary.Exceptions;
@@ -104,7 +105,7 @@ namespace CommonLibrary.Collections
         /// <returns>
         ///  The element of the top.
         /// </returns>
-        public Type PullOut()
+        public Type Take()
             => RemoveTopElement();
 
         /// <summary>
@@ -119,7 +120,7 @@ namespace CommonLibrary.Collections
         /// <returns>
         ///  An array with the removed values.
         /// </returns>
-        public Type[] PullOut(int count)
+        public Type[] Take(int count)
             => RemoveMultipleElements(count);
 
         /// <summary>

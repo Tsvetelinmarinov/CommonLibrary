@@ -1935,6 +1935,110 @@
             
             </summary>
         </member>
+        <member name="T:CommonLibrary.Collections.DataQueue`1">
+            <summary>
+             Defines stringly-typed collection of data with FIFO structore(First In - First Out).
+             So the first element that enters the queue will come out first and the last element
+             that enters the queue will come out last.
+            </summary>
+            
+            <typeparam name="Type">
+             The data type of the elements in the queue.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.Collections.DataQueue`1.Count">
+            <summary>
+             Gets the number of the elements in the queue.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.DataQueue`1.Values">
+            <summary>
+             Gets the values of the queue in an array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.#ctor">
+            <summary>
+             Creates new empty queue.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+             Creates new queue with copied elements from the 
+             specified array.
+            </summary>
+            
+            <param name="array">
+             The array which elements will be copied.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.Enter(`0)">
+            <summary>
+             Adds an element to the end of the queue.
+            </summary>
+            
+            <param name="element">
+             The element to be added.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.Enter(`0[])">
+            <summary>
+             Adds the specified elements from the array to the queue.
+            </summary>
+            
+            <param name="elements">
+             The array with the elements.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.PullOut">
+            <summary>
+             Removes the element in the beginning of the queue
+             and returns it.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.PullOut(System.Int32)">
+            <summary>
+             Removes the specified amount of elements from the
+             queue starting from the beginning.
+            </summary>
+            
+            <param name="count">
+             The count of the elements to remove.
+            </param>
+            
+            <returns>
+             An array with the removed values.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.ViewFirst">
+            <summary>
+             Returns the first element in the queue without removing it.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.Clear">
+            <summary>
+             Clears the queue.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.AsList">
+            <summary>
+             Converts the queue to a list.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.AsCollection">
+            <summary>
+             Converts the queue to a collection.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.AsSet">
+            <summary>
+             Converts the queue to a set.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.DataQueue`1.AsLinkedList">
+            <summary>
+             Converts the queue to a linked list.
+            </summary>
+        </member>
         <member name="T:CommonLibrary.Collections.DataStack`1">
             <summary>
              Defines stack of data. The stack is data structure of type LIFO (Last In - First Out) and
@@ -1989,7 +2093,7 @@
              The array of values to be added.
             </param>
         </member>
-        <member name="M:CommonLibrary.Collections.DataStack`1.PullOut">
+        <member name="M:CommonLibrary.Collections.DataStack`1.Take">
             <summary>
              Removes the element on the top of the stack.
             </summary>
@@ -1998,7 +2102,7 @@
              The element of the top.
             </returns>
         </member>
-        <member name="M:CommonLibrary.Collections.DataStack`1.PullOut(System.Int32)">
+        <member name="M:CommonLibrary.Collections.DataStack`1.Take(System.Int32)">
             <summary>
              Removes the specified amount of elements
              from the stack.

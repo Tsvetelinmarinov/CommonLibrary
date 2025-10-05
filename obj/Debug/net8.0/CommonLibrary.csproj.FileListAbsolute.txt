@@ -16,7 +16,6 @@ C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\Comm
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.dll
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.pdb
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.xml
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net8.0\CommonLibrary.csproj.AssemblyReference.cache
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net8.0\CommonLibrary.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net8.0\CommonLibrary.AssemblyInfoInputs.cache
 C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net8.0\CommonLibrary.AssemblyInfo.cs

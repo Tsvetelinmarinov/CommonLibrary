@@ -5,11 +5,9 @@
     <version>1.0.0</version>
     <authors>Tsvetelin Marinov</authors>
     <description>Library for common usage</description>
-    <repository type="git" commit="cfb8c98314a3f3bc406e3f9b0f93cd43e766f5ad" />
+    <repository type="git" commit="e20c6fb0528f1698fd0ee0597da7737b39d43faf" />
     <dependencies>
-      <group targetFramework="net8.0">
-        <dependency id="System.Drawing.Common" version="9.0.8" exclude="Build,Analyzers" />
-      </group>
+      <group targetFramework="net8.0" />
     </dependencies>
   </metadata>
   <files>

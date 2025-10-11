@@ -143,6 +143,569 @@
              BG: Дойката ключ-стойност като обект.
             </returns>
         </member>
+        <member name="T:CommonLibrary.AbstractDataTypes.Text">
+            <summary>
+             The Text represent a data type for text with the same characteristics
+             as a String but with the difference that the Text is mutable and uses 
+             a list for buffer. The Text provides faster operation because there is no
+             creation of a new text every time when concatenating, removing, replacing etc.
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.AbstractDataTypes.Text.EmptyText">
+            <summary>
+             Defines empty text.
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.AbstractDataTypes.Text.WhiteSpace">
+            <summary>
+             Defines a white space.
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.AbstractDataTypes.Text.NewLine">
+            <summary>
+             Defines a new line character.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Text.Item(System.Int32)">
+            <summary>
+             Gets or sets the symbol at the specified index in the text.
+            </summary>
+            
+            <param name="index">
+             The index of the symbol in the text.
+            </param>
+            
+            <returns>
+             The symbol at the specified index in the text.
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Text.Length">
+            <summary>
+             Gets the count of the symbols of the text.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Text.Symbols">
+            <summary>
+             Gets the array with the symbols of the text.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.#ctor(System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+             Creates new text with the symbols from the specified array.
+             The constructor is public but it is preferred to use the operator
+             '=' to accept value. 
+            </summary>
+            
+            <param name="array">
+             The array with the symbols for the text.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Finalize">
+            <summary>
+             The finalizer is used to release all the resources
+             of the text.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Concatenate(System.String)">
+            <summary>
+             Concatenates the specified text with the current text.
+            </summary>
+            
+            <param name="text">
+             The text to be appendet to the current text.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Concatenate(CommonLibrary.AbstractDataTypes.Text)">
+            <summary>
+             Concatenates the specified text with the current text.
+            </summary>
+            
+            <param name="text">
+             The text to be appendet to the current text.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Concatenate(System.Char)">
+            <summary>
+             Concatenates the specified symbol with the current text.
+            </summary>
+            
+            <param name="symbol">
+             The symbol to be appendet to the current text.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Remove(System.String)">
+            <summary>
+             Removes the specified text from the current text, if the
+             specified text exists in the current text.
+            </summary>
+            
+            <param name="text">
+             The text to be removed.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Remove(CommonLibrary.AbstractDataTypes.Text)">
+            <summary>
+             Removes the specified text from the current text, if the
+             specified text exists in the current text.
+            </summary>
+            
+            <param name="text">
+             The text to be removed.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Remove(System.Int32,System.Int32)">
+            <summary>
+             Removes the symbols in the specified range 
+             from the text.
+            </summary>
+            
+            <param name="start">
+             The starting index.
+            </param>
+            
+            <param name="end">
+             The ending index.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Remove(System.Int32)">
+            <summary>
+             Removes a symbol from the text at the specified index.
+            </summary>
+            
+            <param name="index">
+             The index of the symbol to be removed.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.ContainsText(System.String)">
+            <summary>
+             Checks if the specified text exists in the current text.
+            </summary>
+            
+            <param name="text">
+             The text to be checked.
+            </param>
+            
+            <returns>
+             True if the current text contains the specified text,
+             otherwise False.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.ContainsText(System.Char)">
+            <summary>
+             Checks if the specified symbol exists in the current text.
+            </summary>
+            
+            <param name="symbol">
+             The symbol to be checked.
+            </param>
+            
+            <returns>
+             True if the current text contains the specified symbol,
+             otherwise False.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Clear">
+            <summary>
+             Clears the text.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Insert(System.Int32,System.String)">
+            <summary>
+             Inserts the specified text at the specified intex in the 
+             current text.
+            </summary>
+            
+            <param name="index">
+             The index in the current text.
+            </param>
+            
+            <param name="text">
+             The text to be inserted at that index.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Insert(System.Int32,CommonLibrary.AbstractDataTypes.Text)">
+            <summary>
+             Inserts the specified text at the specified intex in the 
+             current text.
+            </summary>
+            
+            <param name="index">
+             The index in the current text.
+            </param>
+            
+            <param name="text">
+             The text to be inserted at that index.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Insert(System.Int32,System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+             Inserts the specified collection of symbols at the specified intex in the 
+             current text.
+            </summary>
+            
+            <param name="index">
+             The index in the current text.
+            </param>
+            
+            <param name="array">
+             The array of symbols to be inserted at that index.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.JoinBy(System.String)">
+            <summary>
+             Concatenates the symbols from the text with the specified
+             separator between each of them.
+            </summary>
+            
+            <param name="separator">
+             The separator.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.JoinBy(CommonLibrary.AbstractDataTypes.Text)">
+            <summary>
+             Concatenates the symbols from the text with the specified
+             separator between each of them.
+            </summary>
+            
+            <param name="separator">
+             The separator.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.JoinBy(System.Char)">
+            <summary>
+             Concatenates the symbols from the text with the specified
+             separator between each of them.
+            </summary>
+            
+            <param name="separator">
+             The separator.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.SplitBy(System.Char,CommonLibrary.Enums.SplitType)">
+            <summary>
+             Splits the text by the given separator and uses the 
+             specified splitting type. To specify the split type you
+             should use a flag from the SplitType enumeration as follows:
+             - Use flag ClearOutput to specify that the the empty strings
+             created sometimes when splitting should be removed from the
+             output.
+             - Use flag KeepAllEntries to specify that the empty string should be
+             left in the output.  
+            </summary>
+            
+            <param name="separator">
+             The separator.
+            </param>
+            
+            <param name="splitType">
+             The type of splitting.
+            </param>
+            
+            <returns>
+             An array with the splatted text.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.SplitBy(System.String,CommonLibrary.Enums.SplitType)">
+            <summary>
+             Splits the text by the given separator and uses the 
+             specified splitting type. To specify the split type you
+             should use a flag from the SplitType enumeration as follows:
+             - Use flag ClearOutput to specify that the the empty strings
+             created sometimes when splitting should be removed from the
+             output.
+             - Use flag KeepAllEntries to specify that the empty string should be
+             left in the output.  
+            </summary>
+            
+            <param name="separator">
+             The separator.
+            </param>
+            
+            <param name="splitType">
+             The type of splitting.
+            </param>
+            
+            <returns>
+             An array with the splatted text.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.SplitBy(CommonLibrary.AbstractDataTypes.Text,CommonLibrary.Enums.SplitType)">
+            <summary>
+             Splits the text by the given separator and uses the 
+             specified splitting type. To specify the split type you
+             should use a flag from the SplitType enumeration as follows:
+             - Use flag ClearOutput to specify that the the empty strings
+             created sometimes when splitting should be removed from the
+             output.
+             - Use flag KeepAllEntries to specify that the empty string should be
+             left in the output.  
+            </summary>
+            
+            <param name="separator">
+             The separator.
+            </param>
+            
+            <param name="splitType">
+             The type of splitting.
+            </param>
+            
+            <returns>
+             An array with the splatted text.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.SplitBy(System.Collections.Generic.IEnumerable{System.String},CommonLibrary.Enums.SplitType)">
+            <summary>
+             Splits the text by the given separators.
+             To specify the split type you should use a 
+             flag from the SplitType enumeration as follows:
+             - Use flag ClearOutput to specify that the the empty strings
+             created sometimes when splitting should be removed from the
+             output.
+             - Use flag KeepAllEntries to specify that the empty string should be
+             left in the output.  
+            </summary>
+            
+            <param name="separators">
+             The separators for split.
+            </param>
+            
+            <param name="splitType">
+             The type of the splitting.
+            </param>
+            
+            <returns>
+             An array with the splatted text.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Cut(System.Int32,System.Int32)">
+            <summary>
+             Cuts a piece from the text.
+            </summary>
+            
+            <param name="start">
+             The starting index.
+            </param>
+            
+            <param name="end">
+             The ending index.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Replace(System.Int32,System.Int32,CommonLibrary.AbstractDataTypes.Text)">
+            <summary>
+             Replaces the symbol in the specified range in the text with the symbols
+             from the specified replacement text.
+            </summary>
+            
+            <param name="startIndex">
+             The start index.
+            </param>
+            
+            <param name="end">
+             The ending index.
+            </param>
+            
+            <param name="replacement">
+             The replacement text.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Replace(System.Int32,System.Int32,System.String)">
+            <summary>
+             Replaces the symbol in the specified range in the text with the symbols
+             from the specified replacement text.
+            </summary>
+            
+            <param name="startIndex">
+             The start index.
+            </param>
+            
+            <param name="end">
+             The ending index.
+            </param>
+            
+            <param name="replacement">
+             The replacement text.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Trim(CommonLibrary.Enums.TrimOrigin)">
+            <summary>
+             Trims the white spaces from the beginning or the end of the text.
+             The position for the trim operation should be specified with a flag from 
+             the TrimOrigin enumeration.
+              Use flag Beginning to specify to trim the beginning of the text.
+              Use flag End to specify to trim the end of the text.
+             Note that if there are more that one white spaces they all will be removed.
+            </summary>
+            
+            <param name="origin">
+             The position for trim.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.IndexOf(CommonLibrary.AbstractDataTypes.Text)">
+            <summary>
+             Finds the index of the first occurence of the first symbol
+             of the specified text in the current text.
+            </summary>
+            
+            <param name="text">
+             The text which index need to be found.
+            </param>
+            
+            <returns>
+             The index of the first occurence of the first symbol 
+             of the specified text or -1 if there is no mathces.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.IndexOf(System.String)">
+            <summary>
+             Finds the index of the first occurence of the first symbol
+             of the specified text in the current text.
+            </summary>
+            
+            <param name="text">
+             The text which index need to be found.
+            </param>
+            
+            <returns>
+             The index of the first occurence of the first symbol 
+             of the specified text or -1 if there is no mathces.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.IndexOf(System.Char)">
+            <summary>
+             Finds the index of the first occurence of the symbol
+             in the current text.
+            </summary>
+            
+            <param name="symbol">
+             The symbol which index need to be found.
+            </param>
+            
+            <returns>
+             The index of the first occurence of the symbol 
+             in the text or -1 if there is no mathces.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.LastIndexOf(CommonLibrary.AbstractDataTypes.Text)">
+            <summary>
+             Finds the index of the last occurense of the first symbol
+             of the specified text.
+            </summary>
+            
+            <param name="text">
+             The text which index should be found.
+            </param>
+            
+            <returns>
+             The index of the last occurence of the first symbol of the
+             specified text or -1 if there are no matches.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.LastIndexOf(System.String)">
+            <summary>
+             Finds the index of the last occurense of the first symbol
+             of the specified text.
+            </summary>
+            
+            <param name="text">
+             The text which index should be found.
+            </param>
+            
+            <returns>
+             The index of the last occurence of the first symbol of the
+             specified text or -1 if there are no matches.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.LastIndexOf(System.Char)">
+            <summary>
+             Finds the index of the last occurense of the symbol
+             in the text.
+            </summary>
+            
+            <param name="symbol">
+             The symbol which index should be found.
+            </param>
+            
+            <returns>
+             The index of the last occurence of the symbol or -1 if there are no matches.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.ToString">
+            <summary>
+             Overrides ToString() method to use the text content when using the variable.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.ToBuilder">
+            <summary>
+             Returns the text as a StingBuilder.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.ToCharList">
+            <summary>
+             Returns the text as a list of characters.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.ToDataStream">
+            <summary>
+             Converts the text to data stream. The data stream defines
+             an array of bytes of the text.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.ToUpperCase">
+            <summary>
+             Converts the symbols of the text to upper case symbols.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:CommonLibrary.AbstractDataTypes.Text.ToLowerCase" -->
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.CompareTo(CommonLibrary.AbstractDataTypes.Text)">
+            <summary>
+             Compare two texts.
+            </summary>
+            
+            <param name="other">
+             The other text to compare to.
+            </param>
+            
+            <returns>
+             Less than zero - this text precedes the other in the sort order.
+             Zero - both texts has same order and symbols.
+             Greater than zero - this text follows the other in the sort order.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Equals(System.Object)">
+            <summary>
+             Compare the text with another text.
+            </summary>
+            
+            <param name="obj">
+             The other text to compare to.
+            </param>
+            
+            <returns>
+             True if bot text are equal, otherwise False.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.GetHashCode">
+            <summary>
+             GetHashCode method helps the text acting normal in collections like Dictionary
+             and HashSet.
+            </summary>
+            
+            <returns>
+             The hash code of the text.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Clone">
+            <summary>
+             Returns the text as object, so can be cloned or casted.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Text.Dispose">
+            <summary>
+             Indicates to the Garbage Collector not to call the destructor of
+             the text(there are no resources to be disposed) to save time and to
+             improve the performance.
+            </summary>
+        </member>
         <member name="T:CommonLibrary.Attributes.UsageAttribute">
             <summary>
              
@@ -3306,7 +3869,7 @@
             
             </summary>
         </member>
-        <member name="F:CommonLibrary.Enums.SplitType.NoEmptyStrings">
+        <member name="F:CommonLibrary.Enums.SplitType.ClearOutput">
             <summary>
             
             EN:
@@ -3314,12 +3877,12 @@
               removed.
               
             BG:
-              Индикира, че празните стрингове, получени при разделяне по разделител,
+              Индикира, че празните стрингове, получени при разделяне,
               трябва да бъдат премахнати от резултата.
             
             </summary>
         </member>
-        <member name="F:CommonLibrary.Enums.SplitType.KeepEmptyStrings">
+        <member name="F:CommonLibrary.Enums.SplitType.KeepAllEntries">
             <summary>
             
             EN:
@@ -3330,6 +3893,21 @@
               Индикира, че празните стрингове, получени при разделяне по разделител,
               трябва да бъдат добавени в резултата.
             
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Enums.TrimOrigin">
+            <summary>
+             Provides flags to indicate the position in a text/string for trim operation.
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.TrimOrigin.Beginning">
+            <summary>
+             Specified the beginning of the text.
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.TrimOrigin.End">
+            <summary>
+             Specifies the end of the text.
             </summary>
         </member>
         <member name="T:CommonLibrary.Exceptions.Error">

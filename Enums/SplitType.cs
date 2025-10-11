@@ -19,7 +19,7 @@ namespace CommonLibrary.Enums
     ///   Изплозвай флага KeepEmptyStrings за да запазиш празните стрингове.
     /// 
     /// </summary>
-    [Usage("Used in the SplitBy method in the MutableString class to specify the splitting type")]
+    [Usage("")] //!!!
     public enum SplitType
     {
         /// <summary>
@@ -29,11 +29,11 @@ namespace CommonLibrary.Enums
         ///   removed.
         ///   
         /// BG:
-        ///   Индикира, че празните стрингове, получени при разделяне по разделител,
+        ///   Индикира, че празните стрингове, получени при разделяне,
         ///   трябва да бъдат премахнати от резултата.
         /// 
         /// </summary>
-        NoEmptyStrings = 0,
+        ClearOutput = 0,
 
         /// <summary>
         /// 
@@ -46,6 +46,6 @@ namespace CommonLibrary.Enums
         ///   трябва да бъдат добавени в резултата.
         /// 
         /// </summary>
-        KeepEmptyStrings = 1
+        KeepAllEntries = 1
     }
 }

@@ -142,7 +142,7 @@ namespace CommonLibrary.Collections
         /// <summary>
         ///  Returns a set with the stack values.
         /// </summary>
-        public Set<Type> AsSet()
+        public HashSet<Type> AsSet()
             => GetValuesSet();
 
         /// <summary>
@@ -264,7 +264,7 @@ namespace CommonLibrary.Collections
             => [.. GetValues()];
 
         // Returns the stack values in a set.
-        private Set<Type> GetValuesSet()
+        private HashSet<Type> GetValuesSet()
             => [.. GetValues()];
 
         // Returns the stack values in a modular array.

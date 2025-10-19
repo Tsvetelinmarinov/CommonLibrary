@@ -33,6 +33,92 @@
              The value of the module.
             </param>
         </member>
+        <member name="T:CommonLibrary.AbstractDataTypes.Number">
+            <summary>
+             Defines a data type for numbers. The number is implemented with BigInteger so
+             can store very large values. All arithmetic operations are supported. The Number instance
+             wraps a BigInteger and make it reference type.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Number.Value">
+            <summary>
+             Gets or sets the value of the number.
+             That property is private because is used only to specify 
+             what to be shown in the the debugger display.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.#ctor(System.Numerics.BigInteger)">
+            <summary>
+             Creates a new instance of the Number class with specified value.
+             That constructor is private beacause the implicit conversion operators exists.
+             Only those operators or the default constructor should be used to create new instances
+             and only those operators uses that constructor.
+            </summary>
+            
+            <param name="value">
+             The value of the number.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Finalize">
+            <summary>
+             Releases the resources used by the Number instance.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Dispose">
+            <summary>
+             Indicates to the Garbage Collector not to call the destructor(the finalizer).
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.ToString">
+            <summary>
+             Returns the string representation of the number.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.CompareTo(CommonLibrary.AbstractDataTypes.Number)">
+            <summary>
+             Compares this number to another number.
+            </summary>
+            
+            <param name="other">
+             The other number to compare to.
+            </param>
+            
+            <returns>
+             1 if this number is greater than the other number,
+             0 if they are equal, and -1 if this number is less than the other number.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Equals(CommonLibrary.AbstractDataTypes.Number)">
+            <summary>
+             Checks if this number is equal to another number.
+            </summary>
+            
+            <param name="other">
+             The other number to compare to.
+            </param>
+            
+            <returns>
+             True if the numbers are equal, false otherwise.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Equals(System.Object)">
+            <summary>
+             Checks if this number is equal to another number.
+            </summary>
+            
+            <param name="obj">
+             The other number to compare to.
+            </param>
+            
+            <returns>
+             True if the numbers are equal, false otherwise.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.GetHashCode">
+            <summary>
+             Generates the hash code for the number.
+            </summary>
+        </member>
         <member name="T:CommonLibrary.AbstractDataTypes.Pair`2">
             <summary>
             
@@ -3550,157 +3636,6 @@
              Returns the list as object.
              Връща асоциативния масив като обект.
             </summary>
-        </member>
-        <member name="T:CommonLibrary.Collections.Set`1">
-            <summary>
-            
-             Describes a set of values. The set is data structure that 
-             keeps unique elements. The set is implemented by array of values. 
-             The capacity of the set is not dynamic, so should be manual changed
-             by the "SetCapacity" method. The set has maximum capacity of 1000 elements
-             so it's maded for small amount of data, but fast operations.
-             
-            </summary>
-        </member>
-        <member name="P:CommonLibrary.Collections.Set`1.Count">
-            <summary>
-             Get the count of the elements in the set.
-            </summary>
-        </member>
-        <member name="P:CommonLibrary.Collections.Set`1.Capacity">
-            <summary>
-             Gets or sets the capacity of the set.
-             That is the length of the inner array with values.
-            </summary>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.#ctor">
-            <summary>
-             Creates an empty set with the default capacity.
-            </summary>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.#ctor(System.Int32)">
-            <summary>
-             Creates an empty set with the specified capacity.
-            </summary>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.#ctor(System.Boolean)">
-            <summary>
-             Creates an empty set with the maxium capacity of 
-             1 bilion elements. Note that if the value of "maxCapacity"
-             is False, the set will be created with the default capacity.
-            </summary>
-            
-            <param name="maxCapacity">
-             Indicates when to use the maximum capacity.
-            </param>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-             Creates new set with the copied elements from the other 
-             collection, and capacity = the cout of the copied elements.
-            </summary>
-            
-            <param name="collection">
-             The extern collection, wich elements will be copied.
-            </param>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
-            <summary>
-             Creates new set with the copied elements from the extern collection
-             and the specified capacity.
-            </summary>
-            
-            <param name="collection">
-             The extern collection.
-            </param>
-            
-            <param name="capacity">
-             The capacity of the set.
-            </param>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Boolean)">
-            <summary>
-             Creates new set with the copied elements from the
-             extern collection and with maximum capacity. Note that
-             the maximum capacity will be used only if "maxCapacity" is True.
-            </summary>
-            
-            <param name="collection">
-             The extern collection.
-            </param>
-            
-            <param name="maxCapacity">
-             Indicates when to use maximum capacity.
-            </param>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.Add(`0)">
-            <summary>
-             Adds the element to the set.
-             The order of the elements can not be guarantied.
-            </summary>
-            
-            <param name="element">
-             The element to be added.
-            </param>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.AddMany(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-             Adds the collection to the set.
-            </summary>
-            
-            <param name="collection">
-             The collection wich elements will be added.
-            </param>
-            
-            <exception cref="T:CommonLibrary.Exceptions.Error">
-             The extern collection is empty.
-            </exception>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.Remove(`0)">
-            <summary>
-             Removes the element from the set, if the same exist.
-            </summary>
-            
-            <param name="element">
-             The elemenet to be removed.
-            </param>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.Truncate">
-            <summary>
-             Clears the set and resets the capacity to the
-             default capacity of 0 elements.
-            </summary>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.ContainsElement(`0)">
-            <summary>
-             Check for the element in the set.
-            </summary>
-            
-            <param name="element">
-             The element to be searched.
-            </param>
-            
-            <returns>
-             True if the element exist in the set, otherwise - False.
-            </returns>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.ReturnAsArray">
-            <summary>
-             Returns the set as array.
-            </summary>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.ReturnAsCollection">
-            <summary>
-             Returns the set as collection.
-            </summary>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.Clone">
-            <summary>
-             Returns the set as object.
-            </summary>
-        </member>
-        <member name="M:CommonLibrary.Collections.Set`1.GetEnumerator">
-            <inheritdoc/>
         </member>
         <member name="T:CommonLibrary.Enums.BitState">
             <summary>

@@ -13,8 +13,7 @@ namespace CommonLibrary.AbstractDataTypes
     ///  can store very large values. All arithmetic operations are supported. The Number instance
     ///  wraps a BigInteger and make it reference type.
     /// </summary>
-    [DebuggerDisplay("{Value}")]
-    [DebuggerTypeProxy(typeof(int))]
+    [DebuggerDisplay("value: {Value}, hex: {Value.ToString(\"X\"), nq}, bin: {Value.ToString(\"B\"), nq}")]
     [Description("Data type for a number")]
     public sealed class Number : IDisposable, IComparable<Number>, IEquatable<Number>
     {
@@ -22,22 +21,18 @@ namespace CommonLibrary.AbstractDataTypes
         BigInteger value;
 
 
-        /// <summary>
-        ///  Gets or sets the value of the number.
-        ///  That property is private because is used only to specify 
-        ///  what to be shown in the the debugger display.
-        /// </summary>
-        private BigInteger Value
+        // This property is used only for the DebuggerDisplay attribute.
+        BigInteger Value
         {
-            get;
-            set;
+            get => this.value;
+            set => this.value = value;
         }
-
+        
 
         /// <summary>
         ///  Creates a new instance of the Number class with specified value.
         ///  That constructor is private beacause the implicit conversion operators exists.
-        ///  Only those operators or the default constructor should be used to create new instances
+        ///  Only those operators should be used to create new instances
         ///  and only those operators uses that constructor.
         /// </summary>
         /// 
@@ -55,6 +50,134 @@ namespace CommonLibrary.AbstractDataTypes
 
 
         /// <summary>
+        ///  Sums another number to this number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to sum.
+        /// </param>
+        public void Sum(Number number)
+            => this.SumCore(number.value);
+
+        /// <summary>
+        ///  Sums another number to this number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to sum.
+        /// </param>
+        public void Sum(int number)
+            => this.SumCore((BigInteger)number);
+
+        /// <summary>
+        ///  Subtracts another number from this number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to subtract.
+        /// </param>
+        public void Subtract(Number number)
+            => this.SubtractCore(number.value);
+
+        /// <summary>
+        ///  Subtracts another number from this number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to subtract.
+        /// </param>
+        public void Subtract(int number)
+            => this.SubtractCore(number);
+
+        /// <summary>
+        ///  Multiplies this number by another number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to multiply by.
+        /// </param>
+        public void Multiply(Number number)
+            => this.MultiplyCore(number.Value);
+
+        /// <summary>
+        ///  Multiplies this number by another number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to multiply by.
+        /// </param>
+        public void Multiply(int number)
+            => this.MultiplyCore(number);
+
+        /// <summary>
+        ///  Divides this number by another number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///   The other number to divide by.
+        /// </param>
+        public void Divide(Number number)
+            => this.DivideCore(number.Value);
+
+        /// <summary>
+        ///  Divides this number by another number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///   The other number to divide by.
+        /// </param>
+        public void Divide(int number)
+            => this.DivideCore(number);
+
+        /// <summary>
+        ///  Gets the reminder of this number divided by another number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to get the reminder by.
+        /// </param>
+        public int Reminder(Number number)
+            => (int)this.FindReminder(number.Value);
+
+        /// <summary>
+        ///  Gets the reminder of this number divided by another number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to get the reminder by.
+        /// </param>
+        public int Reminder(int number)
+            => (int)this.FindReminder(number);
+
+        /// <summary>
+        ///  Gets the division and reminder of this number divided by another number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to divide by.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  Tuple where the first item is the division result and the second item is the reminder.
+        /// </returns>
+        public (int, int) DivisionReminder(Number number)
+            => ((int, int))this.GetDivisionAndReminder(number.Value);
+
+        /// <summary>
+        ///  Gets the division and reminder of this number divided by another number.
+        /// </summary>
+        /// 
+        /// <param name="number">
+        ///  The other number to divide by.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  Tuple where the first item is the division result and the second item is the reminder.
+        /// </returns>
+        public (int, int) DivisionReminder(int number)
+            => ((int, int))this.GetDivisionAndReminder(number);
+
+        /// <summary>
         ///  Indicates to the Garbage Collector not to call the destructor(the finalizer).
         /// </summary>
         public void Dispose()
@@ -64,7 +187,7 @@ namespace CommonLibrary.AbstractDataTypes
         ///  Returns the string representation of the number.
         /// </summary>
         public override string ToString()
-            => this.Value.ToString();
+            => this.value.ToString();
 
         /// <summary>
         ///  Compares this number to another number.
@@ -85,11 +208,11 @@ namespace CommonLibrary.AbstractDataTypes
                 return 1;
             }
 
-            if (this.Value > other.Value)
+            if (this.value > other.value)
             {
                 return 1;
             }
-            else if (this.Value < other.Value)
+            else if (this.value < other.value)
             {
                 return -1;
             }
@@ -115,7 +238,7 @@ namespace CommonLibrary.AbstractDataTypes
                 return false;
             }
 
-            if (this.Value == other.Value)
+            if (this.value == other.value)
             {
                 return true;
             }
@@ -143,7 +266,7 @@ namespace CommonLibrary.AbstractDataTypes
 
             if (obj is Number number)
             {
-                return this.Value == number.Value;
+                return this.value == number.value;
             }
             else
             {
@@ -158,39 +281,74 @@ namespace CommonLibrary.AbstractDataTypes
             => this.Value.GetHashCode();
 
 
+        void SumCore(BigInteger number)
+            => this.Value += number;
+        void SubtractCore(BigInteger number)
+            => this.Value -= number;
+        void MultiplyCore(BigInteger number)
+            => this.Value *= number;
+        void DivideCore(BigInteger number)
+            => this.Value /= number;
+        BigInteger FindReminder(BigInteger number)
+            => this.Value % number;
+        (BigInteger, BigInteger) GetDivisionAndReminder(BigInteger number)
+            => (this.Value / number, this.Value % number);
+        
+
         // Implicit conversion operators
-        public static implicit operator Number(byte value)
+        public static implicit operator Number (byte value)
             => new(value);
-        public static implicit operator Number(sbyte value)
+        public static implicit operator Number (sbyte value)
             => new(value);
-        public static implicit operator Number(short value)
+        public static implicit operator Number (short value)
             => new(value);
-        public static implicit operator Number(ushort value)
+        public static implicit operator Number (ushort value)
             => new(value);
-        public static implicit operator Number(int value)
+        public static implicit operator Number (int value)
             => new(value);
-        public static implicit operator Number(uint value)
+        public static implicit operator Number (uint value)
             => new(value);
-        public static implicit operator Number(long value)
+        public static implicit operator Number (long value)
             => new(value);
-        public static implicit operator Number(ulong value)
+        public static implicit operator Number (ulong value)
             => new(value);
-        public static implicit operator Number(BigInteger value)
-            => new(value);
-        public static implicit operator Number(float value)
+        public static implicit operator Number (float value)
             => new((BigInteger)value);
-        public static implicit operator Number(double value)
+        public static implicit operator Number (double value)
             => new((BigInteger)value);
-        public static implicit operator Number(decimal value)
+        public static implicit operator Number (decimal value)
             => new((BigInteger)value);
-        public static implicit operator BigInteger(Number value)
-            => value.Value;
-        public static implicit operator int(Number value)
-            => (int)value.Value;
+        public static implicit operator Number (BigInteger value)
+            => new(value);
+
+        public static implicit operator byte (Number value)
+            => (byte)value.value;
+        public static implicit operator sbyte (Number value)
+            => (sbyte)value.value;
+        public static implicit operator int (Number value)
+            => (int)value.value;
+        public static implicit operator uint (Number value)
+            => (uint)value.value;
+        public static implicit operator short (Number value)
+            => (short)value.value;
+        public static implicit operator ushort (Number value)
+            => (ushort)value.value;
+        public static implicit operator long (Number value)
+            => (long)value.value;
+        public static implicit operator ulong (Number value)
+            => (ulong)value.value;
+        public static implicit operator float (Number value)
+            => (float)value.value;
+        public static implicit operator double (Number value)
+            => (double)value.value;
+        public static implicit operator decimal (Number value)
+            => (decimal)value.value;
+        public static implicit operator BigInteger (Number value)
+            => value.value;
 
 
         // Equality operators
-        public static bool operator ==(Number left, Number right)
+        public static bool operator == (Number left, Number right)
         {
             if (left is null)
             {
@@ -206,9 +364,9 @@ namespace CommonLibrary.AbstractDataTypes
                 return true;
             }
 
-            return left!.Value == right.Value;
+            return left!.value == right.value;
         }
-        public static bool operator !=(Number left, Number right)
+        public static bool operator != (Number left, Number right)
         {
             if (left is null)
             {
@@ -224,9 +382,9 @@ namespace CommonLibrary.AbstractDataTypes
                 return false;
             }
 
-            return left!.Value != right.Value;
+            return left!.value != right.value;
         }
-        public static bool operator <(Number left, Number right)
+        public static bool operator < (Number left, Number right)
         {
             if (left is null)
             {
@@ -242,9 +400,9 @@ namespace CommonLibrary.AbstractDataTypes
                 return false;
             }
 
-            return left!.Value < right.Value;
+            return left!.value < right.value;
         }
-        public static bool operator <=(Number left, Number right)
+        public static bool operator <= (Number left, Number right)
         {
             if (left is null)
             {
@@ -260,9 +418,9 @@ namespace CommonLibrary.AbstractDataTypes
                 return false;
             }
 
-            return left!.Value <= right.Value;
+            return left!.value <= right.value;
         }
-        public static bool operator >(Number left, Number right)
+        public static bool operator > (Number left, Number right)
         {
             if (left is null)
             {
@@ -278,9 +436,9 @@ namespace CommonLibrary.AbstractDataTypes
                 return false;
             }
 
-            return left!.Value > right.Value;
+            return left!.value > right.value;
         }
-        public static bool operator >=(Number left, Number right)
+        public static bool operator >= (Number left, Number right)
         {
             if (left is null)
             {
@@ -296,24 +454,39 @@ namespace CommonLibrary.AbstractDataTypes
                 return false;
             }
 
-            return left!.Value >= right.Value;
+            return left!.value >= right.value;
         }
 
 
         // Arithmetic operators
-        public static Number operator +(Number left, Number right)
-            => new(left.Value + right.Value);
-        public static Number operator -(Number left, Number right)
-            => new(left.Value - right.Value);
-        public static Number operator *(Number left, Number right)
-            => new(left.Value * right.Value);
-        public static Number operator /(Number left, Number right)
-            => new(left.Value / right.Value);
-        public static Number operator %(Number left, Number right)
-            => new(left.Value % right.Value);
-        public static Number operator ++(Number value)
-            => new(value.Value + BigInteger.One);
-        public static Number operator --(Number value)
-            => new(value.Value - BigInteger.One);        
+        public static Number operator + (Number left, Number right)
+            => new(left.value + right.value);
+        public static Number operator - (Number left, Number right)
+            => new(left.value - right.value);
+        public static Number operator * (Number left, Number right)
+            => new(left.value * right.value);
+        public static Number operator / (Number left, Number right)
+            => new(left.value / right.value);
+        public static Number operator % (Number left, Number right)
+            => new(left.value % right.value);
+        public static Number operator ++ (Number value)
+            => new(value.value + BigInteger.One);
+        public static Number operator -- (Number value)
+            => new(value.value - BigInteger.One);
+
+
+        //Bitwise operators
+        public static Number operator & (Number left, Number right)
+            => new(left.value & right.value);
+        public static Number operator | (Number left, Number right)
+            => new(left.value | right.value);
+        public static Number operator ^ (Number left, Number right)
+            => new(left.value ^ right.value);
+        public static Number operator ~ (Number value)
+            => new(~value.value);
+        public static Number operator << (Number value, int shift)
+            => new(value.value << shift);
+        public static Number operator >> (Number value, int shift)
+            => new(value.value >> shift);
     }
 }

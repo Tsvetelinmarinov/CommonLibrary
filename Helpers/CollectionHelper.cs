@@ -8,6 +8,7 @@ using System.ComponentModel;
 using CommonLibrary.Attributes;
 using CommonLibrary.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 
 namespace CommonLibrary.Helpers
 {
@@ -452,6 +453,85 @@ namespace CommonLibrary.Helpers
         ///  The collection to be cleared.
         /// </param>
         public static void Truncate<Type>(ref Type?[] collection)
-            => collection = [];  
+            => collection = [];
+
+        /// <summary>
+        ///  Searches for a value in a numeric array and returns its index.
+        /// </summary>
+        /// 
+        /// <typeparam name="Type">
+        ///  The numeric data type of the elements in the array.
+        /// </typeparam>
+        /// 
+        /// <param name="array">
+        ///  The array to be searched.
+        /// </param>
+        /// 
+        /// <param name="value">
+        ///  The value to be searched.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  The index of the found value or -1 if not found.
+        /// </returns>
+        public static int Search<Type>(Type[] array, Type value)
+            where Type : INumber<Type>
+        {
+            for (int i = default; i < array.Length; i++)
+            {
+                if (array[i] == value)
+                {
+                    return i; 
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        ///  Searches for a value in a numeric array and returns its index.
+        /// </summary>
+        /// 
+        /// <typeparam name="Type">
+        ///  The numeric data type of the elements in the array.
+        /// </typeparam>
+        /// 
+        /// <param name="array">
+        ///  The array to be searched.
+        /// </param>
+        /// 
+        /// <param name="value">
+        ///  The value to be searched.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  The index of the found value or -1 if not found.
+        /// </returns>
+        public static int BinarySearch<Type>(Type[] array, Type value)
+            where Type : INumber<Type>
+        {
+            int start = default;
+            int end = array.Length - 1;
+
+            while (end >= start)
+            {
+                int midIndex = (start + end) / 2;
+              
+                if (array[midIndex] == value) 
+                {
+                    return midIndex; // Ω (log2(value)) - one operation.
+                }
+                else if (array[midIndex] < value)
+                {
+                    start = midIndex + 1;
+                }
+                else if (array[midIndex] > value)
+                {
+                    end = midIndex - 1;
+                }
+            }
+
+            return -1;
+        }
     }
 }

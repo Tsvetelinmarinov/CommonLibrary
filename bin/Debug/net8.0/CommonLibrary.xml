@@ -40,18 +40,11 @@
              wraps a BigInteger and make it reference type.
             </summary>
         </member>
-        <member name="P:CommonLibrary.AbstractDataTypes.Number.Value">
-            <summary>
-             Gets or sets the value of the number.
-             That property is private because is used only to specify 
-             what to be shown in the the debugger display.
-            </summary>
-        </member>
         <member name="M:CommonLibrary.AbstractDataTypes.Number.#ctor(System.Numerics.BigInteger)">
             <summary>
              Creates a new instance of the Number class with specified value.
              That constructor is private beacause the implicit conversion operators exists.
-             Only those operators or the default constructor should be used to create new instances
+             Only those operators should be used to create new instances
              and only those operators uses that constructor.
             </summary>
             
@@ -63,6 +56,122 @@
             <summary>
              Releases the resources used by the Number instance.
             </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Sum(CommonLibrary.AbstractDataTypes.Number)">
+            <summary>
+             Sums another number to this number.
+            </summary>
+            
+            <param name="number">
+             The other number to sum.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Sum(System.Int32)">
+            <summary>
+             Sums another number to this number.
+            </summary>
+            
+            <param name="number">
+             The other number to sum.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Subtract(CommonLibrary.AbstractDataTypes.Number)">
+            <summary>
+             Subtracts another number from this number.
+            </summary>
+            
+            <param name="number">
+             The other number to subtract.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Subtract(System.Int32)">
+            <summary>
+             Subtracts another number from this number.
+            </summary>
+            
+            <param name="number">
+             The other number to subtract.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Multiply(CommonLibrary.AbstractDataTypes.Number)">
+            <summary>
+             Multiplies this number by another number.
+            </summary>
+            
+            <param name="number">
+             The other number to multiply by.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Multiply(System.Int32)">
+            <summary>
+             Multiplies this number by another number.
+            </summary>
+            
+            <param name="number">
+             The other number to multiply by.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Divide(CommonLibrary.AbstractDataTypes.Number)">
+            <summary>
+             Divides this number by another number.
+            </summary>
+            
+            <param name="number">
+              The other number to divide by.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Divide(System.Int32)">
+            <summary>
+             Divides this number by another number.
+            </summary>
+            
+            <param name="number">
+              The other number to divide by.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Reminder(CommonLibrary.AbstractDataTypes.Number)">
+            <summary>
+             Gets the reminder of this number divided by another number.
+            </summary>
+            
+            <param name="number">
+             The other number to get the reminder by.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.Reminder(System.Int32)">
+            <summary>
+             Gets the reminder of this number divided by another number.
+            </summary>
+            
+            <param name="number">
+             The other number to get the reminder by.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.DivisionReminder(CommonLibrary.AbstractDataTypes.Number)">
+            <summary>
+             Gets the division and reminder of this number divided by another number.
+            </summary>
+            
+            <param name="number">
+             The other number to divide by.
+            </param>
+            
+            <returns>
+             Tuple where the first item is the division result and the second item is the reminder.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Number.DivisionReminder(System.Int32)">
+            <summary>
+             Gets the division and reminder of this number divided by another number.
+            </summary>
+            
+            <param name="number">
+             The other number to divide by.
+            </param>
+            
+            <returns>
+             Tuple where the first item is the division result and the second item is the reminder.
+            </returns>
         </member>
         <member name="M:CommonLibrary.AbstractDataTypes.Number.Dispose">
             <summary>
@@ -4420,6 +4529,48 @@
             <param name="collection">
              The collection to be cleared.
             </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.Search``1(``0[],``0)">
+            <summary>
+             Searches for a value in a numeric array and returns its index.
+            </summary>
+            
+            <typeparam name="Type">
+             The numeric data type of the elements in the array.
+            </typeparam>
+            
+            <param name="array">
+             The array to be searched.
+            </param>
+            
+            <param name="value">
+             The value to be searched.
+            </param>
+            
+            <returns>
+             The index of the found value or -1 if not found.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.BinarySearch``1(``0[],``0)">
+            <summary>
+             Searches for a value in a numeric array and returns its index.
+            </summary>
+            
+            <typeparam name="Type">
+             The numeric data type of the elements in the array.
+            </typeparam>
+            
+            <param name="array">
+             The array to be searched.
+            </param>
+            
+            <param name="value">
+             The value to be searched.
+            </param>
+            
+            <returns>
+             The index of the found value or -1 if not found.
+            </returns>
         </member>
         <member name="T:CommonLibrary.Helpers.Criptography.Encryptor">
             <summary>

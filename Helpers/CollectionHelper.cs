@@ -519,7 +519,7 @@ namespace CommonLibrary.Helpers
               
                 if (array[midIndex] == value) 
                 {
-                    return midIndex; // Ω (log2(value)) - one operation.
+                    return midIndex; // Ω (log2(value)) - five operations.
                 }
                 else if (array[midIndex] < value)
                 {

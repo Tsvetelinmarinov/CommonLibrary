@@ -4027,6 +4027,24 @@
             BG: Съобщението за грешка.
             </param>
         </member>
+        <member name="T:CommonLibrary.Extensions.CollectionExtensions">
+            <summary>
+             Defines set of extension methods for collections.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Extensions.CollectionExtensions.PrintAll``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+             Prints all elements of the collection to the console.
+            </summary>
+            
+            <typeparam name="Type">
+             The type of elements in the collection.
+            </typeparam>
+            
+            <param name="collection">
+             The collection whose elements are to be printed.
+            </param>
+        </member>
         <member name="T:CommonLibrary.Helpers.BinaryHelper">
             <summary>
             

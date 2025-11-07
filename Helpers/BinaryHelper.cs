@@ -73,46 +73,6 @@ namespace CommonLibrary.Helpers
         /// <summary>
         /// 
         /// EN:
-        ///   Converts the string to a binary string.
-        ///   
-        /// BG:
-        ///   Конвертира стринга в двойчен стринг.
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="text">
-        ///  EN: The text to be converted.
-        ///  BG: Текста, който ще се конвертира.
-        /// </param>
-        /// 
-        /// <returns>
-        ///  EN: Binary string.
-        ///  BG: Двойчен стринг.
-        /// </returns>
-        public static string ConvertStringToBinary(string text)
-        {
-            ArgumentNullException.ThrowIfNullOrEmpty(text);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(text);
-
-            Collection<int> symbolsBase = [];
-            CollectionHelper.ExecuteOnEachElement(symbol => symbolsBase.Add(symbol), text);
-
-            Collection<string> binarys = [];
-            CollectionHelper.ExecuteOnEachElement(
-                _base => binarys.Add(ConvertIntToBinary(_base)),
-                symbolsBase
-            );
-
-            StringBuilder finalBinary = new();
-            CollectionHelper.ExecuteOnEachElement(bin => finalBinary.Append(bin), binarys);
-
-            return
-                finalBinary.ToString();
-        }
-
-        /// <summary>
-        /// 
-        /// EN:
         ///   Converts the binary string to a integer.
         ///   
         /// BG:

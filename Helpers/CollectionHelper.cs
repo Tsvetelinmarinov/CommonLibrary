@@ -91,7 +91,7 @@ namespace CommonLibrary.Helpers
             ArgumentNullException.ThrowIfNull(condition);
             ArgumentNullException.ThrowIfNull(collection);
 
-            Collection<Type?> elements = new(collection.Count());
+            List<Type?> elements = new(collection.Count());
 
             foreach (Type element in collection)
             {
@@ -196,33 +196,6 @@ namespace CommonLibrary.Helpers
 
         /// <summary>
         /// 
-        /// EN: Converts an external collection to a CommonLibrary Collection.  
-        ///  
-        /// BG: Преобразува външна колекция в колекция от тип данни CommonLibrary.Collections.Generic.Collection.
-        /// 
-        /// </summary>
-        /// 
-        /// <typeparam name="Type">
-        /// EN: The data type of the elements.  
-        /// BG: Типът на елементите.
-        /// </typeparam>
-        /// 
-        /// <param name="externCollection">
-        /// EN: The external collection to convert.  
-        /// BG: Външната колекция, която ще се преобразува.
-        /// </param>
-        /// 
-        /// <returns>
-        /// EN: A new Collection with copied elements.  
-        /// BG: Нова колекция с копирани елементи.
-        /// </returns>
-#pragma warning disable IDE0306 , IDE0028
-        public static Collection<Type> ReturnAsCollection<Type>(IEnumerable<Type> externCollection)
-            => new(externCollection);
-#pragma warning restore IDE0306, IDE0028
-
-        /// <summary>
-        /// 
         /// EN: Counts the elements that match a condition in the collection.  
         ///  
         /// BG: Брои елементите, които отговарят на условието в колекцията.
@@ -266,29 +239,6 @@ namespace CommonLibrary.Helpers
         /// <summary>
         /// 
         /// EN:
-        ///    Creates empty array with
-        ///    the specified capacity.
-        /// 
-        /// BG:
-        ///    Създава нов празен масив с указания капацитет.
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="capacity">
-        ///  EN: The capacity of the array.
-        ///  BG: Капацитета на масива.
-        /// </param>
-        ///
-        /// <returns>
-        ///  EN: Empty array.
-        ///  BG: Празен масив.
-        /// </returns>
-        public static IEnumerable<Type> CreateEmptyCollection<Type>(int capacity)
-            => new Collection<Type>(capacity);
-
-        /// <summary>
-        /// 
-        /// EN:
         ///    Creates an array with the copied elements from another array and with
         ///    capacity equals the count of the elements.
         /// 
@@ -309,35 +259,6 @@ namespace CommonLibrary.Helpers
         /// </returns>
         public static IEnumerable<Type> CreateFromAnother<Type>(IEnumerable<Type> externCollection)
             => [.. externCollection];
-
-        /// <summary>
-        /// 
-        /// EN:
-        ///    Creates an array with the copied elements from another array and with
-        ///    the specified capacity.
-        /// 
-        /// BG:
-        ///    Създава нов масив с копирани елементи от външния масив и капацитет 
-        ///    равен на указания.
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="externCollection">
-        ///  EN: The extern collection witch elements will be copied.
-        ///  BG: Външната колекция, чийто елементи да бъдат копирани.
-        /// </param>
-        /// 
-        /// /// <param name="capacity">
-        ///  EN: The capacity of the array.
-        ///  BG: Капацитета на масива.
-        /// </param>
-        ///
-        /// <returns>
-        ///  EN: Array with the copied elements as IEnumerable.
-        ///  BG: Масив с копираните елементи като IEnumerable.
-        /// </returns>
-        public static IEnumerable<Type> CreateFromAnother<Type>(IEnumerable<Type> externCollection, int capacity)
-            => new Collection<Type>(externCollection, capacity); 
 
         /// <summary>
         /// 
@@ -388,57 +309,6 @@ namespace CommonLibrary.Helpers
             }
  
             return collection.OrderDescending();                            
-        }
-
-        /// <summary>
-        /// 
-        /// EN:
-        ///    Sorts the collection by specified sorting options and
-        ///    returns it sortet.
-        ///    The options for sorting should be specified with a flag from SprtingOptions enumeration.
-        ///    Use SortingOptions.Ascending to sort the collection ascending.
-        ///    Use SortingOptions.Descending to sort the collecion descending.
-        /// 
-        /// BG:
-        ///    Сортира указаната колекция с указаните опций за сортиране.
-        ///    Режима на сортиране трябва да бъде указан с флаг от еномерацията SortingOptions.
-        ///    Използвай SortingOptions.Ascending за да сортираш колекцията възходящо.
-        ///    Използвaй SortingOptions.Descending за да сортираш колекцията низходящо.
-        /// 
-        /// </summary>
-        /// 
-        /// <typeparam name="Type">
-        ///  EN: The data type of the elements in the collection.
-        ///  BG: Типът данни на елементите в колекцията.
-        /// 
-        /// </typeparam>
-        /// 
-        /// <param name="collection">
-        ///  EN: The collection to be sorted.
-        ///  BG: Колекцията, която да бъде сортирана.
-        /// 
-        /// </param>
-        /// 
-        /// <param name="options">
-        ///  EN: The sorting options.
-        ///  BG: Опцийте за сортиране.
-        /// </param>
-        /// 
-        /// <returns>
-        ///  EN: The same collection, but sorted.
-        ///  BG: Връща колекцията, но сортирана по желания начин.
-        /// </returns>
-        public static Collection<Type> SortCollectionBy<Type>(IEnumerable<Type> collection, SortingOptions options)
-        {
-            ArgumentNullException.ThrowIfNull(options);
-            ArgumentNullException.ThrowIfNull(collection);
-
-            if (options == SortingOptions.Ascending)
-            {
-                return [.. collection.Order()];
-            }
-
-            return  [.. collection.OrderDescending()];
         }
 
         /// <summary>

@@ -129,40 +129,5 @@ namespace CommonLibrary.Helpers
 
             return number;
         }
-
-        /// <summary>
-        ///  
-        /// EN:
-        ///   Generates multiple random numbers in the given diapason and
-        ///   store it in array of integers.
-        ///   
-        /// BG:
-        ///   Генерира указано множество от случайни числа и ги записва в масив, който връща
-        ///   като стойност.
-        /// 
-        /// </summary>
-        /// 
-        /// <param name="count">
-        ///  EN: The count of the numbers to be generated.
-        ///  BG: Бройката случайни числа, които да се генерират.
-        /// </param>
-        /// 
-        /// <returns>
-        ///  EN: Array with random generated numbers.
-        ///  BG: Масив от случайно генерирани числа.
-        /// </returns>
-        public int[] GenerateMultiple(int count)
-        {
-            Collection<int> numbers = [];
-
-            for (int i = 0; i < count; ++i)
-            {
-                numbers.Add(Generate());
-            }
-
-#pragma warning disable IDE0305 
-            return numbers.ToArray();
-#pragma warning restore IDE0305 
-        }
     }
 }

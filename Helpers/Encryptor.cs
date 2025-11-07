@@ -8,7 +8,7 @@ using CommonLibrary.Attributes;
 using CommonLibrary.AbstractDataTypes;
 using System.Text;
 
-namespace CommonLibrary.Helpers.Criptography
+namespace CommonLibrary.Helpers
 {
     /// <summary>
     /// 
@@ -94,11 +94,11 @@ namespace CommonLibrary.Helpers.Criptography
             => DecryptFile(filePath);
 
 
-        // Encrytps a file
+        // Encrypts a file
         private static void EncryptFile(string directory)
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(directory);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(directory);
+            ArgumentException.ThrowIfNullOrEmpty(directory);
+            ArgumentException.ThrowIfNullOrWhiteSpace(directory);
 
             string fileName = directory.Substring(directory.LastIndexOf('\\') + 1);
             StringBuilder newFilePath = new(directory.Substring(0, directory.Length - fileName.Length));
@@ -129,8 +129,8 @@ namespace CommonLibrary.Helpers.Criptography
         // Decrypts a file
         private static void DecryptFile(string directory)
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(directory);
-            ArgumentNullException.ThrowIfNullOrWhiteSpace(directory);
+            ArgumentException.ThrowIfNullOrEmpty(directory);
+            ArgumentException.ThrowIfNullOrWhiteSpace(directory);
 
             string fileName = directory.Substring(directory.LastIndexOf(@"\") + 1);
             string originalFileName = fileName.Substring(fileName.IndexOf("_") + 1);

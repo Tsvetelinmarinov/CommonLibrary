@@ -3,7 +3,6 @@
 
 using System;
 using System.ComponentModel;
-using CommonLibrary.Base.Interfaces;
 
 namespace CommonLibrary.AbstractDataTypes
 {

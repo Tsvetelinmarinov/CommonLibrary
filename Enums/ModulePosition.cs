@@ -1,9 +1,9 @@
 ﻿// CommonLibrary - library for common usage.
 
-using System.ComponentModel;
-
 namespace CommonLibrary.Enums
 {
+    using System.ComponentModel;
+    
     /// <summary>
     ///  Provides positions for modules in a modular array.
     /// </summary>

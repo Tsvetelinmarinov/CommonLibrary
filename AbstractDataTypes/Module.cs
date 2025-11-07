@@ -1,78 +1,63 @@
 ﻿// CommonLibrary - library for common usage.
 
-using System.ComponentModel;
-using CommonLibrary.Attributes;
-using CommonLibrary.Exceptions;
-
 namespace CommonLibrary.AbstractDataTypes
 {
+    using System;
+    using System.ComponentModel;
+    using System.Diagnostics;
+
     /// <summary>
     ///  Defines a module for a modular array.
     /// </summary>
-    [Description("Defines a module for a modular array like the LinkedListNode class")]
-    [Usage("Used by the ModularArray class as his module/modules")]
-    public sealed class Module<Type>
+    /// 
+    /// <typeparam name="T">
+    ///  The data type of the module value.
+    /// </typeparam>
+    [Description("Module for a modular array")]
+    [DebuggerDisplay("{Value}")]
+    public sealed class Module<T>
+        where T : notnull
     {
-        // The value of the module.
-        private Type? value;
-
-        // The previous module is the modular array.
-        private Module<Type>? previous;
-
-        // The next module in the modular array.
-        private Module<Type>? next;
-
-
         /// <summary>
         ///  Gets the value of the module.
         /// </summary>
-        public Type? Value
+        public T Value
         {
-            get => this.value;
-            private set
-            {
-                if (value == null)
-                {
-                    throw new Error("Can not create a module with null value.");
-                }
-
-                this.value = value;
-            }
+            get;
+            private init;
         }
 
         /// <summary>
-        ///  Gets the previous module in the modular array.
+        ///  Gets the previous module.
         /// </summary>
-        public Module<Type>? Previous
+        public Module<T>? Previous 
         {
-            get => this.previous;
-            set => this.previous = value;
+            get;
+            set;
         }
 
         /// <summary>
-        ///  Gets the next module in the modular array.
+        ///  Gets the next module.
         /// </summary>
-        public Module<Type>? Next
+        public Module<T>? Next
         {
-            get => this.next;
-            set => this.next = value;
+            get;
+            set;
         }
 
 
-#pragma warning disable IDE0290
         /// <summary>
-        ///  Creates a new module with the specified value.
+        ///  Creates new module with the specified value.
         /// </summary>
         /// 
         /// <param name="value">
         ///  The value of the module.
         /// </param>
-        public Module(Type value)
+        public Module(T value)
         {
             this.Value = value;
             this.Previous = null;
             this.Next = null;
         }
-#pragma warning restore IDE0290
     }
 }

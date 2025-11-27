@@ -1000,6 +1000,20 @@
              The position in the modular array.
             </param>
         </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.Remove(CommonLibrary.Enums.ModulePosition,System.Int32)">
+            <summary>
+             Removes multiple modules from the specified position from
+             the modular array.
+            </summary>
+            
+            <param name="position">
+             The position in the modular array.
+            </param>
+            
+            <param name="countOfModules">
+             The count of the modules to be removed.
+            </param>
+        </member>
         <member name="M:CommonLibrary.Collections.ModularArray`1.Contains(`0)">
             <summary>
              Checks the modules for the value.
@@ -1023,6 +1037,12 @@
             <summary>
              Returns the values of the modular array in a
              standard array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.ModularArray`1.Dispose">
+            <summary>
+             Indicates to the garbage collector system to skip the
+             destructor of the class.
             </summary>
         </member>
         <member name="T:CommonLibrary.Enums.BitState">

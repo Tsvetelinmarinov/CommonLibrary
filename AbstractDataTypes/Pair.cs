@@ -1,7 +1,6 @@
 ﻿// CommonLibrary - library for common usage.
 // CommonLibrary - библиотека с общо предназначение.
 
-using System;
 using System.ComponentModel;
 
 namespace CommonLibrary.AbstractDataTypes
@@ -26,23 +25,10 @@ namespace CommonLibrary.AbstractDataTypes
     ///  BG: Типа данни на стойността.
     /// </typeparam>
     [Description("Key-value pair")]
-    public class Pair<KeyType, ValueType> : ICloneable
+    public sealed class Pair<KeyType, ValueType>
+        where KeyType : notnull
+        where ValueType : notnull
     {
-        //
-        // Holds the key of the pair.
-        //
-        // Съхранява ключа на двойката.
-        //
-        private readonly KeyType? _key;
-
-        //
-        // Holds the value of the pair.
-        //
-        // Съхранява стойността на двойката.
-        //
-        private readonly ValueType? _value;
-
-
         /// <summary>
         /// 
         /// EN:
@@ -52,8 +38,11 @@ namespace CommonLibrary.AbstractDataTypes
         ///   Достъпва ключа на двойката ключ-стойност.
         /// 
         /// </summary>
-        public KeyType? Key 
-            => _key!;
+        public KeyType Key
+        {
+            get;
+            private init;
+        }
 
         /// <summary>
         /// 
@@ -64,8 +53,11 @@ namespace CommonLibrary.AbstractDataTypes
         ///   Достъпва стойността на двойката ключ-стойност.
         /// 
         /// </summary>
-        public ValueType? Value 
-            => _value;
+        public ValueType Value
+        {
+            get;
+            private init;
+        }
 
         /// <summary>
         /// 
@@ -76,11 +68,10 @@ namespace CommonLibrary.AbstractDataTypes
         ///   Връща ключа и стойността на двойката ключ-стойност като двойка (Tuple).
         ///   
         /// </summary>
-        public (KeyType?, ValueType?) KeyAndValue 
-            => (Key, Value);
+        public (KeyType, ValueType) KeyAndValue 
+            => (this.Key, this.Value);
 
 
-#pragma warning disable IDE0290
         /// <summary>
         /// 
         /// EN:
@@ -102,48 +93,15 @@ namespace CommonLibrary.AbstractDataTypes
         /// </param>
         public Pair(KeyType key, ValueType value)
         {
-            _key = key;
-            _value = value;
+            this.Key = key;
+            this.Value = value;
         }
-#pragma warning restore IDE0290
 
-
-        /// <summary>
-        /// 
-        /// EN:
-        ///   Returns the key and the value of the pair concatenated with
-        ///   separator as string.
-        ///   
-        /// BG:
-        ///   Връща ключа и стойността на двойката ключ-стойност конкатенирани
-        ///   с разделител като текст (string).
-        /// 
-        /// </summary>
-        public string ReturnAsString()
-            => $"{Key} - {Value}";
 
         /// <summary>
         ///  Converts the key value pair to a string.
         /// </summary>
         public override string ToString()
-            => ReturnAsString();
-
-        /// <summary>
-        /// 
-        ///  EN:
-        ///     Clones the pair. Returns it like an object;
-        ///     
-        ///  BG:
-        ///    Клонира двойката ключ-стойност, като я връща като обект,
-        ///    който да бъде конвертиран (кастнат).
-        /// 
-        /// </summary>
-        /// 
-        /// <returns>
-        ///  EN: The pair as object.
-        ///  BG: Дойката ключ-стойност като обект.
-        /// </returns>
-        public object Clone()
-            => this;
+            => $"{this.Key} - {this.Value}";
     }
 }

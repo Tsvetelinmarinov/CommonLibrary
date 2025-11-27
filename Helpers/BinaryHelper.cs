@@ -1,30 +1,19 @@
 ﻿// CommonLibrary - library for common usage.
-// CommonLibrary - библиотека с общо предназначение.
 
 using System;
 using System.IO;
 using System.Text;
 using CommonLibrary.Enums;
-using System.ComponentModel;
 using CommonLibrary.Exceptions;
-using CommonLibrary.Collections;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using CommonLibrary.AbstractDataTypes;
 
 namespace CommonLibrary.Helpers
 {
     /// <summary>
-    /// 
-    /// EN:
-    ///   Provides set of static methods for converting strings, numbers and etc. to binary string.
-    ///   
-    /// BG:
-    ///   Предоставя набор от статични методи за конвертиране на текст, числа и т.н. в двойчен стринг.
-    ///   Двойчния стринг преставлява двойчно число под формата на стринг.
-    /// 
+    ///   Provides set of static methods for converting strings, numbers 
+    ///   and etc. to binary string/file.
     /// </summary>
-    [Description("Provides methods for converting a data type to a binary string")]
     public static class BinaryHelper
     {
         /// <summary>
@@ -198,13 +187,17 @@ namespace CommonLibrary.Helpers
         /// </param>
         public static void CreateBinary(string content, string binaryDirectory)
         {
-            ArgumentNullException.ThrowIfNullOrEmpty(content);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(content);
-
-            ArgumentNullException.ThrowIfNullOrEmpty(binaryDirectory);
             ArgumentNullException.ThrowIfNullOrWhiteSpace(binaryDirectory);
 
-            using FileStream binary = new(binaryDirectory, FileMode.Create, FileAccess.Write, FileShare.None, bufferSize: 666);
+            using FileStream binary = new(
+                binaryDirectory, 
+                FileMode.Create, 
+                FileAccess.Write, 
+                FileShare.None, 
+                bufferSize: 666
+            );
+
             byte[] data = Encoding.UTF8.GetBytes(content);
 
             binary.Write(data, 0, data.Length);
@@ -240,14 +233,14 @@ namespace CommonLibrary.Helpers
 
             if (parts > 100)
             {
-                _ = ShowMessageWindow(0, "The parts can not be more that a hounded.", "Binary Helper", 0);
+                _ = ShowMessageWindow(0, "The parts can not be more that a houndred.", "Binary Helper", 0);
                 parts = 100;
             }
 
             bool fileExists = File.Exists(fileLocation);
             if (!fileExists)
             {
-                throw new Error("The file does not exist.");
+                throw new InvalidOperationException("The file does not exist.");
             }
 
             using FileStream file = new(fileLocation, FileMode.Open, FileAccess.Read);
@@ -257,7 +250,11 @@ namespace CommonLibrary.Helpers
 
             for (int i = 1; i <= parts; i++)
             { 
-                using FileStream binary = new($@"{outputFolder}\part{i}.bin", FileMode.Create, FileAccess.Write);
+                using FileStream binary = new(
+                    $@"{outputFolder}\part{i}.bin", 
+                    FileMode.Create, 
+                    FileAccess.Write
+                );
 
                 file.Read(binaryBuffer, 0, binaryBuffer.Length);
                 binary.Write(binaryBuffer, 0, binaryBuffer.Length);

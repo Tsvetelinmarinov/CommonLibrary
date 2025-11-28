@@ -6,7 +6,6 @@ using System.Linq;
 using CommonLibrary.Enums;
 using System.ComponentModel;
 using CommonLibrary.Attributes;
-using CommonLibrary.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 
@@ -259,57 +258,6 @@ namespace CommonLibrary.Helpers
         /// </returns>
         public static IEnumerable<Type> CreateFromAnother<Type>(IEnumerable<Type> externCollection)
             => [.. externCollection];
-
-        /// <summary>
-        /// 
-        /// EN:
-        ///    Sorts the collection by specified sorting options and
-        ///    returns it sortet.
-        ///    The options for sorting should be specified with a flag from SprtingOptions enumeration.
-        ///    Use SortingOptions.Ascending to sort the collection ascending.
-        ///    Use SortingOptions.Descending to sort the collecion descending.
-        /// 
-        /// BG:
-        ///    Сортира указаната колекция с указаните опций за сортиране.
-        ///    Режима на сортиране трябва да бъде указан с флаг от еномерацията SortingOptions.
-        ///    Използвай SortingOptions.Ascending за да сортираш колекцията възходящо.
-        ///    Използвaй SortingOptions.Descending за да сортираш колекцията низходящо.
-        /// 
-        /// </summary>
-        /// 
-        /// <typeparam name="Type">
-        ///  EN: The data type of the elements in the collection.
-        ///  BG: Типът данни на елементите в колекцията.
-        /// 
-        /// </typeparam>
-        /// 
-        /// <param name="collection">
-        ///  EN: The collection to be sorted.
-        ///  BG: Колекцията, която да бъде сортирана.
-        /// 
-        /// </param>
-        /// 
-        /// <param name="options">
-        ///  EN: The sorting options.
-        ///  BG: Опцийте за сортиране.
-        /// </param>
-        /// 
-        /// <returns>
-        ///  EN: The same collection, but sorted.
-        ///  BG: Връща колекцията, но сортирана по желания начин.
-        /// </returns>
-        public static IEnumerable<Type> SortArrayBy<Type>(IEnumerable<Type> collection, SortingOptions options) 
-        {
-            ArgumentNullException.ThrowIfNull(options);
-            ArgumentNullException.ThrowIfNull(collection);
-
-            if (options == SortingOptions.Ascending)
-            {
-                return collection.Order();
-            }
- 
-            return collection.OrderDescending();                            
-        }
 
         /// <summary>
         ///  Clears the collection.

@@ -90,7 +90,7 @@ namespace CommonLibrary.Helpers
 
             if (binary.Length > 32)
             {
-                throw new Error("Binary can not be with more than 32 bits.");
+                throw new ArgumentOutOfRangeException("Binary can not be with more than 32 bits.");
             }
 
             int result = default;
@@ -159,7 +159,7 @@ namespace CommonLibrary.Helpers
 
             if (index > ConvertIntToBinary(number).Length)
             {
-                throw new Error("The index can not be outside of the bounds of the binary");
+                throw new ArgumentOutOfRangeException("The index can not be outside of the bounds of the binary");
             }
 
             int mask; // The mask should be different with the different bit state.

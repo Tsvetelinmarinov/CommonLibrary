@@ -5,7 +5,7 @@
     <version>1.0.0</version>
     <authors>Tsvetelin Marinov</authors>
     <description>Library for common usage</description>
-    <repository type="git" commit="c075cfb9950a7e7877d15508055121fe21f4a9a4" />
+    <repository type="git" commit="c674af7ef1b4fcd11712b938e266faec08d527b3" />
     <dependencies>
       <group targetFramework="net8.0" />
     </dependencies>

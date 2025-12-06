@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\VisualStudio\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net8.0\CommonLibrary.xml</DocumentationFile>
@@ -16,9 +16,5 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>preview</LangVersion>
 	</PropertyGroup>
-
-	<ItemGroup>
-	  <Folder Include="Collections\" />
-	</ItemGroup>
 
 </Project>

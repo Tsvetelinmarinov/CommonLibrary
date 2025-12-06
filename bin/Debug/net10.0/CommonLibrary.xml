@@ -1,0 +1,817 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:CommonLibrary.AbstractDataTypes.Pair`2">
+            <summary>
+            
+            EN: 
+               A key-value pair.
+              
+            BG:
+              Двойка ключ-стойност.
+            
+            </summary>
+            
+            <typeparam name="KeyType">
+             EN: The data type of the key.
+             BG: Типа данни на ключа.
+            </typeparam>
+            
+            <typeparam name="ValueType">
+             EN: The data type of the value.
+             BG: Типа данни на стойността.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Pair`2.Key">
+            <summary>
+            
+            EN:
+              Gets the key of the key-value pair.
+              
+            BG:
+              Достъпва ключа на двойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Pair`2.Value">
+            <summary>
+            
+            EN:
+              Gets the value of the key-value pair.
+              
+            BG:
+              Достъпва стойността на двойката ключ-стойност.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Pair`2.KeyAndValue">
+            <summary>
+            
+            EN:
+              Returns the key and the value as tuple.
+            
+            BG:
+              Връща ключа и стойността на двойката ключ-стойност като двойка (Tuple).
+              
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Pair`2.#ctor(`0,`1)">
+            <summary>
+            
+            EN:
+              Creates new key-value pair with the specified key and value.
+              
+            BG:
+              Създава нова двойка ключ-стойност с указаните ключ и стойност.
+            
+            </summary>
+            
+            <param name="key">
+             EN: The key.
+             BG: Ключа.
+            </param>
+            
+            <param name="value">
+             EN: The value.
+             BG: Стойността.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Pair`2.ToString">
+            <summary>
+             Converts the key value pair to a string.
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Attributes.UsageAttribute">
+            <summary>
+             
+             EN: 
+               Specifies the usage of that member/data type.
+               
+             BG:
+               Указва за какво се използва този член или тип данни.
+             
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Attributes.UsageAttribute.#ctor(System.String)">
+            <summary>
+            
+            EN:
+              Creates new UsageAttribute with the specified definition.
+              
+            BG:
+              Създава нов UsageAttribute с указаната дефиниция.
+            
+            </summary>
+            
+            <param name="definition">
+             EN: The definition.
+             BG: Дефиницията.
+            
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Collections.Collection`1">
+            <summary>
+             Strongly-typed collection of elements.
+            </summary>
+            
+            <typeparam name="T">
+             The data type of the elements in the collection.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.Item(System.Int32)">
+            <summary>
+             Indexer.
+            </summary>
+            
+            <param name="index">
+             The index in the collection.
+            </param>
+            
+            <returns>
+             The element at that index in the collection.
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.Count">
+            <summary>
+             Gets the count of the elements
+             in the collection.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Collections.Collection`1.Capacity">
+            <summary>
+             Gets the capacity of the collection.
+             The collection resizes when the capacity is reached.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor">
+            <summary>
+             Creates new empty collection with the
+             default capacity of six elements.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor(System.Int32)">
+            <summary>
+             Creates new empty collection with the specified capacity.
+            </summary>
+            
+            <param name="capacity">
+             The capacity of the collection.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+             Creates new collection with the elements from the specified IEnumerable
+             and capacity = the count of the elements.
+            </summary>
+            
+            <param name="array">
+             The extern enumerable with the values.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+             Creates new collection with the elements from the specified array and 
+             with specified capacity.
+            </summary>
+            
+            <param name="array">
+             The array with values.
+            </param>
+            
+            <param name="capacity">
+             The capacity of the collection.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.Add(`0)">
+            <summary>
+             Adds an element to the collection.
+            </summary>
+            
+            <param name="element">
+             The element to be added.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.Remove(`0)">
+            <summary>
+             Removes an element from the collection.
+            </summary>
+            
+            <param name="element">
+             The element to be removed.
+            </param>
+            
+            <returns>
+             The element that is removed, or the default value of the
+             data type if there are no matches.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.Contains(`0)">
+            <summary>
+             Checks if the specified element exists in
+             the collection.
+            </summary>
+            
+            <param name="element">
+             The element that will be checked.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.Clear">
+            <summary>
+             Clears the collection.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.ChangeCapacity(System.Int32)">
+            <summary>
+             Changes the capacity of the collection.
+            </summary>
+            
+            <param name="capacity">
+             The new capacity
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Enums.BitState">
+            <summary>
+            
+            EN:
+              Provides flags that indicate the state of the bit at the given position 
+              in the "ChangeBitAt()" method in the BinaryHelper class.
+              
+            BG:
+              Предоставя флагове за състоянието на даден бит за "ChangeBitAt()" метода
+              в класа BinaryHelper.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.BitState.SwitchOn">
+            <summary>
+            
+            EN:
+              Indicates that the bit should be switched on.
+              
+            BG:
+              Индикира, че бита трябва да бъде включен, 
+              тоест да присвой стойност 1.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Enums.BitState.SwitchOff">
+            <summary>
+            
+            EN:
+              Indicates that the bit should be switched off.
+              
+            BG:
+              Индикира, че бита трябва да бъде изключен, 
+              тоест да присвой стойност 0.
+            
+            </summary>
+        </member>
+        <member name="T:CommonLibrary.Exceptions.SyntaxException">
+            <summary>
+            
+            EN:
+             Indicates when some member value (Property or Field, Parameter..) is not typed correct.
+             The check of the syntax is made with a regular expression.
+             
+            BG: 
+             Индикира когато стойността на даден член на класа (свойство, поле, параметър..) е с непозволен синтаксис.
+             Извършва се проверка на синтаксиса с регулярен израз.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Exceptions.SyntaxException.ErrorMessage">
+            <summary>
+            
+             EN: Get or set the message that exception shows.
+             
+             BG: Достъпва съобщението за грешка, което се показва. 
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Exceptions.SyntaxException.#ctor">
+            <summary>
+            
+             EN: Create new SyntaxException with default error message.
+             
+             BG: Създава нов SyntaxException със съобщение за грешка по подразбиране.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Exceptions.SyntaxException.#ctor(System.String)">
+            <summary>
+            
+             EN: Create new SyntaxException with specified error message.
+             
+             BG: Създава нов SytanxException със зададено съобщение за грешка.
+            
+            </summary>
+            
+            <param name="message">
+            EN: The message for the exception.
+            BG: Съобщението за грешка.
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Helpers.BinaryHelper">
+            <summary>
+              Provides set of static methods for converting strings, numbers 
+              and etc. to binary string/file.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.ConvertIntToBinary(System.Int32)">
+            <summary>
+            
+            EN:
+              Converts the number to a binary string.
+              
+            BG:
+              Конвертира числото в двойчен стринг.
+            
+            </summary>
+            
+            <param name="number">
+             EN: The number to be converted.
+             BG: Числото, което ще се конвертира.
+            </param>
+            
+            <returns>
+             EN: Binary string.
+             BG: Двойчен стринг.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.ConvertBinaryToInt(System.String)">
+            <summary>
+            
+            EN:
+              Converts the binary string to a integer.
+              
+            BG:
+              Конвертира двойчния стринг в цяло число.
+            
+            </summary>
+            
+            <param name="binary">
+             EN: The binary string to be converted.
+             BG: Двойчния стринг, който ще се конвертира.
+            </param>
+            
+            <returns>
+             EN: Integer.
+             BG: Цяло число, получено от двойчния стринг.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.ChangeBitAt(System.Int32,System.Int32,CommonLibrary.Enums.BitState)">
+            <summary>
+            
+            EN:
+              Changes the bit at the given position.
+              The first index in the binary is the last bit.
+              The index is incremented at every nex bit, but the 
+              direction of indexing is from left to rigth.
+              The state of the bit is indicated by a flag from the
+              enumeration "BitState".
+              Use flag "SwitchOn" to switch on the bit(set the value to 1).
+              Use flag "SwitchOff" to switch off the bit(set the value to 0).
+              
+            BG:
+               Променя състоянието на даден бит на дадена позиция.
+               Позициятя на бита е неговия индекс в машинния код.
+               Индекирането става от ляво на дясно, тоест на индекс 0
+               е последния бит. Състоянието на бита се указва с флаг
+               от еномерацията "BitState".
+               Използвай флага "SwitchOn" за да вкючиш бита(да му зададеш стойност 1).
+               Използвай флага "SwitchOff" за да изкючиш бита(да му зададеш стойност 0).
+            
+            </summary>
+            
+            <param name="number">
+             EN: The number.
+             BG: Числото.
+            </param>
+            
+            <param name="index">
+             EN: The position of the bit in the number.
+             BG: Позицията на бита в числото(в машинния му код). 
+            </param>
+            
+            <param name="state">
+             BG: The state of the bit.
+             BG: Съзтоянието на бита. Дали да е включен или не.
+            </param>
+            
+            <returns>
+             EN: The result as new integer.
+             BG: Резултата като цяло число.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.CreateBinary(System.String,System.String)">
+            <summary>
+             Creates a binary(.bin) file with the given text.
+            </summary>
+            
+            <param name="content">
+             The text of the file.
+            </param>
+            
+            <param name="binaryDirectory">
+             The location of the binary - where to be created.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.SplitToBinaries(System.String,System.String,System.Byte)">
+            <summary>
+              Splits the file content to several binary files.
+            </summary>
+            
+            <param name="fileLocation">
+             The location of the file.
+            </param>
+            
+            <param name="outputFolder">
+             The folder where the binaries will be saved.
+            </param>
+            
+            <param name="parts">
+             The count of the binaries.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.BinaryHelper.ShowMessageWindow(System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+             Shows a message window with the specified
+             message and title.
+            </summary>
+            
+            <param name="hWind"></param>
+            <param name="text"></param>
+            <param name="title"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonLibrary.Helpers.CollectionHelper">
+            <summary>
+            
+            EN: 
+               Provides static methods for searching and editing a collection.  
+             
+            BG: 
+               Предоставя набор от статични методи за манипулиране на колекция или масив.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.FindElementThat``1(System.Predicate{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Checks every element in the collection and extracts the one that matches the Predicate.  
+             
+            BG: Проверява всеки елемент в колекцията и връща първия, който отговаря на условието.  
+                Ако няма съвпадения, връща стойност по подразбиране.
+            
+            </summary>
+            
+            <param name="condition">
+            EN: The Predicate with the condition.  
+            BG: Предикатът с условието.
+            </param>
+            
+            <param name="collection">
+            EN: The collection whose elements will be iterated.  
+            BG: Колекцията, чиито елементи ще бъдат итерирани.
+            </param>
+            
+            <returns>
+            EN: The first matching element or default value if there is no match.  
+            BG: Първият съвпадащ елемент или стойност по подразбиране, ако няма съвпадения.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.FindElementsThat``1(System.Predicate{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Checks every element in the collection and extracts all that match the Predicate.  
+             
+            BG: Проверява всеки елемент и връща всички, които отговарят на условието.  
+                Ако няма съвпадения, връща масив със стойности по подразбиране.
+            
+            </summary>
+            
+            <param name="condition">
+            EN: The Predicate with the condition.  
+            BG: Предикатът с условието.
+            </param>
+            
+            <param name="collection">
+            EN: The collection whose elements will be checked.  
+            BG: Колекцията, чиито елементи ще бъдат проверени.
+            </param>
+            
+            <returns>
+            EN: Array of matching elements or array of default values if no matches found.  
+            BG: Масив от съвпадащи елементи или стойности по подразбиране, ако няма съвпадения.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.ExecuteOnEachElement``1(System.Action{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Iterates over the collection and executes the method on each element.  
+             
+            BG: Обхожда колекцията и изпълнява метода върху всеки елемент.
+            
+            </summary>
+            
+            <typeparam name="Type">
+            EN: The data type of the method parameter and the collection elements.  
+            BG: Типът на параметъра и елементите в колекцията.
+            </typeparam>
+            
+            <param name="command">
+            EN: The method to execute.  
+            BG: Методът, който ще се изпълни.
+            </param>
+            
+            <param name="collection">
+            EN: The collection to iterate.  
+            BG: Колекцията, която ще се обхожда.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.ExecuteOnEachElement(System.Action{System.Object},System.Object[])">
+            <summary>
+            
+            EN: Iterates over the object array and executes the method on each element.  
+             
+            BG: Обхожда масив от обекти и изпълнява метода върху всеки от тях.
+            
+            </summary>
+            
+            <param name="command">
+            EN: The method to execute.  
+            BG: Методът, който ще се изпълни.
+            </param>
+            
+            <param name="objects">
+            EN: The array of objects to iterate.  
+            BG: Масивът от обекти, който ще се обхожда.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.ConvertToObjectArray``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            EN: Converts a collection to an array of objects.  
+             
+            BG: Преобразува колекцията в масив от обекти.
+            
+            </summary>
+            
+            <param name="collection">
+            EN: The collection to convert.  
+            BG: Колекцията, която ще се преобразува.
+            </param>
+            
+            <returns>
+            EN: Array of objects.  
+            BG: Масив от обекти.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.CountOfMatches``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            
+            EN: Counts the elements that match a condition in the collection.  
+             
+            BG: Брои елементите, които отговарят на условието в колекцията.
+            
+            </summary>
+            
+            <typeparam name="Type">
+            EN: The data type of the elements.  
+            BG: Типът на елементите.
+            </typeparam>
+            
+            <param name="collection">
+            EN: The collection to check.  
+            BG: Колекцията, която ще се проверява.
+            </param>
+            
+            <param name="condition">
+            EN: The condition to match.  
+            BG: Условието, което трябва да се изпълни.
+            </param>
+            
+            <returns>
+            EN: Number of matching elements.  
+            BG: Броя на съвпадащите елементи.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.CreateFromAnother``1(System.Collections.Generic.IEnumerable{``0})">
+             <summary>
+             
+             EN:
+                Creates an array with the copied elements from another array and with
+                capacity equals the count of the elements.
+             
+             BG:
+                Създава нов масив с копирани елементи от външния масив и капацитет 
+                равен на бройката на елементите.
+             
+             </summary>
+             
+             <param name="externCollection">
+              EN: The extern collection witch elements will be copied.
+              BG: Външната колекция, чийто елементи да бъдат копирани.
+             </param>
+            
+             <returns>
+              EN: Array with the copied elements as IEnumerable.
+              BG: Масив с копираните елементи като IEnumerable.
+             </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.Truncate``1(``0[]@)">
+            <summary>
+             Clears the collection.
+            </summary>
+            
+            <typeparam name="Type">
+             The data type of the elements in the collection.
+            </typeparam>
+            
+            <param name="collection">
+             The collection to be cleared.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.Search``1(``0[],``0)">
+            <summary>
+             Searches for a value in a numeric array and returns its index.
+            </summary>
+            
+            <typeparam name="Type">
+             The numeric data type of the elements in the array.
+            </typeparam>
+            
+            <param name="array">
+             The array to be searched.
+            </param>
+            
+            <param name="value">
+             The value to be searched.
+            </param>
+            
+            <returns>
+             The index of the found value or -1 if not found.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.Helpers.CollectionHelper.BinarySearch``1(``0[],``0)">
+            <summary>
+             Searches for a value in a numeric array and returns its index.
+            </summary>
+            
+            <typeparam name="Type">
+             The numeric data type of the elements in the array.
+            </typeparam>
+            
+            <param name="array">
+             The array to be searched.
+            </param>
+            
+            <param name="value">
+             The value to be searched.
+            </param>
+            
+            <returns>
+             The index of the found value or -1 if not found.
+            </returns>
+        </member>
+        <member name="T:CommonLibrary.Helpers.Encryptor">
+            <summary>
+            
+            EN:
+              Provides set of static methods for encrypting and decrypting 
+              file content with a key. The encryptor encrypts a file by iterating
+              over all symbols of the file content and apply XOR (^) bitwise operation
+              with the key with each of them. The decrypting operation is the same as encryption.
+              The key for the encryption and decryption processes can be set by the "Key" property.
+            
+            BG:
+              Предоставя набор от статични методи за криптиране и декриптиране на съдържание на файл с ключ.
+              Крипторът шифрира файл, като обхожда всички символи от съдържанието на файла и
+              прилага побитова операция XOR (^) (побитово изключващо ИЛИ) с ключа върху всеки от тях. 
+              Операцията по декриптиране е същата като при криптиране.
+              Ключа за шифроване и дешифроване може да бъде достъпен и променен от 
+              свойството "Key" на класа.
+            
+            </summary>
+        </member>
+        <member name="F:CommonLibrary.Helpers.Encryptor._key">
+            <summary>
+             
+             EN:
+               The key for the encryptiong.
+             
+             BG:
+               Ключа за шифроване.
+            
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Helpers.Encryptor.Key">
+            <summary>
+            
+            EN:
+              Gets or sets the key for the encyption and decryption processes.
+              
+            BG:
+              Достъпва или променя ключа за шифроване и дешифроване.
+            
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Helpers.Encryptor.Encrypt(System.String)">
+            <summary>
+            
+            EN:
+              Encrypts the content of the file.
+              
+            BG:
+              Шифрира указания файл.
+            
+            </summary>
+            
+            <param name="filePath">
+             EN: The directory of the file in the system.
+             BG: Директорията на файла в системата.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Helpers.Encryptor.Decrypt(System.String)">
+            <summary>
+            
+            EN:
+              Decripts a file, encrypted with the same encryptor - the current data type.
+              
+            BG:
+              Дешифрова файл, шифриран с текущия криптор.
+            
+            </summary>
+            
+            <param name="filePath">
+             ЕN: The directory of the file in the system.
+             BG: Директорията на файла в системата.
+            </param>
+        </member>
+        <member name="T:CommonLibrary.Interfaces.IGenericCollection`1">
+            <summary>
+             Defines properties and methods to describe a collection 
+             of elements.
+            </summary>
+            
+            <typeparam name="T">
+             The data type of the elements of the collection.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.Item(System.Int32)">
+            <summary>
+             Indexer.
+            </summary>
+            
+            <param name="index">
+             The index in the collection.
+            </param>
+            
+            <returns>
+             The element at that index in the collection.
+            </returns>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.Capacity">
+            <summary>
+             Gets the capacity of the collection.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.Add(`0)">
+            <summary>
+             Adds an element to the collection.
+            </summary>
+            
+            <param name="element">
+             The element to be added.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.Remove(`0)">
+            <summary>
+             Removes an element from the collection.
+            </summary>
+            
+            <param name="element">
+             The element to be removed.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.Contains(`0)">
+            <summary>
+             Checks if the specified element exists in
+             the collection.
+            </summary>
+            
+            <param name="element">
+             The element that will be checked.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.Clear">
+            <summary>
+             Clears the collection.
+            </summary>
+        </member>
+    </members>
+</doc>

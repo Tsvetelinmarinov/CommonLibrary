@@ -4,7 +4,6 @@ using System;
 using System.IO;
 using System.Text;
 using CommonLibrary.Enums;
-using CommonLibrary.Exceptions;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
@@ -201,8 +200,9 @@ namespace CommonLibrary.Helpers
             byte[] data = Encoding.UTF8.GetBytes(content);
 
             binary.Write(data, 0, data.Length);
-            binary.Flush(); // The "using" directive calls the Close() command wich calls the Flush() command
-                            // but i need to be shure.
+            binary.Flush(); // The "using" directive calls the Close() command
+                            // wich calls the Flush() command
+                            // but i need to be sure...
         }
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace CommonLibrary.Helpers
                     FileAccess.Write
                 );
 
-                file.Read(binaryBuffer, 0, binaryBuffer.Length);
+                file.ReadExactly(binaryBuffer);
                 binary.Write(binaryBuffer, 0, binaryBuffer.Length);
 
                 Array.Clear(binaryBuffer);

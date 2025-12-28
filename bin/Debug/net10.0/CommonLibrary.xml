@@ -232,6 +232,21 @@
              The new capacity
             </param>
         </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.ForEach(System.Action{`0})">
+            <summary>
+             Executes the method with each element in the collection.
+            </summary>
+            
+            <param name="action">
+            The delegate to be executed.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.GetEnumerator">
+            <summary>
+             The enumerator
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CommonLibrary.Enums.BitState">
             <summary>
             

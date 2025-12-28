@@ -1,13 +1,26 @@
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net10.0\CommonLibrary.deps.json
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net10.0\CommonLibrary.dll
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net10.0\CommonLibrary.pdb
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\bin\Debug\net10.0\CommonLibrary.xml
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\CommonLibrary.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\CommonLibrary.AssemblyInfoInputs.cache
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\CommonLibrary.AssemblyInfo.cs
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\CommonLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\CommonLibrary.sourcelink.json
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\CommonLibrary.dll
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\refint\CommonLibrary.dll
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\CommonLibrary.pdb
-C:\Users\Cvete\OneDrive\Documents\Visual Studio 2022\Projects\CommonLibrary\CommonLibraryDLL\CommonLibrary\obj\Debug\net10.0\ref\CommonLibrary.dll
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/bin/Debug/net10.0/CommonLibrary.deps.json
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/bin/Debug/net10.0/CommonLibrary.dll
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/bin/Debug/net10.0/CommonLibrary.pdb
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/bin/Debug/net10.0/CommonLibrary.xml
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/CommonLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/CommonLibrary.AssemblyInfoInputs.cache
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/CommonLibrary.AssemblyInfo.cs
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/CommonLibrary.csproj.CoreCompileInputs.cache
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/CommonLibrary.sourcelink.json
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/CommonLibrary.dll
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/refint/CommonLibrary.dll
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/CommonLibrary.pdb
+C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/CommonLibraryDLL/CommonLibrary/obj/Debug/net10.0/ref/CommonLibrary.dll
+/home/tsvetelin/RiderProjects/CommonLibrary/bin/Debug/net10.0/CommonLibrary.deps.json
+/home/tsvetelin/RiderProjects/CommonLibrary/bin/Debug/net10.0/CommonLibrary.dll
+/home/tsvetelin/RiderProjects/CommonLibrary/bin/Debug/net10.0/CommonLibrary.pdb
+/home/tsvetelin/RiderProjects/CommonLibrary/bin/Debug/net10.0/CommonLibrary.xml
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.AssemblyInfoInputs.cache
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.AssemblyInfo.cs
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.csproj.CoreCompileInputs.cache
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.sourcelink.json
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.dll
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/refint/CommonLibrary.dll
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.pdb
+/home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/ref/CommonLibrary.dll

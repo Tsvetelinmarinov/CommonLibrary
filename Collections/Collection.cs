@@ -3,7 +3,7 @@
 namespace CommonLibrary.Collections
 {
     using System.Collections.Generic;
-    using CommonLibrary.Interfaces;
+    using Interfaces;
     using System.Collections;
     using System.Linq;
     using System;
@@ -37,15 +37,16 @@ namespace CommonLibrary.Collections
         { 
             get
             {
-                if (index < 0 || index >= this._data!.Length)
+                if (index >= 0 && index < this._data!.Length)
                 {
-                    string message = "The index cannot be negative and the index cannot be" +
-                        "greater than the actual count of the elements.";
-
-                    throw new ArgumentOutOfRangeException(nameof(index), message);
+                    return this._data![index]!;
                 }
+                
+                const string message = "The index cannot be negative and the index cannot be" +
+                                       "greater than the actual count of the elements.";
 
-                return this._data![index];
+                throw new ArgumentOutOfRangeException(nameof(index), message);
+
             }
             set
             {
@@ -70,7 +71,7 @@ namespace CommonLibrary.Collections
             get => this._count;
             private set
             {
-                ArgumentOutOfRangeException.ThrowIfNegative(value, nameof(value));
+                ArgumentOutOfRangeException.ThrowIfNegative(value);
                 this._count = value;
             }
         }
@@ -79,8 +80,7 @@ namespace CommonLibrary.Collections
         ///  Gets the capacity of the collection.
         ///  The collection resizes when the capacity is reached.
         /// </summary>
-        public int Capacity
-            => this._data!.Length;
+        public int Capacity => this._data!.Length;
 
 
         /// <summary>
@@ -88,7 +88,9 @@ namespace CommonLibrary.Collections
         ///  default capacity of six elements.
         /// </summary>
         public Collection()
-            => this._data = new T[DefaultCapacity];
+        {
+            this._data = new T[DefaultCapacity];
+        }
 
         /// <summary>
         ///  Creates new empty collection with the specified capacity.
@@ -98,7 +100,9 @@ namespace CommonLibrary.Collections
         ///  The capacity of the collection.
         /// </param>
         public Collection(int capacity)
-           => this._data = new T[capacity];
+        {
+            this._data = new T[capacity];
+        }
 
         /// <summary>
         ///  Creates new collection with the elements from the specified IEnumerable
@@ -110,8 +114,9 @@ namespace CommonLibrary.Collections
         /// </param>
         public Collection(IEnumerable<T> array)
         {
-            this._data = [.. array ??= []];
-            this.Count = array.Count();
+            var enumerable = array as T[] ?? array.ToArray();
+            this._data = [.. enumerable];
+            this.Count = enumerable!.Length;
         }
 
         /// <summary>
@@ -136,10 +141,11 @@ namespace CommonLibrary.Collections
             }
 
             this._data = new T[capacity];
-            this.Copy([.. array ??= []], this._data!); // If the IEnumerable is null the internal array
-                                                       // left empty.
+            this.Copy([.. array ?? []], this._data!); // If the IEnumerable is
+                                                                      // null the internal array
+                                                                     // left empty.
 
-            this.Count = array.Count();
+            this.Count = array!.Count();
         }
 
 
@@ -151,7 +157,9 @@ namespace CommonLibrary.Collections
         ///  The element to be added.
         /// </param>
         public void Add(T element)
-            => this.AddElement(element);
+        {
+            this.AddElement(element);
+        }
 
         /// <summary>
         ///  Removes an element from the collection.
@@ -166,7 +174,9 @@ namespace CommonLibrary.Collections
         ///  data type if there are no matches.
         /// </returns>
         public T? Remove(T element)
-            => this.RemoveElement(element);
+        {
+            return this.RemoveElement(element);
+        }
 
         /// <summary>
         ///  Checks if the specified element exists in
@@ -177,13 +187,17 @@ namespace CommonLibrary.Collections
         ///  The element that will be checked.
         /// </param>
         public bool Contains(T element)
-            => this.CheckForElement(element);
+        {
+            return this.CheckForElement(element);
+        }
 
         /// <summary>
         ///  Clears the collection.
         /// </summary>
         public void Clear()
-            => this.Truncate();
+        {
+            this.Truncate();
+        }
 
         /// <summary>
         ///  Changes the capacity of the collection.
@@ -216,6 +230,18 @@ namespace CommonLibrary.Collections
 
             this.Copy(this._data!, newArray);
             this._data = newArray;
+        }
+
+        /// <summary>
+        ///  Executes the method with each element in the collection.
+        /// </summary>
+        /// 
+        /// <param name="action">
+        /// The delegate to be executed.
+        /// </param>
+        public void ForEach(Action<T> action)
+        {
+            this.ExecuteOnEachElement(action);
         }
 
 
@@ -267,20 +293,29 @@ namespace CommonLibrary.Collections
             this._data = new T[DefaultCapacity];
             this.Count = 0;
         }
+        private void ExecuteOnEachElement(Action<T> command)
+        {
+            ArgumentNullException.ThrowIfNull(command);
+
+            foreach (var element in this._data!)
+            {
+                command(element!);
+            }
+        }
 
         #endregion
 
         #region Enumerator
 
+        /// <summary>
+        ///  The enumerator
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (T element in this._data!)
-            {
-                yield return element;
-            }
+            return this._data!.Select(element => element!).GetEnumerator();
         }
-        IEnumerator IEnumerable.GetEnumerator()
-            => this.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 
         #endregion
     }

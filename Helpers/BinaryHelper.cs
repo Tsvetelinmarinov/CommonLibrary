@@ -154,11 +154,10 @@ namespace CommonLibrary.Helpers
         public static int ChangeBitAt(int number, int index, BitState state = BitState.SwitchOff)
         {
             ArgumentOutOfRangeException.ThrowIfNegative(index);
-            ArgumentNullException.ThrowIfNull(state);
 
             if (index > ConvertIntToBinary(number).Length)
             {
-                throw new ArgumentOutOfRangeException("The index can not be outside of the bounds of the binary");
+                throw new ArgumentOutOfRangeException(nameof (index));
             }
 
             int mask; // The mask should be different with the different bit state.
@@ -201,7 +200,7 @@ namespace CommonLibrary.Helpers
 
             binary.Write(data, 0, data.Length);
             binary.Flush(); // The "using" directive calls the Close() command
-                            // wich calls the Flush() command
+                            // which calls the Flush() command
                             // but i need to be sure...
         }
 

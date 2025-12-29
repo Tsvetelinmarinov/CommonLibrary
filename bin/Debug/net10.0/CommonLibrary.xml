@@ -194,6 +194,15 @@
              The element to be added.
             </param>
         </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.Add(`0[])">
+            <summary>
+             Adds the elements to the collection.
+            </summary>
+            
+            <param name="elements">
+             The elements to be added.
+            </param>
+        </member>
         <member name="M:CommonLibrary.Collections.Collection`1.Remove(`0)">
             <summary>
              Removes an element from the collection.

@@ -162,6 +162,18 @@ namespace CommonLibrary.Collections
         }
 
         /// <summary>
+        ///  Adds the elements to the collection.
+        /// </summary>
+        /// 
+        /// <param name="elements">
+        ///  The elements to be added.
+        /// </param>
+        public void Add(params T[] elements)
+        {
+            this.AddManyElements(elements);
+        }
+
+        /// <summary>
         ///  Removes an element from the collection.
         /// </summary>
         /// 
@@ -300,6 +312,13 @@ namespace CommonLibrary.Collections
             foreach (var element in this._data!)
             {
                 command(element!);
+            }
+        }
+        private void AddManyElements(params T[] elements)
+        {
+            foreach (var element in elements)
+            {
+                this.AddElement(element);
             }
         }
 

@@ -1,5 +1,7 @@
 ﻿// Collection of elements
 
+// ReSharper disable All
+
 namespace CommonLibrary.Collections
 {
     using System.Collections.Generic;
@@ -80,7 +82,13 @@ namespace CommonLibrary.Collections
         ///  Gets the capacity of the collection.
         ///  The collection resizes when the capacity is reached.
         /// </summary>
-        public int Capacity => this._data!.Length;
+        public int Capacity
+        {
+            get
+            {
+                return this._data!.Length;
+            }
+        }
 
 
         /// <summary>
@@ -116,7 +124,7 @@ namespace CommonLibrary.Collections
         {
             var enumerable = array as T[] ?? array.ToArray();
             this._data = [.. enumerable];
-            this.Count = enumerable!.Length;
+            this.Count = enumerable.Length;
         }
 
         /// <summary>
@@ -141,7 +149,7 @@ namespace CommonLibrary.Collections
             }
 
             this._data = new T[capacity];
-            this.Copy([.. array ?? []], this._data!); // If the IEnumerable is
+            this.Copy([.. array], this._data!); // If the IEnumerable is
                                                                       // null the internal array
                                                                      // left empty.
 
@@ -427,7 +435,10 @@ namespace CommonLibrary.Collections
         {
             return this._data!.Select(element => element!).GetEnumerator();
         }
-        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
 
         #endregion
     }

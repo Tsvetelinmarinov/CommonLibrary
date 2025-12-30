@@ -15,22 +15,14 @@ namespace CommonLibrary.Interfaces
     public interface IGenericCollection<T> : IReadOnlyCollection<T>
     {
         /// <summary>
-        ///  Indexer.
-        /// </summary>
-        /// 
-        /// <param name="index">
-        ///  The index in the collection.
-        /// </param>
-        /// 
-        /// <returns>
-        ///  The element at that index in the collection.
-        /// </returns>
-        T this[int index] { get; set; }
-
-        /// <summary>
         ///  Gets the capacity of the collection.
         /// </summary>
         int Capacity { get; }
+        
+        /// <summary>
+        ///  Gets the count of the elements.
+        /// </summary>
+        new int Count { get; }
 
 
         /// <summary>

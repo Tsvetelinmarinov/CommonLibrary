@@ -17,7 +17,7 @@ namespace CommonLibrary.Collections
     /// <typeparam name="T">
     ///  The data type of the elements in the collection.
     /// </typeparam>
-    public sealed class Collection<T> : IGenericCollection<T>
+    public sealed class Collection<T> : IGenericCollection<T>, IArray<T>
     {
         private T?[]? _data;
         private int _count;
@@ -35,7 +35,7 @@ namespace CommonLibrary.Collections
         /// <returns>
         ///  The element at that index in the collection.
         /// </returns>
-        public T this[int index] 
+        public T? this[int index] 
         { 
             get
             {

@@ -818,6 +818,20 @@
              BG: Директорията на файла в системата.
             </param>
         </member>
+        <member name="T:CommonLibrary.Interfaces.IArray`1">
+            <summary>
+             Describes an array that can be indexed by index.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IArray`1.Item(System.Int32)">
+            <summary>
+             Indexer.
+            </summary>
+            
+            <param name="index">
+             The index of the element.
+            </param>
+        </member>
         <member name="T:CommonLibrary.Interfaces.IGenericCollection`1">
             <summary>
              Defines properties and methods to describe a collection 
@@ -828,22 +842,14 @@
              The data type of the elements of the collection.
             </typeparam>
         </member>
-        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.Item(System.Int32)">
-            <summary>
-             Indexer.
-            </summary>
-            
-            <param name="index">
-             The index in the collection.
-            </param>
-            
-            <returns>
-             The element at that index in the collection.
-            </returns>
-        </member>
         <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.Capacity">
             <summary>
              Gets the capacity of the collection.
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.IGenericCollection`1.Count">
+            <summary>
+             Gets the count of the elements.
             </summary>
         </member>
         <member name="M:CommonLibrary.Interfaces.IGenericCollection`1.Add(`0)">

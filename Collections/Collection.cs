@@ -290,6 +290,23 @@ namespace CommonLibrary.Collections
             return this.GetElementsByPredicate(condition);
         }
 
+        /// <summary>
+        ///  Find the index of the specified element.
+        /// </summary>
+        /// 
+        /// <param name="element">
+        ///  The element.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  The index of the element if the same exists or -1 if there
+        ///  are no matches.
+        /// </returns>
+        public int IndexOf(T element)
+        {
+            return this.FindIndex(element);
+        }
+
         #region Core
 
         private void Copy(T[] original, T[] destination)
@@ -382,6 +399,20 @@ namespace CommonLibrary.Collections
             }
 
             return elements;
+        }
+        private int FindIndex(T element)
+        {
+            ArgumentNullException.ThrowIfNull(element);
+
+            for (var i = 0; i < this._data!.Length; ++i)
+            {
+                if (Equals(this._data[i], element))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
 
         #endregion

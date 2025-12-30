@@ -278,6 +278,20 @@
              empty list if there are no matches.
             </returns>
         </member>
+        <member name="M:CommonLibrary.Collections.Collection`1.IndexOf(`0)">
+            <summary>
+             Find the index of the specified element.
+            </summary>
+            
+            <param name="element">
+             The element.
+            </param>
+            
+            <returns>
+             The index of the element if the same exists or -1 if there
+             are no matches.
+            </returns>
+        </member>
         <member name="M:CommonLibrary.Collections.Collection`1.GetEnumerator">
             <summary>
              The enumerator

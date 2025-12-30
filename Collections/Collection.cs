@@ -256,6 +256,39 @@ namespace CommonLibrary.Collections
             this.ExecuteOnEachElement(action);
         }
 
+        /// <summary>
+        ///  Returns the element that match the condition, defined
+        ///  with the predicate or default value if there are no matches.
+        /// </summary>
+        /// 
+        /// <param name="condition">
+        ///  The condition.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  True if the element matches the condition, otherwise False.
+        /// </returns>
+        public T? FindElementThat(Predicate<T> condition)
+        {
+            return this.GetElementByPredicate(condition);
+        }
+
+        /// <summary>
+        ///  Extracts all elements that match the condition i a list.
+        /// </summary>
+        /// 
+        /// <param name="condition">
+        ///  The condition defined by a Predicate.
+        /// </param>
+        /// 
+        /// <returns>
+        ///  List with the values that match the condition or
+        ///  empty list if there are no matches.
+        /// </returns>
+        public List<T> FindElementsThat(Predicate<T> condition)
+        {
+            return this.GetElementsByPredicate(condition);
+        }
 
         #region Core
 
@@ -320,6 +353,35 @@ namespace CommonLibrary.Collections
             {
                 this.AddElement(element);
             }
+        }
+        private T? GetElementByPredicate(Predicate<T> condition)
+        {
+            ArgumentNullException.ThrowIfNull(condition);
+
+            for (var i = 0; i < this._data!.Length; i++)
+            {
+                if (condition(this._data[i]!))
+                {
+                    return this._data[i];
+                }
+            }
+
+            return default;
+        }
+        private List<T> GetElementsByPredicate(Predicate<T> condition)
+        {
+            ArgumentNullException.ThrowIfNull(condition);
+            List<T> elements = [];
+
+            for (var i = 0; i < this._data!.Length; ++i)
+            {
+                if (condition(this._data[i]!))
+                {
+                    elements.Add(this._data[i]!);
+                }
+            }
+
+            return elements;
         }
 
         #endregion

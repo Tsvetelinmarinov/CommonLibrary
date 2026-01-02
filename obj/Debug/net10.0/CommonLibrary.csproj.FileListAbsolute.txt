@@ -24,3 +24,16 @@ C:/Users/Cvete/OneDrive/Documents/Visual Studio 2022/Projects/CommonLibrary/Comm
 /home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/refint/CommonLibrary.dll
 /home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.pdb
 /home/tsvetelin/RiderProjects/CommonLibrary/obj/Debug/net10.0/ref/CommonLibrary.dll
+/home/totenkopf/RiderProjects/CommonLibrary/bin/Debug/net10.0/CommonLibrary.deps.json
+/home/totenkopf/RiderProjects/CommonLibrary/bin/Debug/net10.0/CommonLibrary.dll
+/home/totenkopf/RiderProjects/CommonLibrary/bin/Debug/net10.0/CommonLibrary.pdb
+/home/totenkopf/RiderProjects/CommonLibrary/bin/Debug/net10.0/CommonLibrary.xml
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.AssemblyInfoInputs.cache
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.AssemblyInfo.cs
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.csproj.CoreCompileInputs.cache
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.sourcelink.json
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.dll
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/refint/CommonLibrary.dll
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/CommonLibrary.pdb
+/home/totenkopf/RiderProjects/CommonLibrary/obj/Debug/net10.0/ref/CommonLibrary.dll

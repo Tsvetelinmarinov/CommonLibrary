@@ -4,6 +4,84 @@
         <name>CommonLibrary</name>
     </assembly>
     <members>
+        <member name="T:CommonLibrary.AbstractDataTypes.Couple`2">
+            <summary>
+             Couple of elements.
+            </summary>
+            
+            <typeparam name="T">
+             The data type of the first member.
+            </typeparam>
+            
+            <typeparam name="U">
+             The data type of the second member.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Couple`2.Member1">
+            <inheritdoc />
+        </member>
+        <member name="P:CommonLibrary.AbstractDataTypes.Couple`2.Member2">
+            <inheritdoc/>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Couple`2.#ctor">
+            <summary>
+             Creates empty couple.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Couple`2.#ctor(`0,`1)">
+            <summary>
+             Creates a couple with the specified elements.
+            </summary>
+            
+            <param name="firstMember">
+             First member.
+            </param>
+            
+            <param name="secondMember">
+             Second member.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Couple`2.ReplaceFirst(`0)">
+            <summary>
+             Replace the first member.
+            </summary>
+            
+            <param name="value">
+             The new value.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Couple`2.ReplaceSecond(`1)">
+            <summary>
+             Replace the second member.
+            </summary>
+            
+            <param name="value">
+             The new value.
+            </param>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Couple`2.GetMembers">
+            <summary>
+             Gets the members in a object array.
+            </summary>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Couple`2.GetMembersAsTuple">
+            <summary>
+             Gets the members as tuple.
+            </summary>
+            
+            <returns>
+            Tuple with the members.
+            </returns>
+        </member>
+        <member name="M:CommonLibrary.AbstractDataTypes.Couple`2.GetMembersAsPair">
+            <summary>
+             Gets the members as key-value pair.
+            </summary>
+            
+            <returns>
+            Pair with the members.
+            </returns>
+        </member>
         <member name="T:CommonLibrary.AbstractDataTypes.Pair`2">
             <summary>
             
@@ -831,6 +909,29 @@
             <param name="index">
              The index of the element.
             </param>
+        </member>
+        <member name="T:CommonLibrary.Interfaces.ICouple`2">
+            <summary>
+             Describes a couple of elements.
+            </summary>
+            
+            <typeparam name="T">
+            The data type of the first member.
+            </typeparam>
+            
+            <typeparam name="U">
+             The data type of the second member.
+            </typeparam>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.ICouple`2.Member1">
+            <summary>
+             Gets the first member of the couple
+            </summary>
+        </member>
+        <member name="P:CommonLibrary.Interfaces.ICouple`2.Member2">
+            <summary>
+             Gets the second member of the couple
+            </summary>
         </member>
         <member name="T:CommonLibrary.Interfaces.IGenericCollection`1">
             <summary>

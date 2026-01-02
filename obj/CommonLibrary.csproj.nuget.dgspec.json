@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/tsvetelin/RiderProjects/CommonLibrary/CommonLibrary.csproj": {}
+    "/home/totenkopf/RiderProjects/CommonLibrary/CommonLibrary.csproj": {}
   },
   "projects": {
-    "/home/tsvetelin/RiderProjects/CommonLibrary/CommonLibrary.csproj": {
+    "/home/totenkopf/RiderProjects/CommonLibrary/CommonLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/tsvetelin/RiderProjects/CommonLibrary/CommonLibrary.csproj",
+        "projectUniqueName": "/home/totenkopf/RiderProjects/CommonLibrary/CommonLibrary.csproj",
         "projectName": "CommonLibrary",
-        "projectPath": "/home/tsvetelin/RiderProjects/CommonLibrary/CommonLibrary.csproj",
-        "packagesPath": "/home/tsvetelin/.nuget/packages/",
-        "outputPath": "/home/tsvetelin/RiderProjects/CommonLibrary/obj/",
+        "projectPath": "/home/totenkopf/RiderProjects/CommonLibrary/CommonLibrary.csproj",
+        "packagesPath": "/home/totenkopf/.nuget/packages/",
+        "outputPath": "/home/totenkopf/RiderProjects/CommonLibrary/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/tsvetelin/.nuget/NuGet/NuGet.Config"
+          "/home/totenkopf/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
+          "/usr/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
